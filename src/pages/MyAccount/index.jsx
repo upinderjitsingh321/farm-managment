@@ -18,6 +18,7 @@ function Myaccount() {
                     </div>
                     <div className='col-md-8'>
                         jknkhjijhi
+                        <div></div>
                     </div>
 
                 </div>
