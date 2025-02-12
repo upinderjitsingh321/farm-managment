@@ -1,52 +1,112 @@
 import React from 'react'
 import "./style.css"
 function Myaccount() {
+    const data = {
+        name: "Upinderjit Singh",
+        personalInfo: {
+            firstname: "upinderjit",
+            secondname: "singh",
+            dateofbirth: "05-05-2001",
+            mobileno: "9781617288",
+            idproof: "Aadhar Card"
+        },
+        address: {
+            country: "India",
+            city: "Gurdaspur",
+            pincode: "143528"
+        }
+    }
     return (
-        <div>
-            <div className='container-main'>
-                <div className='row gx-0 account'>
-                    <div className='col-md-4 col-12'>
-                        <div className='left-side shadow'>
-                        <div className='block-one'><h3 style={{textAlign:"center"}}>Agri Management</h3></div>
 
-                            <ul className='account-list'>
-                                <div className='toogle-list'><li>Home</li></div>
-                                <div className='toogle-list'><li>Chemical</li></div>
-                                <div className='toogle-list'><li>Seed</li></div>
-                                <div className='toogle-list'><li>Soil</li></div>
-                                <div className='toogle-list'><li>Weather</li></div>
-                                <div className='toogle-list'><li>Production Chart</li></div>
-                            </ul>
-                            
-                            
-                        <ul className='account-list'>
-                            
-                        <div className='toogle-list-profile'><img src='img/account.png' style={{width:"30px",height:"30px",borderRadius:"50%",backgroundColor:"white"}}/><li className='my-profile'>My Profile</li></div>
-                        
-                                <div className='toogle-list'><li>My Frams</li></div>
-                                <div className='toogle-list'><li>My crops</li></div>
-                              
-                            </ul>
-                        
-                        </div>
-                        
+        <div style={{ backgroundColor: "#ede9e9",paddingBottom:"30px"}}>
+
+
+            <div className='container d-flex align-items-center mb-2'>
+
+                <h3 className='line'>My Profile</h3>
+
+                <div className='borderBottom'></div>
+            </div>
+            <div className='container container-right-one container-gap mb-2'>
+                <div className='profile_photo1' >
+                    <img className='profile_photo' src='img/back1.jpg' />
+
+                </div>
+                <div>
+                    <p>{data.name}</p>
+                </div>
+            </div>
+            <div className='container container-gap pb-3'>
+                <div className='row my-4'>
+                <div style={{display:"flex"}}>
+                    <h3>Personal Information</h3>
+                    <div style={{width:"100%",textAlign:"end"}}>
+                        <button className='edit-button'>Edit</button></div>
                     </div>
-                    <div className='col-md-8'>
-                        <div className='d-flex align-items-center'>
-                           
-                                <h3 className='line'>My Profile</h3>
-                            
-                            <div className='borderBottom'></div>
-                        </div>
-                        <div>
-                            hihj
-                        </div>
+                <div className='bottom-line'></div>
+
+                    <div className='col-md-4'>
+                        <p>First Name</p>
+                        <p>{data.personalInfo.firstname}</p>
+                    </div>
+                    <div className='col-md-4'>
+                        <p>Second Name</p>
+                        <p>{data.personalInfo.secondname}</p>
+                    </div>
+                    <div className='col-md-4'>
+                        <p>Date-of-Birth</p>
+                        <p>{data.personalInfo.dateofbirth}</p>
+
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className='col-md-4'>
+                        <p>Phone Number</p>
+                        <p>{data.personalInfo.mobileno}</p>
+                    </div>
+
+                    <div className='col-md-4'>
+                        <p>Id Proof</p>
+                        <p>{data.personalInfo.idproof}</p>
                     </div>
 
                 </div>
+            </div>
+            <div className=' container container-gap address-padd '>
+                <div className='row mt-4'>
+                    <div style={{display:"flex"}}>
+                    <h3>Address</h3>
+                    <div style={{width:"100%",textAlign:"end"}}>
+                        <button className='edit-button'>Edit</button></div>
+                    </div>
+                   
+
+                    <div className='bottom-line'></div>
+                    <div className='col-md-4'>
+                        <p>Country</p>
+                        <p>{data.address.country}</p>
+                    </div>
+
+                    <div className='col-md-4'>
+                        <p>City</p>
+                        <p>{data.address.city} </p>
+                    </div>
+                    <div className='col-md-4'>
+                        <p>Pin Code</p>
+                        <p>{data.address.pincode} </p>
+                    </div>
+                </div>
+
 
             </div>
+
+
         </div>
+
+
+
+
+
     )
 }
 
