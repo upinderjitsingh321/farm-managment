@@ -1,5 +1,6 @@
 import React from 'react'
 import "./style.css"
+import { Link } from 'react-router-dom'
 function Myaccount() {
     const data = {
         name: "Upinderjit Singh",
@@ -27,21 +28,21 @@ function Myaccount() {
 
                 <div className='borderBottom'></div>
             </div>
-            <div className='container container-right-one container-gap mb-2'>
+            <div className='container container-right-one container-gap mb-4'>
                 <div className='profile_photo1' >
                     <img className='profile_photo' src='img/back1.jpg' />
 
                 </div>
                 <div>
-                    <p>{data.name}</p>
+                    <p style={{paddingTop:"20px"}}>{data.name}</p>
                 </div>
             </div>
-            <div className='container container-gap pb-3'>
+            <div className='container container-gap '>
                 <div className='row my-4'>
                 <div style={{display:"flex"}}>
                     <h3>Personal Information</h3>
-                    <div style={{width:"100%",textAlign:"end"}}>
-                        <button className='edit-button'>Edit</button></div>
+                    <div style={{width:"78%",textAlign:"end"}}>
+                        <Link to={"/edit-personal"}><button className='edit-button'>Edit</button></Link></div>
                     </div>
                 <div className='bottom-line'></div>
 

@@ -15,6 +15,7 @@ import Footer from './pages/HomePage/FooterPage';
 import DynamicPage from './pages/DynamicPage';
 import ChemicalPage from './pages/chemical';
 import Myaccount from './pages/MyAccount';
+import EditPersonalInfo from './pages/MyAccount/Edit-info';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -37,6 +38,7 @@ function App() {
           <Route path="/seemore" element={<ViewMore />} />
           <Route path="/chemical" element={<ChemicalPage/>} />
           <Route path="/account" element={<Myaccount/>} />
+          <Route path="/edit-personal" element={<EditPersonalInfo/>} />
 
         </Routes>
         <Footer />

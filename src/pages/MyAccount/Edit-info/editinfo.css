@@ -1,0 +1,63 @@
+.bottom-line {
+    border-bottom: 1px solid green;
+    margin: 10px 13px 20px 13px;
+}
+
+.container-gap {
+    padding: 10px 50px 0px 50px;
+    background-color: white;
+    margin: 0px 77px 25px 77px;
+    border-radius: 15px;
+
+}
+
+.container.container-right-one.edit-con-height {
+    display: flex;
+    position: relative;
+
+}
+
+.edit-profile-photo {
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+}
+
+.edit-profile-photo1 {
+    width: 140px;
+    position: absolute;
+    top: 20%;
+    left: 15%;
+
+}
+
+.edit-line {
+    margin: 15px 20px
+}
+
+.edit-con-height {
+    height: 300px;
+    padding: 10px 50px 0px 50px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.edit-con2-height {
+    padding: 10px 50px 0px 50px;
+    background-color: white;
+    border-radius: 15px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.edit-logo {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.edit-position {
+    position: absolute;
+    top: 38%;
+    left: 14%;
+    text-align: center;
+}

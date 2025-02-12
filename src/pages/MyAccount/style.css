@@ -43,10 +43,11 @@ body, html {
 }
 .profile_photo1{
     width: 140px;
+    padding: 5px 0px 15px 0px
 }
-.container-right-one{
+.container.container-right-one.container-gap{
     display: flex;
-    padding-bottom: 20px;
+ 
 }
 .bottom-line{
     border-bottom: 1px solid green;
@@ -54,8 +55,10 @@ body, html {
 }
 
 .container-gap{
-    padding: 0px 50px 0px 50px;
+    padding: 10px 50px 0px 50px;
     background-color: white;
+    margin: 0px 77px 25px 77px;
+    border-radius: 15px;
 }
 .edit-button{
     width: 80px;
