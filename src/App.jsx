@@ -1,48 +1,32 @@
-import react, { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
+import react, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from './component/Navbar';
-import HomePage from './pages/HomePage';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import FarmerRegistration from './pages/Registration/NewRegisrtation';
-import FarmerForm from './pages/AddFarm/Farm';
-import AddCrop from './pages/AddCrop';
-import SoilTesting from './pages/SoilTesting';
-import ViewMore from './pages/SoilTesting/viewmore';
 import Footer from './pages/HomePage/FooterPage';
-import DynamicPage from './pages/DynamicPage';
-import ChemicalPage from './pages/chemical';
-import Myaccount from './pages/MyAccount';
-import EditPersonalInfo from './pages/MyAccount/Edit-info';
+import AllRoutes from './routes';
 
 function App() {
   const [count, setCount] = useState(0)
-
-
+  const [isAdmin, setIsAdmin] = useState(false)
+  const location = useLocation()
+  useEffect(() => {
+    if (location) {
+      if (location?.pathname?.includes("admin")) {
+        setIsAdmin(true)
+      } else {
+        setIsAdmin(false)
+      }
+    }
+  }, [location])
+  console.log(isAdmin,"isSAdmin")
   return (
     <div>
 
-      <Router>
-        <Navbar />
+      {!isAdmin && <Navbar />}
+      <AllRoutes />
+      {!isAdmin && <Footer />}
 
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/register" element={<FarmerRegistration />} />
-          <Route path="/addland" element={<FarmerForm />} />
-          <Route path="/addcrop" element={<AddCrop />} />
-          <Route path="/details/:name" element={<DynamicPage />} />
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/soiltesting" element={<SoilTesting />} />
-          <Route path="/seemore" element={<ViewMore />} />
-          <Route path="/chemical" element={<ChemicalPage/>} />
-          <Route path="/account" element={<Myaccount/>} />
-          <Route path="/edit-personal" element={<EditPersonalInfo/>} />
-
-        </Routes>
-        <Footer />
-      </Router>
     </div>
 
 

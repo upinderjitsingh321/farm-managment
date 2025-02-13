@@ -19,7 +19,7 @@ function Myaccount() {
     }
     return (
 
-        <div style={{ backgroundColor: "#ede9e9",paddingBottom:"30px"}}>
+        <div style={{ backgroundColor: "#ede9e9", paddingBottom: "30px" }}>
 
 
             <div className='container d-flex align-items-center mb-2'>
@@ -30,21 +30,23 @@ function Myaccount() {
             </div>
             <div className='container container-right-one container-gap mb-4'>
                 <div className='profile_photo1' >
-                    <img className='profile_photo' src='img/back1.jpg' />
+                    <img className='profile_photo' src='img/profile-picture.png' />
+                    <input id='image' type='file' className='d-none'/>
+                    <label className='camera-icon' htmlFor='image'><i class="fa-solid fa-camera fs-5" role='button'></i></label>
 
                 </div>
                 <div>
-                    <p style={{paddingTop:"20px"}}>{data.name}</p>
+                    <p style={{ paddingTop: "20px" }}>{data.name}</p>
                 </div>
             </div>
             <div className='container container-gap '>
                 <div className='row my-4'>
-                <div style={{display:"flex"}}>
-                    <h3>Personal Information</h3>
-                    <div style={{width:"78%",textAlign:"end"}}>
-                        <Link to={"/edit-personal"}><button className='edit-button'>Edit</button></Link></div>
+                    <div style={{ display: "flex" }}>
+                        <h3>Personal Information</h3>
+                        <div style={{ width: "78%", textAlign: "end" }}>
+                            <Link to={"/edit-personal"}><button className='edit-button'>Edit</button></Link></div>
                     </div>
-                <div className='bottom-line'></div>
+                    <div className='bottom-line'></div>
 
                     <div className='col-md-4'>
                         <p>First Name</p>
@@ -75,12 +77,12 @@ function Myaccount() {
             </div>
             <div className=' container container-gap address-padd '>
                 <div className='row mt-4'>
-                    <div style={{display:"flex"}}>
-                    <h3>Address</h3>
-                    <div style={{width:"100%",textAlign:"end"}}>
-                        <button className='edit-button'>Edit</button></div>
+                    <div style={{ display: "flex" }}>
+                        <h3>Address</h3>
+                        <div style={{ width: "100%", textAlign: "end", paddingRight: "30px" }}>
+                            <button className='edit-button'>Edit</button></div>
                     </div>
-                   
+
 
                     <div className='bottom-line'></div>
                     <div className='col-md-4'>

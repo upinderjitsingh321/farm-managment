@@ -47,7 +47,7 @@ function Navbar() {
                 <Link className="nav-link link-color" aria-current="page" to="/" >Weather</Link>
               </li>
               <li className="nav-item ">
-                <Link className="nav-link link-color" to="/">Production Chart</Link>
+                <Link className="nav-link link-color" to="/admin/mainpage">Production Chart</Link>
               </li>
             </ul>
 

@@ -61,3 +61,8 @@
     left: 14%;
     text-align: center;
 }
+.edit-camera-icon{
+    position: absolute;
+    top: 85px;
+    right: 78px;
+}
