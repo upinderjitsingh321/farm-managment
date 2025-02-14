@@ -5,11 +5,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from './component/Navbar';
 import Footer from './pages/HomePage/FooterPage';
 import AllRoutes from './routes';
+import AdminLayout from './pages/adim/Layout';
 
 function App() {
   const [count, setCount] = useState(0)
   const [isAdmin, setIsAdmin] = useState(false)
   const location = useLocation()
+  console.log(location)
   useEffect(() => {
     if (location) {
       if (location?.pathname?.includes("admin")) {
@@ -19,13 +21,25 @@ function App() {
       }
     }
   }, [location])
-  console.log(isAdmin,"isSAdmin")
+  console.log(isAdmin, "isSAdmin")
   return (
     <div>
+      {
+        isAdmin ? (
+          <AdminLayout>
+            <AllRoutes />
+          </AdminLayout>
+        ) : (
+          <>
+            {!isAdmin && <Navbar />}
+            <AllRoutes />
+            {!isAdmin && <Footer />}
+          </>
 
-      {!isAdmin && <Navbar />}
-      <AllRoutes />
-      {!isAdmin && <Footer />}
+        )
+      }
+
+
 
     </div>
 
