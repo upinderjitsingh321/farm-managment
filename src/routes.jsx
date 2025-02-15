@@ -1,9 +1,9 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage'
-import FarmerRegistration from './pages/Registration/NewRegisrtation'
-import FarmerForm from './pages/AddFarm/Farm'
-import AddCrop from './pages/AddCrop'
+import FarmerRegistration from './pages/forms/Registration/NewRegisrtation'
+import FarmerForm from './pages/forms/AddFarm/Farm'
+import AddCrop from './pages/forms/AddCrop'
 import DynamicPage from './pages/DynamicPage'
 import SoilTesting from './pages/SoilTesting'
 import ViewMore from './pages/SoilTesting/viewmore'

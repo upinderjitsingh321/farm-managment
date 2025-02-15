@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import AgriFeatures from './Features'
 import Banner from '../../component/banner'
+import Newregister from '../../component/Card/registercard/newregistercard'
 
 
 
@@ -29,6 +30,7 @@ function HomePage() {
         <>
             <Banner />
             <AgriFeatures aggriArray={array} />
+            <Newregister/>
             <button onClick={handleCLick}>click</button>
         </>
     )

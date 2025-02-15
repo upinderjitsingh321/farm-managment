@@ -13,9 +13,11 @@ function AddCrop() {
     const [season, setSeason] = useState("")  
     const [farmarea, setFarmArea] = useState("")  
     const [production, setProduction] = useState("")  
-    const [datesnowing, setDateSnowing] = useState("")  
+    const [fertilizer, setFertilizer] = useState("");
+    const [irrigationMethod, setIrrigationMethod] = useState("");
+    const [harvestDate, setHarvestDate] = useState("");
     const [remark, setRemark] = useState("")  
-    console.log(farmersname,address,aadharnumber,mobilenumber,productname,registration,producttype,variety,season,farmarea,production,datesnowing,remark)
+    console.log(farmersname,address,aadharnumber,mobilenumber,productname,registration,producttype,variety,season,farmarea,production,remark,harvestDate,irrigationMethod,fertilizer)
     return (
         <>
             <section className="container mt-5 p-4 ">
@@ -91,24 +93,64 @@ function AddCrop() {
                             <label for="farm_area" class="form-label">Farm Area in(Ha.)</label>
                             <input type="type" class="form-control" id="farm_area" placeholder="0" onChange={(e) => setFarmArea(e.target.value)}/>
                         </div>
-                        <div class="col-md-6">
+                        <div className="col-md-6">
+                        <label className="form-label">Land Ownership</label>
+                        <select className="form-select" onChange={(e) => setLandOwnership(e.target.value)}>
+                            <option>Select</option>
+                            <option value="Owned">Owned</option>
+                            <option value="Leased">Leased</option>
+                        </select>
+                    </div>
+                    </div>
+                    
+                    <div className="row">
+                    <div className="col-md-6">
+                        <label className="form-label">Fertilizer Used</label>
+                        <input type="text" className="form-control" onChange={(e) => setFertilizer(e.target.value)} />
+                    </div>
+                    <div className="col-md-6">
+                        <label className="form-label">Pest Control Measures</label>
+                        <input type="text" className="form-control" onChange={(e) => setPestControl(e.target.value)} />
+                    </div>
+                    </div>
+                <div class="row mb-3">
+                <div className="col-md-6">
+                        <label className="form-label">Irrigation Method</label>
+                        <select className="form-select" onChange={(e) => setIrrigationMethod(e.target.value)}>
+                            <option>Select</option>
+                            <option value="Drip">Drip Irrigation</option>
+                            <option value="Sprinkler">Sprinkler Irrigation</option>
+                            <option value="Flood">Manual Irrigation </option>
+                        </select>
+                </div>
+                    <div className="col-md-6">
+                        <label className="form-label">Expected Harvest Date</label>
+                        <input type="date" className="form-control" onChange={(e) => setHarvestDate(e.target.value)} />
+                    </div>
+                    </div>
+                    <div className="row mb-3">
+                    <div class="col-md-6">
                             <label for="production" class="form-label">Likely Production</label>
                             <input type="type" class="form-control" id="production"onChange={(e) => setProduction(e.target.value)} />
                         </div>
+                        <div className="col-md-6">
+                        <label className="form-label">Crop Rotation Details</label>
+                        <input type="text" className="form-control" placeholder="Previous crops grown" onChange={(e) => setCropRotation(e.target.value)} />
                     </div>
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <label for="snowing" class="form-label">Date of Snowing</label>
-                            <input type="date" class="form-control" id="snowing"onChange={(e) => setDateSnowing(e.target.value)} />
-                        </div>
-                        <div class="col-md-12">
+                        
+                    </div>
+                    <div className="row md-3">
+                    <div class="col-md-12">
                             <label for="remarks" class="form-label">Remarks</label>
                             <input type="type" class="form-control" id="remarks" onChange={(e) => setRemark(e.target.value)}/>
                         </div>
                     </div>
-                    <div className=" text-center">
-                        <button type="submit" className="btn btn-success px-4 py-2 rounded-pill">Submit</button>
-                    </div>
+
+                    
+                
+                    <div className="comman_div_button text-center">
+          <button type="submit" className="btn btn-success px-4 py-2 rounded-pill">Submit</button>
+        </div>
                 </form>
             </section>
         </>
