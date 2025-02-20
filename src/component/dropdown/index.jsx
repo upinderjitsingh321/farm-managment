@@ -7,7 +7,7 @@ import "./style.css"
 function NavDropdown() {
     return (
       <Dropdown as={ButtonGroup}>
-        <Button className='drop-btn ' variant="success"><Link className='color-register' to={"/register"}>New Registration</Link></Button>
+        <Button className='drop-btn ' variant="success"><Link className='color-register' to={"/farmerlogin"}>New Register</Link></Button>
        
   
         <Dropdown.Toggle className='drop-btn' split variant="success" id="dropdown-split-basic" />

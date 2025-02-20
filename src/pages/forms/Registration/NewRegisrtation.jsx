@@ -19,8 +19,15 @@ const FarmerRegistration = () => {
   }
   
   return (
-    <section className="container mt-5 p-4">
-      <form onSubmit={handleSubmit} className="registration_form shadow p-4 bg-white rounded reg-padding">
+    <section className="container mt-5 p-4 register-bgcolor">
+      <div className="row">
+        <div className="col-md-4 shadow text-center p-4 bg-white rounded reg-padding1">
+          <div style={{paddingTop:"20px"}}><h2>Register as</h2></div>
+          <h2>Farmer</h2>
+          <img style={{paddingTop:"20px"}} src="img/farm.png"/>
+        </div>
+        <div className="col-md-8 setwidth shadow p-4 bg-white rounded reg-padding1">
+        <form onSubmit={handleSubmit} className="registration_form  ">
         <h2 className="text-center mb-4 text-dark">Farmer Registration</h2>
         <div className=" mb-3 fw-bold">Personal Information</div>
 
@@ -94,6 +101,9 @@ const FarmerRegistration = () => {
           <button type="submit" className="btn btn-success px-4 py-2 rounded-pill">Submit</button>
         </div>
       </form>
+      </div>
+      </div>
+      
     </section>
   );
 };

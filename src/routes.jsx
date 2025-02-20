@@ -1,6 +1,5 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom';
-import HomePage from './pages/HomePage'
 import FarmerRegistration from './pages/forms/Registration/NewRegisrtation'
 import FarmerForm from './pages/forms/AddFarm/Farm'
 import AddCrop from './pages/forms/AddCrop'
@@ -13,6 +12,10 @@ import EditPersonalInfo from './pages/MyAccount/Edit-info'
 import Admin from './pages/adim';
 import SoliListingPage from './pages/adim/Adminpages/AdminSoilListing';
 import Dashboard from './pages/adim/Adminpages/dashboard';
+import LoginRegister from './component/Card/registercard/loginregisterpage';
+import HomePage from './pages/HomePage';
+import AlreadyAccount from './pages/AleradyLogin';
+import ForgotPassword from './pages/forgetpassword';
 
 function AllRoutes() {
     return (
@@ -32,8 +35,10 @@ function AllRoutes() {
                 <Route path="/edit-personal" element={<EditPersonalInfo />} />
                 <Route path="/admin/dashboard" element={<Dashboard />} />
                 <Route path="/admin" element={<Admin />} />
-
+                <Route path="/farmerlogin" element={<LoginRegister/>} />
+                <Route path="//alredyaccount" element={<AlreadyAccount/>} />
                 <Route path="/admin/soil" element={<SoliListingPage />} />
+                <Route path="/forgotpassword" element={<ForgotPassword />} />
 
 
 

@@ -1,0 +1,25 @@
+.loginregister{
+    padding: 20px 110px;
+    background-color: #8e8a8a14;
+    margin: 0px 97px;
+}
+.logoregister-image{
+    width: 15%;
+}
+.logoregister-bgcolor{
+    background-color: #8e8a8a14;;
+    
+}
+.logoregister-padding{
+    padding: 80px;
+    gap: 45px;
+    margin-bottom: 50px;
+}
+.logoregister-height{
+    height: 300px;
+    padding-top: 80px;
+    width: calc(33.33% - 30px);
+}
+.height1{
+    padding-top: 0px;
+}

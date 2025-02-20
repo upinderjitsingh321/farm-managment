@@ -53,5 +53,11 @@ body {
 .log-btn{
     opacity: 0.8;
 }
+.loginacc-bg{
+    background-color: aliceblue;
+}
+.loginacc-logo{
+   height: 25px;
+}
 
    

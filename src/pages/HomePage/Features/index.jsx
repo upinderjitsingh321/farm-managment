@@ -8,7 +8,7 @@ const AgriFeatures = ({ aggriArray }) => {
 
   return (
     <section className="container text-center my-5">
-      <div className="row row-cols-1 row-cols-md-2 g-4">
+      <div className="row row-cols-md-2 g-4">
 
         {
           aggriArray.map((item, index) => (

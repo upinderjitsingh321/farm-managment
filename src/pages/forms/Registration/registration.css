@@ -1,3 +1,10 @@
-.reg-padding{
-    margin: 30px 20px;
+.reg-padding1{
+    margin: 30px 20px;  
+    
+}
+.register-bgcolor{
+    background-color: #8e8a8a14;
+}
+.setwidth{
+    width: calc(63.333333% - 49px);
 }

@@ -5,3 +5,10 @@
 .para-padding{
     width: 452px;
 }
+.reg-page-width{
+    width: 40%;
+   
+}
+.reg-page-gap{
+    gap: 50px;
+}

@@ -8,7 +8,7 @@ import AllRoutes from './routes';
 import AdminLayout from './pages/adim/Layout';
 
 function App() {
-  const [count, setCount] = useState(0)
+
   const [isAdmin, setIsAdmin] = useState(false)
   const location = useLocation()
   console.log(location)

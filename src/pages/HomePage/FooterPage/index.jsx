@@ -37,10 +37,10 @@ const Footer = () => {
               <table className="table text-white ">
                 <tbody>
                   <tr>
-                    <td className="w-25 text-end bg-dark">
-                      <img src="img/phone_icon.png" alt="Phone" />
+                    <td className="w-25 text-end bg-dark ">
+                      <img className='footor-contact-logo' src="img/phone.png" alt="Phone" width="40" />
                     </td >
-                    <td className="w-50 text-start bg-dark text-white">9781617288</td>
+                    <td style={{paddingTop:"17px"}} className="w-50 text-start bg-dark text-white ">9781617288</td>
                   </tr>
                   <tr>
                     <td className='bg-dark'></td>
@@ -48,9 +48,9 @@ const Footer = () => {
                   </tr>
                   <tr>
                     <td className='w-25 text-end bg-dark'>
-                      <img src="img/mail_icon.png" alt="Email" />
+                      <img  className='footor-contact-logo' src="img/emaillogo.png" alt="Email"  width="40"  />
                     </td>
-                    <td className='w-50 text-start bg-dark text-white'>upinderjitsingh32@gmail.com</td>
+                    <td style={{paddingTop:"17px"}}  className='w-50 text-start bg-dark text-white'>upinderjitsingh32@gmail.com</td>
                   </tr>
                 </tbody>
               </table>
