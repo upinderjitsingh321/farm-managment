@@ -43,13 +43,29 @@ body {
   }
 
 .link-color{
+    /* position: relative;
+    overflow: hidden;
+    padding: 10px; */
     color: white;
     opacity: 0.8;
     text-decoration: none;
+
 }
-.link-color:hover{
-    color: black;
+/* .link-color::after{
+    content: "";
+    display: block;
+    height: 4px;
+    width: 100%;
+    background-color: #2bd576;
+    transform:scale(0);
+    transition: transform 0.3 ease;
+    transform-origin: left;
 }
+.link-color:hover::after{
+    transform: scale(1);
+   
+} */
+
 .log-btn{
     opacity: 0.8;
 }

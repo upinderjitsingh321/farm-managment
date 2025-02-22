@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import "./Navbar.css"
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import NavDropdown from '../dropdown'
-import Button from 'react-bootstrap/Button';
 function Navbar() {
-  const [isLogin, setIslogin] = useState(true)
+  const [isLogin, setIslogin] = useState(false)
   return (
     <>
       <nav className="navbar navbar-expand-lg main-navbar">

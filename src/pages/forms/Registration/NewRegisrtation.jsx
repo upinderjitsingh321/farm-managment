@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./registration.css"
+import { useNavigate } from "react-router";
 const FarmerRegistration = () => {
   const [farmersName, setFarmersName] = useState("")  
-  const  [dateOfBirth, setDateBirth] =useState("")
+  const  [email, setEmail] =useState("")
+  const  [password, setPassword] =useState("")
+  const  [confirmpassword, setConfirmPassword] =useState("")
   const  [MobileNumber, setMobileNumber] =useState("")
   const [fatherName, setfatherName] =useState("")
   const[farmerAddress, setfarmerAddress] =useState("")
@@ -15,9 +18,12 @@ const FarmerRegistration = () => {
   
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(farmersName, dateOfBirth, fatherName,MobileNumber, farmerAddress,state,male,female,idProof,proofType )  
+    console.log(farmersName, email,password,confirmpassword ,fatherName,MobileNumber, farmerAddress,state,male,female,idProof,proofType )  
   }
-  
+  const navigate = useNavigate()
+  const handleNavigateSignup = () => {
+    navigate("/newuser")
+}
   return (
     <section className="container mt-5 p-4 register-bgcolor">
       <div className="row">
@@ -38,8 +44,19 @@ const FarmerRegistration = () => {
               onChange={(e) => setFarmersName(e.target.value)} />
           </div>
           <div className="col-md-6">
-            <label className="form-label">Date Of Birth</label>
-            <input className="form-control" type="date" onChange={(e) => setDateBirth(e.target.value)} />
+            <label className="form-label">Email ID</label>
+            <input className="form-control" type="text" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+          </div>
+        </div>
+        <div className="row mb-3">
+          <div className="col-md-6">
+            <label className="form-label">Password</label>
+            <input className="form-control" type="text" placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)} />
+          </div>
+          <div className="col-md-6">
+            <label className="form-label">Confirm Password</label>
+            <input className="form-control" type="text" placeholder="Confirm Password" onChange={(e) => setConfirmPassword(e.target.value)} />
           </div>
         </div>
 
@@ -98,7 +115,7 @@ const FarmerRegistration = () => {
         </div>
 
         <div className="comman_div_button text-center">
-          <button type="submit" className="btn btn-success px-4 py-2 rounded-pill">Submit</button>
+          <button onClick={handleNavigateSignup} type="submit" className="btn btn-success px-4 py-2 rounded-pill">Click here to Register</button>
         </div>
       </form>
       </div>

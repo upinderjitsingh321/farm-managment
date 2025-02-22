@@ -1,0 +1,11 @@
+.setwidth1{
+    
+    width: calc(63.333333% - 49px);
+}
+.newuser-button{
+    margin-top:40px;
+    background-color:#ffa118ed;
+    border:1px solid black;
+
+}
+

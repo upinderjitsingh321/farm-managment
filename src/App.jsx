@@ -6,6 +6,7 @@ import Navbar from './component/Navbar';
 import Footer from './pages/HomePage/FooterPage';
 import AllRoutes from './routes';
 import AdminLayout from './pages/adim/Layout';
+import Apps from './learn/first';
 
 function App() {
 
@@ -37,8 +38,9 @@ function App() {
           </>
 
         )
+        
       }
-
+<Apps/>
 
 
     </div>

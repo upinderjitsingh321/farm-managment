@@ -13,24 +13,24 @@ const Footer = () => {
                 "Farmers sow seeds of hope, reaping not just crops but the
                 sustenance of humanity."
               </p>
-              <ul className="d-flex justify-content-center gap-3">
-                <li className='icon-footor'>
-                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                  <img src="img/facebook-logo.png" alt="Facebook" width="40" />
+              <div className="d-flex justify-content-center align-item-center gap-3 ">
+                
+                  <a  class="social-icon facebook " href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                  <img src="img/facebook-logo.png" alt="Facebook"  />
                 </a>
-                </li>
-                <li className='icon-footor'> 
-                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                  <img src="img/twitter_icon.png" alt="Twitter" width="40" />
+                
+                 
+                  <a class="social-icon  twitter " href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                  <img src="img/twitter_icon.png" alt="Twitter" />
                 </a>
-                </li>
-                <li className='icon-footor'>
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                  <img src="img/instagram.png" alt="Instagram" width="40" />
+                
+                
+                  <a class="social-icon instagram" href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                  <img src="img/instagram.png" alt="Instagram"  />
                 </a>
-                </li>
+                
 
-              </ul>
+              </div>
             </div>
             <div className="col">
               <h5>Contact Company</h5>

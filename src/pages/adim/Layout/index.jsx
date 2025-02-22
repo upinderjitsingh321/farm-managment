@@ -12,7 +12,7 @@ function AdminLayout({ children }) {
                     <Sidebar />
                 </nav>
             </div>
-            <div className='w-100'>
+            <div className="w-100">
                 <header>
                     
                     <Uppernavbar />

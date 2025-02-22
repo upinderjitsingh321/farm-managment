@@ -1,0 +1,19 @@
+
+.dropdown-item .hh link{
+    display: flex;
+    justify-content: center;
+}
+.adminlogo{
+    padding-left: 19px;
+    font-size: 30px;
+}
+#adminNavbar{
+    height:45px;
+}
+.adminpic{
+    margin-left: 60px;
+    width: 63px;
+}
+ul .nav-link{
+    font-size: 20px;
+}

@@ -1,0 +1,47 @@
+/* Card container */
+.pesticide-card {
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 15px;
+    background-color: white;
+  }
+  
+  
+  
+  /* Header (Title & Icon) */
+  .pesticide-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Pesticide name */
+  .pesticide-name {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  /* Toxicity level */
+  .toxicity {
+    font-weight: bold;
+  }
+  
+  /* Different toxicity levels */
+  .toxicity.low {
+    color: green;
+  }
+  
+  .toxicity.medium {
+    color: orange;
+  }
+  
+  .toxicity.high {
+    color: red;
+  }
+  
+  /* Icon styling */
+  .pesticide-icon {
+    font-size: 28px;
+  }
+  

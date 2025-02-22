@@ -10,12 +10,14 @@ import ChemicalPage from './pages/chemical'
 import Myaccount from './pages/MyAccount'
 import EditPersonalInfo from './pages/MyAccount/Edit-info'
 import Admin from './pages/adim';
-import SoliListingPage from './pages/adim/Adminpages/AdminSoilListing';
 import Dashboard from './pages/adim/Adminpages/dashboard';
-import LoginRegister from './component/Card/registercard/loginregisterpage';
+import LoginRegister from './pages/loginregisterpage';
 import HomePage from './pages/HomePage';
 import AlreadyAccount from './pages/AleradyLogin';
 import ForgotPassword from './pages/forgetpassword';
+import NewUser from './pages/newuser';
+import PesticideDashboard from './component/admincomponents/pesticide';
+import SoilRecordsTable from './pages/adim/Adminpages/AdminSoilListing';
 
 function AllRoutes() {
     return (
@@ -36,9 +38,11 @@ function AllRoutes() {
                 <Route path="/admin/dashboard" element={<Dashboard />} />
                 <Route path="/admin" element={<Admin />} />
                 <Route path="/farmerlogin" element={<LoginRegister/>} />
-                <Route path="//alredyaccount" element={<AlreadyAccount/>} />
-                <Route path="/admin/soil" element={<SoliListingPage />} />
+                <Route path="/alredyaccount" element={<AlreadyAccount/>} />
+                <Route path="/admin/soiltable" element={<SoilRecordsTable />} />
                 <Route path="/forgotpassword" element={<ForgotPassword />} />
+                <Route path="/newuser" element={<NewUser />} />
+                <Route path="/admin/pesticide" element={<PesticideDashboard />} />
 
 
 
