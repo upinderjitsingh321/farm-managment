@@ -23,7 +23,7 @@ const PesticideCard = ({ name, type, usage, toxicity }) => {
   const { icon, level } = getToxicityInfo();
 
   return (
-    <Card className="pesticide-card">
+    <Card className="pesticide-card px-4">
       <div className="pesticide-card-header">
         <h5 className="pesticide-name">{name}</h5>
         <span>{icon}</span>

@@ -14,7 +14,7 @@ function Dashboard() {
               <DashboardBox color={["#1da256","#48d483"]} cardicon={<TrendingUpIcon />} icon={"Profile"} grow={true} totaluser={100} tittle={"Total User"}/>
               <DashboardBox color={["#c012e2","#eb64fe"]} cardicon={<TrendingUpIcon />} icon={"activeprofile"} grow={true} totaluser={70}  tittle={"Active User"}/>
               <DashboardBox color={["#2c78e5","#60aff5"]} cardicon={<TrendingDownIcon />} icon={"profile"} grow={true} totaluser={7}  tittle={"Pending Reports"}/>
-              <DashboardBox color={["#e1950e","#f3cd29"]} cardicon={<TrendingDownIcon />} icon={"activeprofile"}  grow={true} totaluser={7}  tittle={"Pending Reports"}s  />
+              <DashboardBox color={["#e1950e","#f3cd29"]} cardicon={<TrendingDownIcon />} icon={"activeprofile"}  grow={true} totaluser={7}  tittle={"Pending Reports"} />
             </div>
           </div>
           <div className="col-md-4">

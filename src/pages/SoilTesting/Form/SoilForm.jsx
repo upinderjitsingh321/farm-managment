@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css"
 function SoilForm() {
-   const [farmersname, setFarmerName] = useState("") 
-   const [contactinformation, setContactInformation] = useState("") 
+   const [feildno, setFeildNo] = useState("") 
+   const [area, setArea] = useState("") 
    const [soillocation, setSoilLocation] = useState("") 
    const [soiltype, setSoilType] = useState("") 
    const [soilcondition, setSoilCondition] = useState("") 
@@ -31,7 +31,7 @@ function SoilForm() {
      
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(farmersname,contactinformation,soillocation,soiltype,soilcondition,soillevel,issuesfaced,soilmoisture,moistureunit,soiltexture,electricalconductivity,organiclevel,soilsalinity,n,p,k,so4,cu,b,mg,zn,cl,ca,fe,mn)
+    console.log(feildno,area,soillocation,soiltype,soilcondition,soillevel,issuesfaced,soilmoisture,moistureunit,soiltexture,electricalconductivity,organiclevel,soilsalinity,n,p,k,so4,cu,b,mg,zn,cl,ca,fe,mn)
   }
   
     return (
@@ -42,12 +42,12 @@ function SoilForm() {
 
                     <div className="row mb-3">
                         <div className="col-md-6">
-                            <label for="farmer_name" className="form-label">Farmer Name</label>
-                            <input type="text" className="form-control" id="farmer_name"  onChange={(e) => setFarmerName(e.target.value)}/>
+                            <label for="farmer_name" className="form-label">Feild NO.</label>
+                            <input type="text" className="form-control" id="farmer_name"  onChange={(e) => setFeildNo(e.target.value)}/>
                         </div>
                         <div className="col-md-6">
-                            <label for="contact" className="form-label">Contact Information:</label>
-                            <input type="email" className="form-control" id="contact"  onChange={(e) => setContactInformation(e.target.value)} />
+                            <label for="contact" className="form-label">Area(Acre)</label>
+                            <input type="email" className="form-control" id="contact"  onChange={(e) => setArea(e.target.value)} />
                         </div>
                     </div>
                     <div className="row mb-3">

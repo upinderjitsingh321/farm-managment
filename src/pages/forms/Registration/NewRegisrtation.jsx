@@ -82,21 +82,7 @@ const FarmerRegistration = () => {
           </div>
         </div>
 
-        <div className="row mb-3">
-          <div className="col-md-6">
-            <label className="form-label">Gender</label>
-            <div className="d-flex gap-3">
-              <div className="form-check">
-                <input className="form-check-input" type="radio" name="gender" value="Male" id="male"  onChange={(e)=> setmale(e.target.value)} />
-                <label className="form-check-label" htmlFor="male">Male</label>
-              </div>
-              <div className="form-check">
-                <input className="form-check-input" type="radio" name="gender" value="Female" id="female" onChange={(e)=> setfemale(e.target.value)} />
-                <label className="form-check-label" htmlFor="female">Female</label>
-              </div>
-            </div>
-          </div>
-        </div>
+       
 
         <div className="ident_info mb-3 fw-bold">Identification Information</div>
         <div className="row mb-3">

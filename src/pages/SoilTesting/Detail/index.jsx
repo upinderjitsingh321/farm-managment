@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom'
 function Detail({ arraycontent }) {
   return (
     <div>
-      <section className="container mt-4">
+      <section className="container mt-4 shadow pt-2 pb-2">
         {
           arraycontent.map((item, index) => (
-            <div className="row first_section">
+            <div className="row first_section shadow">
 
-              <div className="col-md-6 soil_imp">
+              <div className="col-md-6 soil_imp shadow">
 
                 <h2 key={index}>{item.mainheading}</h2>
                 {
@@ -32,28 +32,29 @@ function Detail({ arraycontent }) {
 
         }
 
-      </section>
-      <section className="container mt-4">
-        <div className="row first_section">
-          <div className="col-md-6 soil_imp">
-            <h2>Types Of Soil Testing</h2>
-            <ul className="soil_imp_list">
-              <li>Mineral content</li>
-              <li>PH level</li>
-              <li>Soil moisture</li>
-              <li>Salinity</li>
-              <li>Pesticides and chemical contamination</li>
-              <li>Structure and texture</li>
-            </ul>
-            <div className="view_more">
-              <Link to="/seemore" className="btn btn-primary">View More</Link>
+        <section className="container mt-4 ">
+          <div className="row first_section shadow">
+            <div className="col-md-6 soil_imp">
+              <h2>Types Of Soil Testing</h2>
+              <ul className="soil_imp_list">
+                <li>Mineral content</li>
+                <li>PH level</li>
+                <li>Soil moisture</li>
+                <li>Salinity</li>
+                <li>Pesticides and chemical contamination</li>
+                <li>Structure and texture</li>
+              </ul>
+              <div className="view_more">
+                <Link to="/seemore" className="btn btn-primary">View More</Link>
+              </div>
+            </div>
+            <div className="col-md-6">
+              <img src="img/soiltest1.jpg" alt="Soil Test" className="img-fluid" />
             </div>
           </div>
-          <div className="col-md-6">
-            <img src="img/soiltest1.jpg" alt="Soil Test" className="img-fluid" />
-          </div>
-        </div>
+        </section>
       </section>
+
     </div>
   )
 }

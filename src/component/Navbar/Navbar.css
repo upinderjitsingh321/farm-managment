@@ -43,28 +43,34 @@ body {
   }
 
 .link-color{
-    /* position: relative;
-    overflow: hidden;
-    padding: 10px; */
+    position: relative;
+    padding: 4px; 
     color: white;
     opacity: 0.8;
     text-decoration: none;
 
 }
-/* .link-color::after{
-    content: "";
-    display: block;
-    height: 4px;
+.link-color::before{
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
     width: 100%;
-    background-color: #2bd576;
+    background-color: #198754;
     transform:scale(0);
-    transition: transform 0.3 ease;
     transform-origin: left;
+    transition: transform 0.2s ease;
+    
 }
-.link-color:hover::after{
-    transform: scale(1);
+.link-color:hover::before{
+    transform: scalex(1);
+    
    
-} */
+} 
+.link-color:hover{
+    color: white;
+}
 
 .log-btn{
     opacity: 0.8;

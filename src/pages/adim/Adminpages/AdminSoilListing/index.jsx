@@ -19,6 +19,23 @@ const initialData = [
     organicLevel: "Medium",
     salinity: "2.5",
     nutrients: { N: 10, P: 5, K: 12, SO4: 3, Cl: 2, Cu: 0.5, B: 1.0, Ca: 5, Mg: 4, Fe: 2.5, Zn: 0.8, Mn: 0.3 }
+  },
+  {
+    id: 1,
+    farmerName: "John Doe",
+    contact: "123-456-7890",
+    location: "35.123, -80.987",
+    soilType: "Loamy",
+    condition: "Good",
+    pH: "6.5",
+    issues: "Pests",
+    moisture: "25%",
+    unit: "%",
+    texture: "Sandy",
+    ec: "1.2",
+    organicLevel: "Medium",
+    salinity: "2.5",
+    nutrients: { N: 10, P: 5, K: 12, SO4: 3, Cl: 2, Cu: 0.5, B: 1.0, Ca: 5, Mg: 4, Fe: 2.5, Zn: 0.8, Mn: 0.3 }
   }
 ];
 
