@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function AddCrop() {
    
     const [cropname, setCropName] = useState("")
-    const [field, setFieldNo] = useState("")
+    const [fieldno, setFieldNo] = useState("")
     const [variety, setVariety] = useState("")
     const [seasonyear, setSeasonYear] = useState("")
     const [season, setSeason] = useState("")
@@ -14,8 +14,11 @@ function AddCrop() {
     const [harvestDate, setHarvestDate] = useState("");
     const [snowingDate, setSnowingDate] = useState("");
     const [snowingmethod, setSnowingMethod] = useState("");
+    const [snowingexpense, setSnowingExpense] = useState("");
+    const [harvestexpense, setHarvestExpense] = useState("");
+    const [labourcost, setLabourCost] = useState("");
     const [remark, setRemark] = useState("")
-    console.log(feildno, cropname, field, variety, seasonyear, season, farmarea, production, remark, snowingDate, snowingmethod, harvestDate, irrigationMethod)
+    console.log(fieldno, cropname, variety, seasonyear, season, farmarea, production, remark, snowingDate, snowingmethod, harvestDate,harvestexpense,labourcost,snowingexpense, irrigationMethod)
     return (
         <>
             <section className="container mt-5 p-4 ">
@@ -95,6 +98,16 @@ function AddCrop() {
 
                     <div class="row mb-3">
                         <div className="col-md-6">
+                            <label className="form-label"> Snowing Expense</label>
+                            <input type="date" className="form-control" onChange={(e) => setSnowingExpense(e.target.value)} />
+                        </div>
+                        <div className="col-md-6">
+                            <label className="form-label"> Harvest Expense</label>
+                            <input type="date" className="form-control" onChange={(e) => setHarvestExpense(e.target.value)} />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div className="col-md-6">
                             <label className="form-label">Expected Snowing Date</label>
                             <input type="date" className="form-control" onChange={(e) => setSnowingDate(e.target.value)} />
                         </div>
@@ -105,8 +118,8 @@ function AddCrop() {
                     </div>
                     <div className="row mb-3">
                         <div class="col-md-6">
-                            <label for="production" class="form-label">Expected Production</label>
-                            <input type="type" class="form-control" id="production" onChange={(e) => setProduction(e.target.value)} />
+                            <label for="labourcost" class="form-label">Labour Cost</label>
+                            <input type="type" class="form-control" id="labourcost" onChange={(e) => setLabourCost(e.target.value)} />
                         </div>
                         <div className="col-md-6">
                             <label className="form-label">Irrigation Method</label>
@@ -120,7 +133,11 @@ function AddCrop() {
 
                     </div>
                     <div className="row md-3">
-                        <div class="col-md-12">
+                    <div class="col-md-6">
+                            <label for="production" class="form-label">Expected Production</label>
+                            <input type="type" class="form-control" id="production" onChange={(e) => setProduction(e.target.value)} />
+                        </div>
+                        <div class="col-md-6">
                             <label for="remarks" class="form-label">Remarks</label>
                             <input type="type" class="form-control" id="remarks" onChange={(e) => setRemark(e.target.value)} />
                         </div>

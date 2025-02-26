@@ -1,0 +1,16 @@
+.userdashboardtable1{
+    width: 100%;
+    border: 1px solid black;
+    position: relative;
+
+}
+.dash-title{
+background-color: rgb(108, 146, 108);
+}
+.arrowdiv1{
+    background-color: rgb(225 237 225);
+    position: absolute;
+    top: 82%;
+    left: 0%;
+    width: 100%;
+}

@@ -1,9 +1,30 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import "./Navbar.css"
 import { Link } from 'react-router-dom'
 import NavDropdown from '../dropdown'
+import { CgProfile } from 'react-icons/cg'
+import AgricultureIcon from '@mui/icons-material/Agriculture';
+import { MdLogout } from 'react-icons/md'
 function Navbar() {
-  const [isLogin, setIslogin] = useState(false)
+  const [isLogin, setIslogin] = useState(true)
+  const [profile, setProfile] = useState(false)
+  const dropdownRef = useRef(null);
+console.log(dropdownRef)
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setProfile(false);
+      }
+    };
+
+    // Add event listener
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Cleanup function
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   return (
     <>
       <nav className="navbar navbar-expand-lg main-navbar">
@@ -46,8 +67,18 @@ function Navbar() {
           </div>
           {
             isLogin ? (
-              <div style={{ overflow: 'hidden', marginRight: "30px", width: "50px" }}>
-                <Link to={"/account"} ><img src='img/account.png' style={{ width: "100%", height: "100%", borderRadius: "50%", backgroundColor: "white" }} /> </Link>
+              <div className='profile-dropdown'  ref={dropdownRef}>
+
+                <button onClick={()=>setProfile(true)} className='profile-btn'><img className='profile-img' src='img/account.png' /></button>
+                  <div className='dropdown-btn'
+                  style={{display:`${profile ?"block":"none"}`}}
+                  >
+                    <Link to={"/account"} > <CgProfile className='me-2' />Profile</Link>
+                    <Link to={"/openaccount"}> <AgricultureIcon className='me-2' />Open Fram</Link>
+                    <Link> <MdLogout className='me-2 text-danger' />Logout</Link>
+                  </div>
+              
+
               </div>
             ) : (
               <div className='button-container'>

@@ -1,14 +1,16 @@
 import { useState } from "react";
 import "./style.css"
 import PesticideDashboard from "../../component/admincomponents/pesticide";
+
+
 const ChemicalPage = () => {
   const [chemicals, setChemicals] = useState([]);
-  const [form, setForm] = useState({ name: "", type: "", dosage: "", activeIngredient: "", applicationDate: "", expiryDate: "", manufacturer: "", cropType: "" });
+  const [form, setForm] = useState({ name: "", type: "", dosage: "", activeIngredient: "", applicationDate: "", expiryDate: "", manufacturer: "", cropType: "",price:"",remark:"" });
 
   const addChemical = (e) => {
     e.preventDefault()
     setChemicals([...chemicals, form]);
-    setForm({ name: "", type: "", dosage: "", activeIngredient: "", applicationDate: "", expiryDate: "", manufacturer: "", cropType: "" });
+    setForm({ name: "", type: "", dosage: "", activeIngredient: "", applicationDate: "", expiryDate: "", manufacturer: "", cropType: "" ,price:"",remark:""});
   };
 
 
@@ -153,8 +155,18 @@ const ChemicalPage = () => {
                 <input className="form-control" type="date" value={form.expiryDate} onChange={(e) => setForm({ ...form, expiryDate: e.target.value })} />
               </div>
             </div>
+            <div className="row md-3">
+                        <div class="col-md-6">
+                            <label for="price" class="form-label">Price</label>
+                            <input type="type" class="form-control" id="price" value={form.price} onChange={(e) =>  setForm({ ...form, price: e.target.value })} />
+                        </div>
+                        <div class="col-md-6">
+                            <label for="remarks" class="form-label">Remarks</label>
+                            <input type="type" class="form-control" id="remarks" value={form.remark} onChange={(e) =>  setForm({ ...form, remark: e.target.value })} />
+                        </div>
+                    </div>
 
-            <div className="comman_div_button text-center">
+            <div className="comman_div_button text-center mt-3">
               <button type="submit" className="btn btn-success px-4 py-2 rounded-pill">Add Chemical</button>
             </div>
           </form>

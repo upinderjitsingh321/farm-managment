@@ -18,6 +18,7 @@ import ForgotPassword from './pages/forgetpassword';
 import NewUser from './pages/newuser';
 import PesticideDashboard from './component/admincomponents/pesticide';
 import SoilRecordsTable from './pages/adim/Adminpages/AdminSoilListing';
+import UserFarm from './pages/MyAccount/OpenFram';
 
 function AllRoutes() {
     return (
@@ -43,6 +44,7 @@ function AllRoutes() {
                 <Route path="/forgotpassword" element={<ForgotPassword />} />
                 <Route path="/newuser" element={<NewUser />} />
                 <Route path="/admin/pesticide" element={<PesticideDashboard />} />
+                <Route path="/openaccount" element={<UserFarm />} />
 
 
 

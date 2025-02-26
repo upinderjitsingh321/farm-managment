@@ -82,7 +82,7 @@ function SoilForm() {
                         </div>
 
                         <div className="col-md-6">
-                            <label className="form-label" for="ph">Soil pH Level (optional):</label>
+                            <label className="form-label" for="ph">Soil pH Level</label>
                             <input className="form-control" for="text" id="ph" name="ph" placeholder="Enter pH level if known"  onChange={(e) => setSoilLevel(e.target.value)}/>
                         </div>
                     </div>
@@ -152,7 +152,7 @@ function SoilForm() {
                     <div className="row mb-3">
 
                         <div className="col-md-6">
-                            <label className="form-label" for="organic_level">Organic Level</label>
+                            <label className="form-label" for="organic_level">Organic Matter</label>
                             <select className="form-control" id="organic_level" name="organic_level"  onChange={(e) => setOrganicLevel(e.target.value)}>
                                 <option>Select</option>
                                 <option>Low</option>

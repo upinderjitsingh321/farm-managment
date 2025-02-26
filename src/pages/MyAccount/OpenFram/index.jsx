@@ -1,0 +1,67 @@
+import React from 'react'
+import "./style.css"
+
+import CropDashboardTable from '../../../component/userDashboard/CropTable';
+import FieldDashboardTable from '../../../component/userDashboard/FieldTable';
+import CustomPieChart from '../../../component/Charts/UserCharts/PieCharts';
+import SoilDashboardTable from '../../../component/userDashboard/SoilTable';
+function UserFarm() {
+
+  const data1 = [
+    { name: 'Group A', value: 400 },
+    { name: 'Group B', value: 300 },
+    { name: 'Group C', value: 300 },
+    { name: 'Group D', value: 200 },
+  ];
+
+  const data2 = [
+    { name: 'Category X', value: 500 },
+    { name: 'Category Y', value: 250 },
+    { name: 'Category Z', value: 150 },
+  ];
+  const data3 = [
+    { name: ' Harvest Exp.', value: 5000 },
+    { name: 'Snowing Exp.', value: 2500 },
+    { name: 'Labour Exp.', value: 4500 },
+    { name: 'Fertilizer Exp.', value: 700  },
+  ];
+
+  const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+
+  return (
+    <div className='container'>
+      <div className="row mt-2 gap-5">
+        <div className="col-md-12 ">
+          <div className='detail-card d-flex mb-5'>
+            <CropDashboardTable heading="Crop[2025]" cropname={["Rice"]} acre={["3"]} production={["300kg"]} rate={["2160"]} link={["Go to Crop List"]} />
+            <FieldDashboardTable heading="Feild[2025]" field={["#01"]} acre={["5"]} crops={["Rice"]} variety={["none%"]} link={["Go to Feild List"]} />
+            <SoilDashboardTable heading="Soil Detail[2025]" field={["#01"]} type={["clay"]} issue={["low fertility"]} organic={["low"]} link={["Go to Soil List"]} />
+          </div>
+
+          <div className="container">
+
+          </div>
+          <div className="container">
+            <div className="row">
+              <div className="col-md-4 p-0 mb-4">
+                <CustomPieChart data={data1} colors='#FF8042' heading="Summary of Year" tittle="crop" />
+              </div>
+              <div className="col-md-4 ">
+                <CustomPieChart data={data2} colors='#BC8F8F' heading="Summary of Chemical[2025]" tittle="chemical" />
+              </div>
+              <div className="col-md-4 position-relative ">
+                <CustomPieChart data={data3} colors='#FF8042' heading="Cost[2025]" tittle="profit" />
+                
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  )
+}
+
+export default UserFarm

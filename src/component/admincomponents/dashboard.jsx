@@ -7,7 +7,7 @@ import PersonIcon from '@mui/icons-material/Person';
 function DashboardBox(props) {
 
     const getIcon = () => {
-        switch (props.icon) {
+        switch (props.tittle) {
           case "Profile":
             return <FaCircleUser/>;
           case "activeprofile":
