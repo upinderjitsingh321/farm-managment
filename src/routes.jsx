@@ -21,6 +21,7 @@ import UserFarm from './pages/MyAccount/OpenFram';
 import FeildForm from './pages/forms/AddField';
 import FarmForm from './pages/forms/AddFarm';
 import UserField from './pages/UserPages/Field';
+import ModelFarmForm from './component/Models/Forms/FarmForm';
 
 function AllRoutes() {
     return (
@@ -49,6 +50,7 @@ function AllRoutes() {
                 <Route path="/admin/pesticide" element={<PesticideDashboard />} />
                 <Route path="/openaccount" element={<UserFarm />} />
                 <Route path="/userfield" element={<UserField/>} />
+                <Route path="/farmform" element={<ModelFarmForm/>} />
 
 
 

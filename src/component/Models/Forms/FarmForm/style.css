@@ -1,0 +1,21 @@
+.add-button{
+    border: 2px solid white;
+    border-radius: 4px;
+    background-color: #0000007d;
+    color: white;
+    padding: 5px;
+    font-size: 17px;
+    font-weight: 600;
+}
+.farm-padding{
+    margin: 30px 20px;
+}
+.gap{
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+    gap: 25px;
+}
+.ident_info{
+    color: rgb(108, 146, 108);
+}

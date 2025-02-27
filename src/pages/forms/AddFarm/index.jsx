@@ -17,7 +17,7 @@ function FarmForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(farmersName, address, aadharnumber, mobilenumber, farmid, farmername, fathername, farmname, type)
+    console.log(farmersName, address, aadharnumber, mobilenumber, farmid, farmername, fathername, farmname,longitude,latitude, type)
   }
   return (
     <>

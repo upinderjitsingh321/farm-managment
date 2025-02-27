@@ -1,9 +1,14 @@
-import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./style.css"
-function FeildForm() {
+import { useState } from 'react';
+import Modal from 'react-bootstrap/Modal';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import CloseIcon from '@mui/icons-material/Close';
 
-  const [fielldno, setFieldNo] = useState("")
+
+
+function ModelFieldForm() {
+  const [show, setShow] = useState(false);
+
+const [fielldno, setFieldNo] = useState("")
   const [farmarea, setFarmArea] = useState("")
   const [khasranumber, setKhasraNumber] = useState("")
   const [landownership, setLandOwnership] = useState("")
@@ -15,9 +20,27 @@ function FeildForm() {
   }
   return (
     <>
-      <section className="container mt-5 p-4 ">
+      <button className='add-button' onClick={() => setShow(true)}>
+       <AddCircleIcon/> Add New Field
+      </button>
+
+      <Modal
+        show={show}
+        onHide={() => setShow(false)}
+        dialogClassName="modal-90w"
+        aria-labelledby="example-custom-modal-styling-title"
+        size='lg'
+        
+      >
+        <Modal.Header  style={{backgroundColor:"rgb(108, 146, 108)",padding:"0px 10px",color:"white",display:"flex",justifyContent:"space-between"}}>
+          <Modal.Title id="example-custom-modal-styling-title">
+            Feild Detail 
+          </Modal.Title>
+          <CloseIcon className='text-danger'/>
+        </Modal.Header>
+        <Modal.Body>
+
         <form onSubmit={handleSubmit} className=" shadow p-4 bg-white rounded farm-padding">
-          <h2 className="text-center mb-4 text-dark">Add Feild </h2>
           
 
           <div className="row mb-3">
@@ -63,16 +86,14 @@ function FeildForm() {
           
 
           <div className=" text-center gap">
-            <button type="submit" className="btn btn-success px-4 py-2 rounded-pill">Submit</button>
-            <button type="submit" className="btn btn-success px-4 py-2 rounded-pill">Submit and Proceed to Add Products</button>
-            <button type="reset" className="btn btn-success px-4 py-2 rounded-pill">Reset</button>
-
-
+          <button type="submit" className="btn px-4 py-2 text-white" style={{backgroundColor:"rgb(108, 146, 108)"}}>Save</button>
+            
           </div>
         </form>
-      </section>
+        </Modal.Body>
+      </Modal>
     </>
   );
 }
 
-export default FeildForm
+export default ModelFieldForm;

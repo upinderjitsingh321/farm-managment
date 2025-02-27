@@ -5,6 +5,11 @@
 
 .dash-title {
     background-color: rgb(108, 146, 108);
+    height: 35px;
+}
+.dash-title svg{
+    margin-bottom: 2px;
+    padding-bottom: 2px;
 }
 
 .arrowdiv {

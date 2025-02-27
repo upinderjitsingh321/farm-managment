@@ -3,18 +3,20 @@ import "./style.css"
 import MinimizeIcon from '@mui/icons-material/Minimize';
 import CloseIcon from '@mui/icons-material/Close';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
+import ModelFieldForm from '../../../Models/Forms/FieldForm';
 
 function UserFieldTable(props) {
   return (
     <div className='userdashboardtable shadow my-3 '>
     <div className='dash-title d-flex justify-content-between'>
         <h5 className='pt-1 ps-2'>{props.heading}<KeyboardDoubleArrowDownIcon/></h5>
+        <ModelFieldForm/>
         <div>
             <MinimizeIcon className='pb-1'/>
         <CloseIcon className='pt-2 text-danger'/>
         </div>
     </div>
-  <table className="w-100 border-collapse border border-gray-300">
+  <table className="w-100 border-collapse border border-gray-300 mb-5">
           <thead>
             <tr className="bg-gray-200">
               <th className="border border-gray-300 p-2">Feild </th>
