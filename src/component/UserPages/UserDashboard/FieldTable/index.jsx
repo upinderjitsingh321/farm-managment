@@ -38,7 +38,7 @@ function FieldDashboardTable(props) {
           </tbody>
           </table>
           <div className='mt-5 text-end arrowdiv'>
-          <Link style={{color:'rgb(79 110 79)',marginRight:"10px"}}>{props.link}</Link>
+          <Link to={'/userfield'} style={{color:'rgb(79 110 79)',marginRight:"10px"}}>{props.link}</Link>
           <ArrowForwardIcon style={{backgroundColor:"rgb(79 110 79)",color:"white",borderRadius:"50%",marginRight:"10px",fontSize: "20px"}}/>
           </div>
 </div>

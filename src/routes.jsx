@@ -1,7 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom';
 import FarmerRegistration from './pages/forms/Registration/NewRegisrtation'
-import FarmerForm from './pages/forms/AddFarm/Farm'
 import AddCrop from './pages/forms/AddCrop'
 import DynamicPage from './pages/DynamicPage'
 import SoilTesting from './pages/SoilTesting'
@@ -19,6 +18,9 @@ import NewUser from './pages/newuser';
 import PesticideDashboard from './component/admincomponents/pesticide';
 import SoilRecordsTable from './pages/adim/Adminpages/AdminSoilListing';
 import UserFarm from './pages/MyAccount/OpenFram';
+import FeildForm from './pages/forms/AddField';
+import FarmForm from './pages/forms/AddFarm';
+import UserField from './pages/UserPages/Field';
 
 function AllRoutes() {
     return (
@@ -27,7 +29,8 @@ function AllRoutes() {
 
                 <Route path="/" element={<HomePage />} />
                 <Route path="/register" element={<FarmerRegistration />} />
-                <Route path="/addland" element={<FarmerForm />} />
+                <Route path="/addland" element={<FeildForm />} />
+                <Route path="/addfarm" element={<FarmForm />} />
                 <Route path="/addcrop" element={<AddCrop />} />
                 <Route path="/details/:name" element={<DynamicPage />} />
                 <Route path="/home" element={<HomePage />} />
@@ -45,6 +48,7 @@ function AllRoutes() {
                 <Route path="/newuser" element={<NewUser />} />
                 <Route path="/admin/pesticide" element={<PesticideDashboard />} />
                 <Route path="/openaccount" element={<UserFarm />} />
+                <Route path="/userfield" element={<UserField/>} />
 
 
 

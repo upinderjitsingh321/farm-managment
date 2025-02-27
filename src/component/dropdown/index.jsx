@@ -13,8 +13,9 @@ function NavDropdown() {
         <Dropdown.Toggle className='drop-btn' split variant="success" id="dropdown-split-basic" />
   
         <Dropdown.Menu className="dropdown-menu">
-          <Dropdown.Item className="dropdown-item" ><Link className='color-list' to={"/addland"}>Add farm</Link></Dropdown.Item>
-          <Dropdown.Item className="dropdown-item" ><Link className='color-list' to={"/addcrop"}>Add crop</Link></Dropdown.Item>
+          <Dropdown.Item className="dropdown-item" ><Link className='color-list' to={"/addfarm"}>Add Farm</Link></Dropdown.Item>
+          <Dropdown.Item className="dropdown-item" ><Link className='color-list' to={"/addland"}>Add Field</Link></Dropdown.Item>
+          <Dropdown.Item className="dropdown-item" ><Link className='color-list' to={"/addcrop"}>Add Crop</Link></Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
     );

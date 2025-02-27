@@ -1,29 +1,29 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./AddFarm.css"
-function FarmerForm() {
+import "./style.css"
+function FarmForm() {
   const [farmersName, setFarmersName] = useState("")
   const [address, setAddress] = useState("")
   const [aadharnumber, setAadharNumber] = useState("")
   const [mobilenumber, setMobileNumber] = useState("")
-  const [seasonyear, setSeasonYear] = useState("")
-  const [dateofregistration, setDateOfRegistration] = useState("")
-  const [farmarea, setFarmArea] = useState("")
-  const [fathername, setFatherName] = useState("")
-  const [khasranumber, setKhasraNumber] = useState("")
-  const [landmark, setLandmark] = useState("")
-  const [farmpractices, setFarmPractices] = useState("")
+  const [type, setType] = useState("")
+  const [farmname, setFarmName] = useState("")
+  const [farmername, setFarmerName] = useState("")
+  const [farmid, setFarmId] = useState("")
   const [longitude, setLongitude] = useState("")
   const [latitude, setLatitude] = useState("")
+ 
+  const [fathername, setFatherName] = useState("")
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(farmersName, address, aadharnumber, mobilenumber, seasonyear, dateofregistration, fathername, farmarea, landmark, khasranumber, farmpractices, longitude, latitude)
+    console.log(farmersName, address, aadharnumber, mobilenumber, farmid, farmername, fathername, farmname, type)
   }
   return (
     <>
       <section className="container mt-5 p-4 ">
         <form onSubmit={handleSubmit} className=" shadow p-4 bg-white rounded farm-padding">
-          <h2 className="text-center mb-4 text-dark">Add Land Detail</h2>
+          <h2 className="text-center mb-4 text-dark">Add Farm </h2>
           <div className=" mb-3 fw-bold">Farmer Information</div>
 
           <div className="row mb-3">
@@ -60,41 +60,32 @@ function FarmerForm() {
           <div className="ident_info mb-3 fw-bold">Land Information</div>
           <div className="row mb-3">
             <div className="col-md-6">
-              <label className="form-label">Feild No.</label>
-              <input type="text" className="form-control" placeholder="#01" onChange={(e) => setSeasonYear(e.target.value)} />
+              <label className="form-label">Farm Id</label>
+              <input type="text" className="form-control" placeholder="#01" onChange={(e) => setFarmId(e.target.value)} />
             </div>
             <div className="col-md-6">
-              <label className="form-label">Farm Area (in Ha.)</label>
-              <input type="text" className="form-control" placeholder="0" onChange={(e) => setFarmArea(e.target.value)} />
+              <label className="form-label">Farm Name</label>
+              <input type="text" className="form-control" placeholder="Name" onChange={(e) => setFarmName(e.target.value)} />
             </div>
           </div>
 
           <div className="row mb-3">
             <div class="col-md-6">
-              <label className="form-label">Land Ownership</label>
-              <select className="form-select " onChange={(e) => setLandOwnership(e.target.value)}>
-                <option>Select</option>
-                <option value="Owned">Owned</option>
-                <option value="Leased">Leased</option>
-                <option value="Leased">Contract</option>
+              <label className="form-label">Type</label>
+              <select  type="select" className="form-select " onChange={(e) => setType(e.target.value)}>
+               
+                <option>Crop  </option>
+                <option>Garden  </option>
+                <option>Orchard Farm </option>
+                
               </select>
+                
             </div>
             <div className="col-md-6">
-              <label className="form-label">Khasra NO.</label>
-              <input type="text" className="form-control" onChange={(e) => setKhasraNumber(e.target.value)} />
+              <label className="form-label">Owner</label>
+              <input type="text" className="form-control" onChange={(e) => setOwner(e.target.value)} />
             </div>
 
-          </div>
-
-          <div className="row mb-3">
-            <div className="col-md-6">
-              <label className="form-label">Khasra NO.</label>
-              <input type="text" className="form-control" onChange={(e) => setKhasraNumber(e.target.value)} />
-            </div>
-            <div className="col-md-6">
-              <label className="form-label">Farm Practices</label>
-              <input type="text" className="form-control" onChange={(e) => setFarmPractices(e.target.value)} />
-            </div>
           </div>
 
           <div className="ident_info mb-3 fw-bold">Farm Location</div>
@@ -111,8 +102,7 @@ function FarmerForm() {
 
           <div className=" text-center gap">
             <button type="submit" className="btn btn-success px-4 py-2 rounded-pill">Submit</button>
-            <button type="submit" className="btn btn-success px-4 py-2 rounded-pill">Submit and Proceed to Add Products</button>
-            <button type="reset" className="btn btn-success px-4 py-2 rounded-pill">Reset</button>
+            
 
 
           </div>
@@ -122,4 +112,4 @@ function FarmerForm() {
   );
 }
 
-export default FarmerForm
+export default FarmForm

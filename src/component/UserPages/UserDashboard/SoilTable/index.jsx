@@ -17,7 +17,7 @@ function SoilDashboardTable(props) {
   <table className="w-100 border-collapse border border-gray-300">
           <thead>
             <tr className="bg-gray-200">
-              <th className="border border-gray-300 p-2">Field No.</th>
+              <th className="border border-gray-300 p-2">Field</th>
               <th className="border border-gray-300 p-2"> Soil Type</th>
               <th className="border border-gray-300 p-2"> Issued Faced</th>
               <th className="border border-gray-300 p-2"> Organic Matter</th>
