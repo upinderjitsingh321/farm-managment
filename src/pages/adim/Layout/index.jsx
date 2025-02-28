@@ -1,6 +1,6 @@
 import React from 'react'
-import Uppernavbar from '../navbars/navbar'
-import Sidebar from '../navbars/sidebar'
+import Uppernavbar from '../../../component/Navbars/AdminNavbar/navbar'
+import Sidebar from '../../../component/Navbars/AdminNavbar/sidebar'
 
 function AdminLayout({ children }) {
     return (

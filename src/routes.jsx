@@ -22,6 +22,8 @@ import FeildForm from './pages/forms/AddField';
 import FarmForm from './pages/forms/AddFarm';
 import UserField from './pages/UserPages/Field';
 import ModelFarmForm from './component/Models/Forms/FarmForm';
+import UserNavbar from './component/Navbars/UserNavbar';
+import UserHome from './component/UserPages/UserHomepage';
 
 function AllRoutes() {
     return (
@@ -51,6 +53,8 @@ function AllRoutes() {
                 <Route path="/openaccount" element={<UserFarm />} />
                 <Route path="/userfield" element={<UserField/>} />
                 <Route path="/farmform" element={<ModelFarmForm/>} />
+                <Route path="/usernavbar" element={<UserNavbar/>} />
+                <Route path="/userhome" element={<UserHome/>} />
 
 
 

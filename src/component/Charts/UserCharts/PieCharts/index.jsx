@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { PieChart, Pie, Sector, ResponsiveContainer } from "recharts";
+import { PieChart, Pie,Cell, Sector, ResponsiveContainer } from "recharts";
 import MinimizeIcon from '@mui/icons-material/Minimize';
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -40,7 +40,7 @@ const renderActiveShape = (props) => {
 };
 
 
-   
+
 
 const CustomPieChart = ({
   data = [],
@@ -50,55 +50,60 @@ const CustomPieChart = ({
   outerRadius = 80,
   colors = "#8884d8",
   tittle = "default",
-  heading =""
+  heading = ""
 }) => {
-  
-    const getlink = (tittle) => {
-        switch (tittle) {
-          case "crop":
-            return "Crop 2025-2026";
-          case "chemical":
-            return "Go to Chemical List";
-          case "profit":
-            return "See Profit";
-          
-          default:
-            return tittle || null; // Use default icon if provided
-        }
-      };
+
+  const COLORS = ["#bdb76b", "#808080 ", "#836953 ", "#fa8072 ", "#2e8b57", "#4682b4", "#9370db"];
+
+  const getlink = (tittle) => {
+    switch (tittle) {
+      case "crop":
+        return "Crop 2025-2026";
+      case "chemical":
+        return "Go to Chemical List";
+      case "profit":
+        return "See Profit";
+
+      default:
+        return tittle || null; // Use default icon if provided
+    }
+  };
   const [activeIndex, setActiveIndex] = useState(0);
 
   const onPieEnter = (_, index) => {
     setActiveIndex(index);
   };
-  
+
 
   return (
     <div className='userdashboardtable1 shadow' style={{ width: width, height: height }}>
       <div className='dash-title d-flex justify-content-between'>
         <h5 className='pt-1 ps-2'>{heading}</h5>
         <div>
-          <MinimizeIcon className='pb-1'/>
-          <CloseIcon className='pt-2 text-danger'/>
+          <MinimizeIcon className='pb-1' />
+          <CloseIcon className='pt-2 text-danger' />
         </div>
       </div>
 
       <ResponsiveContainer width="100%" height="100%">
         {data.length > 0 ? (
           <PieChart>
-            <Pie
-              activeIndex={activeIndex}
-              activeShape={renderActiveShape}
-              data={data}
-              cx="50%"
-              cy="50%"
-              innerRadius={innerRadius}
-              outerRadius={outerRadius}
-              fill={colors}
-              dataKey="value"
-              onMouseEnter={onPieEnter}
-            />
-          </PieChart>
+          <Pie
+            activeIndex={activeIndex}
+            activeShape={renderActiveShape}
+            data={data}
+            cx="50%"
+            cy="50%"
+            innerRadius={innerRadius}
+            outerRadius={outerRadius}
+            dataKey="value"
+            onMouseEnter={onPieEnter}
+          >
+            {data.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+            ))}
+          </Pie>
+        </PieChart>
         ) : (
           <p style={{ textAlign: "center", color: "#888" }}>No Data Available</p>
         )}
@@ -106,7 +111,7 @@ const CustomPieChart = ({
 
       <div className='mt-5 text-end arrowdiv1'>
         <Link style={{ color: 'rgb(79 110 79)', marginRight: "10px" }}>
-        {getlink(tittle)}
+          {getlink(tittle)}
         </Link>
         <ArrowForwardIcon style={{ backgroundColor: "rgb(79 110 79)", color: "white", borderRadius: "50%", marginRight: "10px", fontSize: "20px" }} />
       </div>

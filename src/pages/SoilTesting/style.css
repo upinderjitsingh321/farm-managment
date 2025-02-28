@@ -77,13 +77,12 @@
     color: blue;
 }
 
-a:active {
+/* a:active {
     background-color: #007BFF;
-    /* Background when clicked */
     color: white;
     border: 1px solid #0056b3;
-    /* Optional border */
-}
+   
+} */
 
 .view_more a {
     text-decoration: none;
