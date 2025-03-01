@@ -1,12 +1,9 @@
 import React from 'react'
-import "./style.css"
 import MinimizeIcon from '@mui/icons-material/Minimize';
 import CloseIcon from '@mui/icons-material/Close';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { Link } from 'react-router-dom';
-function SoilDashboardTable(props) {
+function SoilTable(props) {
   return (
-    <div className='userdashboardtable shadow'>
+    <div className='userdashboardtable2 shadow '>
       <div className='dash-title d-flex justify-content-between'>
         <h5 className='pt-1 ps-2'>{props.heading}</h5>
         <div>
@@ -17,10 +14,15 @@ function SoilDashboardTable(props) {
       <table className="w-100 border-collapse border border-gray-300">
         <thead>
           <tr className="bg-gray-200">
+            <th className="border border-gray-300 p-2">Farm</th>
             <th className="border border-gray-300 p-2">Field</th>
             <th className="border border-gray-300 p-2"> Soil Type</th>
             <th className="border border-gray-300 p-2"> Issued Faced</th>
             <th className="border border-gray-300 p-2"> Organic Matter</th>
+            <th className="border border-gray-300 p-2">  Electrical Conductivity (dS/m)</th>
+            <th className="border border-gray-300 p-2">Soil Salinity </th>
+            <th className="border border-gray-300 p-2"> Soil Texture</th>
+            <th className="border border-gray-300 p-2"> Soil pH Level </th>
 
 
           </tr>
@@ -28,23 +30,23 @@ function SoilDashboardTable(props) {
         <tbody>
 
           <tr className="border border-gray-300">
+            <td className="border border-gray-300 p-2">{props.farm}</td>
             <td className="border border-gray-300 p-2">{props.field}</td>
-            <td className="border border-gray-300 p-2">{props.type}</td>
-            <td className="border border-gray-300 p-2">{props.issue}</td>
+            <td className="border border-gray-300 p-2">{props.soiltype}</td>
+            <td className="border border-gray-300 p-2">{props.issues}</td>
             <td className="border border-gray-300 p-2">{props.organic}</td>
+            <td className="border border-gray-300 p-2">{props.electricalconductivity}</td>
+            <td className="border border-gray-300 p-2">{props.soilsaninity}</td>
+            <td className="border border-gray-300 p-2">{props.soiltexture}</td>
+            <td className="border border-gray-300 p-2">{props.phlevel}</td>
 
           </tr>
 
         </tbody>
       </table>
-      <div className=' mt-5 text-end arrowdiv'>
-        <div style={{ color: 'rgb(79 110 79)', marginRight: "10px" }}></div>
-        <Link to={'/soilpage'} style={{color:'rgb(79 110 79)'}}>{props.link}
-          <ArrowForwardIcon style={{backgroundColor:"rgb(79 110 79)",color:"white",borderRadius:"50%",marginRight:"10px",marginLeft:"10px", fontSize: "20px"}}/>
-          </Link>
-      </div>
+      
     </div>
   )
 }
 
-export default SoilDashboardTable
+export default SoilTable

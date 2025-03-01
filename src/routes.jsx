@@ -20,10 +20,14 @@ import SoilRecordsTable from './pages/adim/Adminpages/AdminSoilListing';
 import UserFarm from './pages/MyAccount/OpenFram';
 import FeildForm from './pages/forms/AddField';
 import FarmForm from './pages/forms/AddFarm';
-import UserField from './pages/UserPages/Field';
+import UserField from './pages/UserPages/FieldPage';
 import ModelFarmForm from './component/Models/Forms/FarmForm';
 import UserNavbar from './component/Navbars/UserNavbar';
 import UserHome from './component/UserPages/UserHomepage';
+import UserCropPage from './pages/UserPages/CropPage';
+import UserCropRotationPage from './pages/UserPages/CropRotaion';
+import UserProductionPage from './pages/UserPages/ProductionPage';
+import UserSoilPage from './pages/UserPages/SoilPage';
 
 function AllRoutes() {
     return (
@@ -52,9 +56,12 @@ function AllRoutes() {
                 <Route path="/admin/pesticide" element={<PesticideDashboard />} />
                 <Route path="/openaccount" element={<UserFarm />} />
                 <Route path="/userfield" element={<UserField/>} />
-                <Route path="/farmform" element={<ModelFarmForm/>} />
                 <Route path="/usernavbar" element={<UserNavbar/>} />
                 <Route path="/userhome" element={<UserHome/>} />
+                <Route path="/croppage" element={<UserCropPage/>}/>
+                <Route path="/croprotationpage" element={<UserCropRotationPage/>} />
+                <Route path="/production" element={<UserProductionPage/>} />
+                <Route path="/soilpage" element={<UserSoilPage/>} />
 
 
 

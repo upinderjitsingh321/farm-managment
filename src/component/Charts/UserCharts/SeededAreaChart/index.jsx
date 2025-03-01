@@ -42,10 +42,10 @@ const renderActiveShape = (props) => {
 
 
 
-const CustomPieChart = ({
+const CustomAreaPieChart = ({
   data = [],
-  width = 420,
-  height = 400,
+  width = 605,
+  height = 382,
   innerRadius = 60,
   outerRadius = 80,
   tittle = "default",
@@ -119,4 +119,4 @@ const CustomPieChart = ({
   );
 };
 
-export default CustomPieChart;
+export default CustomAreaPieChart;

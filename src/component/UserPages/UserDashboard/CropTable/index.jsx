@@ -39,7 +39,7 @@ function CropDashboardTable(props) {
               </tbody>
               </table>
               <div className='mt-5  text-end arrowdiv'>
-          <Link to={'/userfield'} style={{color:'rgb(79 110 79)'}}>{props.link}
+          <Link to={"/croppage"} style={{color:'rgb(79 110 79)'}}>{props.link}
           <ArrowForwardIcon style={{backgroundColor:"rgb(79 110 79)",color:"white",borderRadius:"50%",marginRight:"10px",marginLeft:"10px", fontSize: "20px"}}/>
           </Link>
           </div>

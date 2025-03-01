@@ -30,6 +30,7 @@ function ModelCropForm() {
         console.log(fieldno, cropname, variety, seasonyear, season, farmarea, production, price, remark, snowingDate, snowingmethod, harvestDate, harvestexpense, labourcost, snowingexpense, irrigationMethod,)
 
     }
+    
     return (
         <>
             <button className='add-button' onClick={() => setShow(true)}>
@@ -124,11 +125,11 @@ function ModelCropForm() {
                     <div class="row mb-3">
                         <div className="col-md-6">
                             <label className="form-label"> Snowing Expense</label>
-                            <input type="date" className="form-control" onChange={(e) => setSnowingExpense(e.target.value)} />
+                            <input type="number" className="form-control" onChange={(e) => setSnowingExpense(e.target.value)} />
                         </div>
                         <div className="col-md-6">
                             <label className="form-label"> Harvest Expense</label>
-                            <input type="date" className="form-control" onChange={(e) => setHarvestExpense(e.target.value)} />
+                            <input type="number" className="form-control" onChange={(e) => setHarvestExpense(e.target.value)} />
                         </div>
                     </div>
                     <div class="row mb-3">

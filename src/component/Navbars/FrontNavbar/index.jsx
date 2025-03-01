@@ -25,7 +25,7 @@ function Navbar() {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  },[]);
   return (
     <>
       <nav className="navbar navbar-expand-lg main-navbar" style={{ backgroundColor: `${navbar ? " #043820" :"rgb(65 88 65) "}` }}>
@@ -69,12 +69,13 @@ function Navbar() {
                 </ul>
               ) : (
                 <ul className='Usernavbar'>
-                  <Link className=' userlist text-white link-color' to={"/userhome"}><li className='userlist'><img className="usernav-icon" src='img/home.png' /> Home</li></Link>
-                  <Link className='userlist text-white link-color' to={"/openaccount"}><img className="usernav-icon" src='img/dashboard.png' />Dashboard</Link>
-                  <Link className='userlist text-white link-color'><img className="usernav-icon" src='img/field.png' />Fields</Link>
-                  <Link className='userlist text-white link-color'><img className="usernav-icon" src='img/crop.png' />Crops</Link>
-                  <Link className='userlist text-white link-color'><img className="usernav-icon" src='img/cloudy.png' />Weather</Link>
-                  <Link className='userlist text-white link-color'><img className="usernav-icon" src='img/incom.png' />Production cost</Link>
+                  <Link className=' userlist text-white link-color' to={"/userhome"}><li className='userlist'><img className="usernav-icon  pe-1" src='img/home.png' /> Home</li></Link>
+                  <Link className='userlist text-white link-color' to={"/openaccount"}><img className="usernav-icon  pe-1" src='img/dashboard.png' />Dashboard</Link>
+                  <Link className='userlist text-white link-color' to={"/userfield"}><img className="usernav-icon  pe-1" src='img/field.png' />Fields</Link>
+                  <Link to={"/croppage"} className='userlist text-white link-color'><img className="usernav-icon  pe-1" src='img/crop.png' />Crops</Link>
+                  <Link to={"/soilpage"} className='userlist text-white link-color'><img className="usernav-icon pe-1" src='img/soil.png' />Soil</Link>
+                  <Link to={"/"} className='userlist text-white link-color'><img className="usernav-icon pe-1" src='img/cloudy.png' />Weather</Link>
+                  <Link to={"/production"} className='userlist text-white link-color'><img className="usernav-icon  pe-1" src='img/incom.png' />Production cost</Link>
                 </ul>
               )}
 

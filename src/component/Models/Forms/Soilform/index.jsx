@@ -207,7 +207,7 @@ function ModelSoilForm() {
                             <div className="col-md-2 nutrient_padding"><label>Cl</label><input className="input_size_nutrient" type="number"
                                 min="0" step="0.01" placeholder=""  onChange={(e) => setCL(e.target.value)}/>
                             </div>
-                            <div className="col-md-2 nutrient_padding"><label>Cu</label><input className="input_size_nutrient" type="number"
+                            <div className="col-md-2 nutrient_padding"><label>Cu</label><input className="input_size_nutrient" style={{width:"100px"}} type="number"
                                 min="0" step="0.01" placeholder="" onChange={(e) => setCU(e.target.value)} />
                             </div>
                             <div className="col-md-2 nutrient_padding"><label>B</label><input className="input_size_nutrient" type="number"
@@ -224,7 +224,7 @@ function ModelSoilForm() {
                             <div className="col-md-2 nutrient_padding"><label>Zn</label><input className="input_size_nutrient" type="number"
                                 min="0" step="0.01" placeholder=""  onChange={(e) => setZN(e.target.value)}/>
                             </div>
-                            <div className="col-md-2 nutrient_padding"><label>Mn</label><input className="input_size_nutrient" type="number"
+                            <div className="col-md-2 nutrient_padding"><label>Mn</label><input className="input_size_nutrient" style={{width:"100px"}} type="number"
                                 min="0" step="0.01" placeholder="" onChange={(e) => setMN(e.target.value)} />
                             </div>
                         </div>
