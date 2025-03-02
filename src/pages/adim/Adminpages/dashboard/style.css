@@ -79,3 +79,21 @@
     font-size: 110px;
     color: #000;
 }
+
+.cropdata {
+    width: calc(33.333% - 22px);
+    border-radius: 10px;
+}
+
+.set-color {
+    background-color: rgb(108, 146, 108);
+    height: 35px;
+}
+.set-mag{
+    margin: 4px -7px;
+}
+.cropdata1{
+    width: calc(33.333% - 22px);
+    border-radius: 10px;
+    padding: 4px 6px;
+}

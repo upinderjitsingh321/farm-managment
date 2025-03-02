@@ -4,10 +4,10 @@ import Sidebar from '../../../component/Navbars/AdminNavbar/sidebar'
 
 function AdminLayout({ children }) {
     return (
-        <div className='d-flex'>
+        <div className='d-flex' style={{background:"#e1e4e7b3"}}>
             
-            <div style={{width:"15%"}}>
-                <nav class=" bg-success sidebar py-3 text-white min-vh-100">
+            <div style={{width:"15%", height:"100%"}}>
+                <nav class=" navbar-color py-3 text-white min-vh-100">
 
                     <Sidebar />
                 </nav>

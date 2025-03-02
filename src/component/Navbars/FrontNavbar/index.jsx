@@ -8,7 +8,7 @@ import { MdLogout } from 'react-icons/md'
 function Navbar() {
   const [isLogin, setIslogin] = useState(true)
   const [profile, setProfile] = useState(false)
-  const [navbar, setNavbar] = useState(false)
+  const [navbar, setNavbar] = useState(true)
   const dropdownRef = useRef(null);
   console.log(dropdownRef)
   useEffect(() => {

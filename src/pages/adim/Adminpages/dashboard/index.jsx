@@ -3,28 +3,111 @@ import "./style.css"
 import DashboardBox from '../../../../component/admincomponents/dashboard'
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import TrendingDownIcon from '@mui/icons-material/TrendingDown';
+import AdminPieChart from '../../../../component/Charts/AdminCharts/PieChart/Index';
+import IrrigationPieChart from '../../../../component/Charts/AdminCharts/AverageIrrigation';
+import PhPieChart from '../../../../component/Charts/AdminCharts/AveragePhChart/Index';
+import PracticesPieChart from '../../../../component/Charts/AdminCharts/AveragePractices';
+import MinimizeIcon from '@mui/icons-material/Minimize';
+import CloseIcon from '@mui/icons-material/Close';
 
 function Dashboard() {
+
+  const data1 = [
+    { name: 'Rice', value: 400 },
+    { name: 'Wheat', value: 1000 },
+    { name: 'Cron', value: 4000 },
+    { name: 'Bajra', value: 2000 },
+    { name: 'Sugercane', value: 4100 },
+    { name: 'Sunflower', value: 1400 },
+    { name: 'Musted', value: 2400 },
+    { name: 'Groundnut ', value: 4200 },
+    { name: 'Oats', value: 3000 },
+    { name: 'Coffee', value: 4500 },
+
+  ];
+  const data2 = [
+    { name: 'Rice', value: 400 },
+    { name: 'Wheat', value: 1000 },
+    { name: 'Cron', value: 4000 },
+    { name: 'Bajra', value: 2000 },
+    { name: 'Sugercane', value: 4100 },
+    { name: 'Sunflower', value: 1400 },
+    { name: 'Musted', value: 2400 },
+    { name: 'Groundnut ', value: 4200 },
+    { name: 'Oats', value: 3000 },
+    { name: 'Coffee', value: 4500 },
+
+  ];
+
   return (
     <div>
       <div className="right-content">
         <div className="row dashboardboxwraperrow">
           <div className="col-md-8">
             <div className="dashboardboxwraper d-flex ">
-              <DashboardBox color={["#1da256","#48d483"]} cardicon={<TrendingUpIcon />} icon={"Profile"} grow={true} totaluser={100} tittle={"Total User"}/>
-              <DashboardBox color={["#c012e2","#eb64fe"]} cardicon={<TrendingUpIcon />} icon={"activeprofile"} grow={true} totaluser={70}  tittle={"Active User"}/>
-              <DashboardBox color={["#2c78e5","#60aff5"]} cardicon={<TrendingDownIcon />} icon={"profile"} grow={true} totaluser={7}  tittle={"Pending Reports"}/>
-              <DashboardBox color={["#e1950e","#f3cd29"]} cardicon={<TrendingDownIcon />} icon={"activeprofile"}  grow={true} totaluser={7}  tittle={"Pending Reports"} />
+              <DashboardBox color={["#1da256", "#48d483"]} cardicon={<TrendingUpIcon />} icon={"Profile"} grow={true} totaluser={100} tittle={"Total User"} />
+              <DashboardBox color={["#c012e2", "#eb64fe"]} cardicon={<TrendingUpIcon />} icon={"activeprofile"} grow={true} totaluser={70} tittle={"Active User"} />
+              <DashboardBox color={["#2c78e5", "#60aff5"]} cardicon={<TrendingDownIcon />} icon={"profile"} grow={true} totaluser={7} tittle={"Pending Reports"} />
+              <DashboardBox color={["#e1950e", "#f3cd29"]} cardicon={<TrendingDownIcon />} icon={"activeprofile"} grow={true} totaluser={7} tittle={"Pending Reports"} />
             </div>
           </div>
           <div className="col-md-4">
-            <div className="box"></div>
+            <div className="">
+            <PracticesPieChart data={data1} heading='ORGANIC MATERS'/>
+
+            </div>
+          </div>
+        </div>
+        <div className="row ms-0 my-4" style={{ gap: "20px" }}>
+          <div className="col-md-4 bg-white  cropdata">
+            <div className='border border-dark set-mag'>
+              <div className='set-color'><MinimizeIcon className='pb-1' />
+              <CloseIcon className='pt-2 text-danger' /></div>
+              <h4 className='mt-5 text-center '>Crop Growth Analysis</h4>
+              <AdminPieChart data={data1} />
+
+            </div>
+          </div>
+          <div className="col-md-4 bg-white cropdata1">
+            <IrrigationPieChart data={data1} heading='Farm Irrigation Statistics' />
+          </div>
+          <div className="col-md-4 bg-white  cropdata">
+            <div className='border border-dark set-mag'>
+              <div className='set-color'><MinimizeIcon className='pb-1' />
+              <CloseIcon className='pt-2 text-danger' /></div>
+              <h4 className='mt-5 text-center '>Crop Growth Analysis</h4>
+              <AdminPieChart data={data1} />
+
+            </div>
+
+          </div>
+        </div>
+        <div className="row ms-0 my-4 gap-3" >
+          <div className="col-md-8 bg-white" style={{width:"65%", borderRadius:"10px"}}>
+            <div className='border border-dark set-mag'>
+              <div className='set-color'><MinimizeIcon className='pb-1' />
+              <CloseIcon className='pt-2 text-danger' /></div>
+              <div className='d-flex justify-content-center' style={{ gap: "6rem" }}>
+                <h4 className='mt-5'> Soil Nutrient Deficiency</h4>
+                <h4 className='mt-5'> Soil Nutrient Surplus</h4>
+              </div>
+              <PhPieChart data={data1} data1={data2} />
+
+            </div>
+          </div>
+          <div className="col-md-4 bg-white cropdata1">
+            <IrrigationPieChart data={data1} heading='Average pH Levels in Farmland' />
+
           </div>
         </div>
 
-
       </div>
+
     </div>
+
+
+
+
   )
 }
 

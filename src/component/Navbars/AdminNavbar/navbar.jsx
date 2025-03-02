@@ -9,7 +9,7 @@ import { CgProfile } from "react-icons/cg";
 function Uppernavbar() {
   return (
     <div>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow ">
+      <nav class="navbar navbar-expand-lg navbar-color shadow ">
         <div class="container-fluid">
           
           <div class="collapse navbar-collapse" id="adminNavbar">
