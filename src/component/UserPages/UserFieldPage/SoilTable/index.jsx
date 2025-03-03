@@ -3,13 +3,17 @@ import "./style.css"
 import MinimizeIcon from '@mui/icons-material/Minimize';
 import CloseIcon from '@mui/icons-material/Close';
 import ModelSoilForm from '../../../Models/Forms/Soilform';
+import EditIcon from '@mui/icons-material/Edit';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import { Button } from '@mui/material';
+import ModelMainSoilForm from '../../../Models/Forms/MainSoilForm';
 
 function UserSoilTable(props) {
   return (
     <div className='userdashboardtable shadow my-3'>
     <div className='dash-title d-flex justify-content-between'>
         <h5 className='pt-1 ps-2'>{props.heading}</h5>
-        <ModelSoilForm/>
+        <ModelMainSoilForm/>
         <div>
             <MinimizeIcon className='pb-1'/>
         <CloseIcon className='pt-2 text-danger'/>
@@ -33,6 +37,9 @@ function UserSoilTable(props) {
                 <td className="border border-gray-300 p-2">{props.type}</td>
                 <td className="border border-gray-300 p-2">{props.issue}</td>
                 <td className="border border-gray-300 p-2">{props.organic}</td>
+                <td className="border border-gray-300 p-2">
+                <Button variant="contained" color="success" ><EditIcon/><ArrowDropDownIcon/></Button>
+              </td>
                
               </tr>
         

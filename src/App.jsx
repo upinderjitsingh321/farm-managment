@@ -5,7 +5,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from './pages/HomePage/FooterPage';
 import AllRoutes from './routes';
 import AdminLayout from './pages/adim/Layout';
-import Apps from './learn/first';
 import Navbar from './component/Navbars/FrontNavbar';
 
 function App() {
@@ -40,7 +39,7 @@ function App() {
         )
         
       }
-<Apps/>
+{/* <Apps/> */}
 
 
     </div>

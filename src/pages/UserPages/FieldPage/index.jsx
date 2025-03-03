@@ -11,8 +11,8 @@ function UserField() {
 
 
   return (
-    <div className='container'>
-      <div className="row">
+    <div className=''>
+      <div className="row mx-1">
         <div className="col-md-12">
             <UserFarmTable heading={"Farm List"} data={FarmTable}  />
         </div>

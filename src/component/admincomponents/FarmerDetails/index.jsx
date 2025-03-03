@@ -1,19 +1,13 @@
 import React from 'react'
-import "./style.css"
 import MinimizeIcon from '@mui/icons-material/Minimize';
 import CloseIcon from '@mui/icons-material/Close';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
-import ModelCropForm from '../../../Models/Forms/CropForm';
-import EditIcon from '@mui/icons-material/Edit';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import { Button } from '@mui/material';
 
-function CropListTable(props) {
+function FarmerTables(props) {
   return (
     <div className='userdashboardtable shadow my-3 croplist-height1 '>
     <div className='dash-title d-flex justify-content-between'>
-        <h5 className='pt-1 ps-2'>{props.heading}<KeyboardDoubleArrowDownIcon/></h5>
-        <ModelCropForm/>
+        <h5 className='pt-1 ps-2'>{props.heading}</h5>
         <div>
             <MinimizeIcon className='pb-1'/>
         <CloseIcon className='pt-2 text-danger'/>
@@ -47,9 +41,6 @@ function CropListTable(props) {
                 <td className="border border-gray-300 p-2">{props.irrigation}</td>
                 <td className="border border-gray-300 p-2">{props.prodcution}</td>
                 <td className="border border-gray-300 p-2">{props.note}</td>
-                <td className="border border-gray-300 p-2">
-                <Button variant="contained" color="success" ><EditIcon/><ArrowDropDownIcon/></Button>
-              </td>
                
               </tr>
         
@@ -60,4 +51,4 @@ function CropListTable(props) {
   )
 }
 
-export default CropListTable
+export default FarmerTables

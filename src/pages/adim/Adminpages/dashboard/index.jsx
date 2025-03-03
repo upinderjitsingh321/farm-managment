@@ -41,7 +41,7 @@ function Dashboard() {
 
   return (
     <div>
-      <div className="right-content">
+      <div className="right-content" style={{background:"#e1e4e7b3"}}>
         <div className="row dashboardboxwraperrow">
           <div className="col-md-8">
             <div className="dashboardboxwraper d-flex ">
@@ -73,8 +73,10 @@ function Dashboard() {
           </div>
           <div className="col-md-4 bg-white  cropdata">
             <div className='border border-dark set-mag'>
-              <div className='set-color'><MinimizeIcon className='pb-1' />
-              <CloseIcon className='pt-2 text-danger' /></div>
+              <div className='set-color'>
+                <MinimizeIcon className='pb-1' />
+              <CloseIcon className='pt-2 text-danger' />
+              </div>
               <h4 className='mt-5 text-center '>Crop Growth Analysis</h4>
               <AdminPieChart data={data1} />
 

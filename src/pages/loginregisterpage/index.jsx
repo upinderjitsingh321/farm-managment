@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link, Links } from 'react-router-dom'
 import "./style.css"
+import { Button} from '@mui/material'
 function LoginRegister() {
     return (
         <>
             <div className='d-flex justify-content-between loginregister'>
                 <h4>Farmer Login/Register </h4>
-                <div className=''> <Link to={"/"}>Home</Link></div>
+                <Link to={"/"}><Button variant="contained" color="primary">Home</Button></Link>
 
             </div>
             <hr style={{ margin: "30px 97px" }} className='border-dark'></hr>

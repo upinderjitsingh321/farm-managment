@@ -21,13 +21,15 @@ import UserFarm from './pages/MyAccount/OpenFram';
 import FeildForm from './pages/forms/AddField';
 import FarmForm from './pages/forms/AddFarm';
 import UserField from './pages/UserPages/FieldPage';
-import ModelFarmForm from './component/Models/Forms/FarmForm';
 import UserNavbar from './component/Navbars/UserNavbar';
 import UserHome from './component/UserPages/UserHomepage';
 import UserCropPage from './pages/UserPages/CropPage';
 import UserCropRotationPage from './pages/UserPages/CropRotaion';
 import UserProductionPage from './pages/UserPages/ProductionPage';
 import UserSoilPage from './pages/UserPages/SoilPage';
+import FarmerList from './pages/adim/Adminpages/FarmersTable';
+import UserList from './pages/adim/Adminpages/UserTable';
+import FarmerDetails from './pages/adim/Adminpages/FarmersDetails';
 
 function AllRoutes() {
     return (
@@ -62,6 +64,9 @@ function AllRoutes() {
                 <Route path="/croprotationpage" element={<UserCropRotationPage/>} />
                 <Route path="/production" element={<UserProductionPage/>} />
                 <Route path="/soilpage" element={<UserSoilPage/>} />
+                <Route path="/admin/farmerlist" element={<FarmerList/>} />
+                <Route path="/admin/userslist" element={<UserList/>} />
+                <Route path="/admin/farmerdetails" element={<FarmerDetails/>} />
 
 
 

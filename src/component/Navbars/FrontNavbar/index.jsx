@@ -6,9 +6,9 @@ import { CgProfile } from 'react-icons/cg'
 import AgricultureIcon from '@mui/icons-material/Agriculture';
 import { MdLogout } from 'react-icons/md'
 function Navbar() {
-  const [isLogin, setIslogin] = useState(true)
+  const [isLogin, setIslogin] = useState(false)
   const [profile, setProfile] = useState(false)
-  const [navbar, setNavbar] = useState(true)
+  const [navbar, setNavbar] = useState(false)
   const dropdownRef = useRef(null);
   console.log(dropdownRef)
   useEffect(() => {

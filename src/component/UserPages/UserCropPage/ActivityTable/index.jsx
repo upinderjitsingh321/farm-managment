@@ -2,9 +2,15 @@ import React from 'react'
 import "./style.css"
 import MinimizeIcon from '@mui/icons-material/Minimize';
 import CloseIcon from '@mui/icons-material/Close';
+import { CgProfile } from 'react-icons/cg'
+import AgricultureIcon from '@mui/icons-material/Agriculture';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import { MdLogout } from 'react-icons/md'
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
-import ModelCropForm from '../../../Models/Forms/CropForm';
 import ModelPlantingForm from '../../../Models/Forms/ActivityForm/AddPlanting';
+import EditIcon from '@mui/icons-material/Edit';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';import { Button } from '@mui/material';
 
 function ActivityListTable(props) {
   return (
@@ -12,6 +18,14 @@ function ActivityListTable(props) {
     <div className='dash-title d-flex justify-content-between'>
         <h5 className='pt-1 ps-2'>{props.heading}<KeyboardDoubleArrowDownIcon/></h5>
         <ModelPlantingForm/>
+
+       
+
+        <button className='add-button' onClick={() => setShow(true)}>
+                <AddCircleIcon /> Add Activities<KeyboardArrowDownIcon/>
+            </button>
+            
+              
         <div>
             <MinimizeIcon className='pb-1'/>
         <CloseIcon className='pt-2 text-danger'/>
@@ -35,7 +49,9 @@ function ActivityListTable(props) {
                 <td className="border border-gray-300 p-2">{props.rate}</td>
                 <td className="border border-gray-300 p-2">{props.user}</td>
                 <td className="border border-gray-300 p-2">{props.note}</td>
-             
+                <td className="border border-gray-300 p-2">
+                <Button variant="contained" color="success" ><EditIcon/><ArrowDropDownIcon/></Button>
+              </td>
                
               </tr>
         

@@ -30,7 +30,7 @@ function HomePage() {
             <Banner />
             <AgriFeatures aggriArray={array} />
            
-            <button onClick={handleCLick}>click</button>
+            {/* <button onClick={handleCLick}>click</button> */}
         </>
     )
 }

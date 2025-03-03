@@ -1,17 +1,12 @@
 import React from 'react'
 import MinimizeIcon from '@mui/icons-material/Minimize';
 import CloseIcon from '@mui/icons-material/Close';
-import EditIcon from '@mui/icons-material/Edit';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import { Button } from '@mui/material';
-import ModelNutrientForm from '../../../Models/Forms/NutrientForm';
-import ModelUpperSoilForm from '../../../Models/Forms/Soilform';
-function SoilTable(props) {
+import "./style.css"
+function AdminSoilTable(props) {
   return (
-    <div className='userdashboardtable shadow table-length'>
+    <div className='userdashboardtable1 shadow my-3 '>
       <div className='dash-title d-flex justify-content-between'>
         <h5 className='pt-1 ps-2'>{props.heading}</h5>
-        <ModelUpperSoilForm/>
         <div>
           <MinimizeIcon className='pb-1' />
           <CloseIcon className='pt-2 text-danger' />
@@ -45,9 +40,6 @@ function SoilTable(props) {
             <td className="border border-gray-300 p-2">{props.soilsaninity}</td>
             <td className="border border-gray-300 p-2">{props.soiltexture}</td>
             <td className="border border-gray-300 p-2">{props.phlevel}</td>
-            <td className="border border-gray-300 p-2">
-                <Button variant="contained" color="success" ><EditIcon/><ArrowDropDownIcon/></Button>
-              </td>
 
           </tr>
 
@@ -58,4 +50,4 @@ function SoilTable(props) {
   )
 }
 
-export default SoilTable
+export default AdminSoilTable

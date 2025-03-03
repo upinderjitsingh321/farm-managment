@@ -24,9 +24,9 @@ function ModelPlantingForm() {
     }
     return (
         <>
-            <button className='add-button' onClick={() => setShow(true)}>
+            {/* <button className='add-button' onClick={() => setShow(true)}>
                 <AddCircleIcon /> Add Activities
-            </button>
+            </button> */}
 
             <Modal
                 show={show}

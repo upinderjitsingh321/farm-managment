@@ -21,7 +21,7 @@ function UserSoilPage() {
         </div>
 
                 <div className="col-md-12 mt-3">
-        <Nutrient heading={"Soil List"} Nitrogen={""} Phosphorus={""} Calcium={""} Potassium={""} Sulfur={""} Magnesium={""} Iron={""} Manganese={""} Zinc={""} Copper={""} Chlorine={""} Boron={""}/>
+        <Nutrient heading={"Nutrient List"} Nitrogen={""} Phosphorus={""} Calcium={""} Potassium={""} Sulfur={""} Magnesium={""} Iron={""} Manganese={""} Zinc={""} Copper={""} Chlorine={""} Boron={""}/>
         </div>
         
       </div>
