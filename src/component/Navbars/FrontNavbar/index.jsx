@@ -6,11 +6,13 @@ import { CgProfile } from 'react-icons/cg'
 import AgricultureIcon from '@mui/icons-material/Agriculture';
 import { MdLogout } from 'react-icons/md'
 function Navbar() {
-  const [isLogin, setIslogin] = useState(false)
+  const [isLogin, setIslogin] = useState(true)
   const [profile, setProfile] = useState(false)
-  const [navbar, setNavbar] = useState(false)
+  const [crop, setCrop] = useState(false)
+  const [navbar, setNavbar] = useState(true)
   const dropdownRef = useRef(null);
-  console.log(dropdownRef)
+  const dropdownoneRef = useRef(null);
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -25,10 +27,25 @@ function Navbar() {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  },[]);
+  }, []);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownoneRef.current && !dropdownoneRef.current.contains(event.target)) {
+        setCrop(false);
+      }
+    };
+
+    // Add event listener
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Cleanup function
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   return (
     <>
-      <nav className="navbar navbar-expand-lg main-navbar" style={{ backgroundColor: `${navbar ? " #043820" :"rgb(65 88 65) "}` }}>
+      <nav className="navbar navbar-expand-lg main-navbar" style={{ backgroundColor: `${navbar ? " #043820" : "rgb(65 88 65) "}` }}>
         <div style={{ width: "50px" }}>
           <Link className="navbar-brand logo" to={"/home"}>
             <img src='img/fern.png' style={{ width: "100%", height: "100%", transform: "rotate(20deg)" }} /></Link>
@@ -66,13 +83,28 @@ function Navbar() {
                     <Link className="nav-link link-color" to="/admin/mainpage">Production Chart</Link>
                   </li>
 
+
                 </ul>
               ) : (
                 <ul className='Usernavbar'>
                   <Link className=' userlist text-white link-color' to={"/userhome"}><li className='userlist'><img className="usernav-icon  pe-1" src='img/home.png' /> Home</li></Link>
                   <Link className='userlist text-white link-color' to={"/openaccount"}><img className="usernav-icon  pe-1" src='img/dashboard.png' />Dashboard</Link>
                   <Link className='userlist text-white link-color' to={"/userfield"}><img className="usernav-icon  pe-1" src='img/field.png' />Fields</Link>
-                  <Link to={"/croppage"} className='userlist text-white link-color'><img className="usernav-icon  pe-1" src='img/crop.png' />Crops</Link>
+
+                  <div className='' ref={dropdownoneRef}>
+                    <Link onClick={() => setCrop(true)} className='userlist text-white link-color '><img className="usernav-icon pe-1" src='img/crop.png' />
+                      Crops</Link>
+
+                    <div className='dropdown-btn'
+                      style={{ backgroundColor: "#e6e6e6", padding: "9px", display: `${crop ? "block" : "none"}` }}
+                    >
+                      <Link to={"/croppage"} className='link-color-set ' > <span className='set-font'>Crop & Activities</span> </Link>
+                      <Link to={"/croprotationpage"} className='link-color-set1'><span className='set-font'>Crop Rotation</span></Link>
+                    </div>
+
+                  </div>
+
+
                   <Link to={"/soilpage"} className='userlist text-white link-color'><img className="usernav-icon pe-1" src='img/soil.png' />Soil</Link>
                   <Link to={"/"} className='userlist text-white link-color'><img className="usernav-icon pe-1" src='img/cloudy.png' />Weather</Link>
                   <Link to={"/production"} className='userlist text-white link-color'><img className="usernav-icon  pe-1" src='img/incom.png' />Production cost</Link>
@@ -104,11 +136,15 @@ function Navbar() {
                   <NavDropdown />
                 </li>
 
+
               </div>
             )
           }
-
-
+          <ul className="navbar-nav farm_gap">
+          <li className="nav-item ">
+            <Link className="nav-link link-color" to="/admin/mainpage"> Admin</Link>
+          </li>
+          </ul>
         </div>
       </nav>
 

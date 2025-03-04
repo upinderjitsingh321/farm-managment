@@ -12,7 +12,6 @@ function FarmForm() {
   const [farmid, setFarmId] = useState("")
   const [longitude, setLongitude] = useState("")
   const [latitude, setLatitude] = useState("")
- 
   const [fathername, setFatherName] = useState("")
 
   const handleSubmit = (e) => {

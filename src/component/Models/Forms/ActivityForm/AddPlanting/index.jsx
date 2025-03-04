@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState  } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import CloseIcon from '@mui/icons-material/Close';
+
 
 
 
@@ -16,18 +17,16 @@ function ModelPlantingForm() {
     const [enddate, SetEndDate] = useState("")
     const [user, setUser] = useState("")
     const [note, setNote] = useState("");
-    
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(farm,fieldno, activity, plantingrate, date, enddate, user, note)
+        console.log(farm, fieldno, activity, plantingrate, date, enddate, user, note)
 
     }
+   
     return (
         <>
-            {/* <button className='add-button' onClick={() => setShow(true)}>
-                <AddCircleIcon /> Add Activities
-            </button> */}
-
+            
             <Modal
                 show={show}
                 onHide={() => setShow(false)}
@@ -38,7 +37,7 @@ function ModelPlantingForm() {
             >
                 <Modal.Header style={{ backgroundColor: "rgb(108, 146, 108)", padding: "0px 10px", color: "white", display: "flex", justifyContent: "space-between" }}>
                     <Modal.Title id="example-custom-modal-styling-title">
-                       Activity
+                        Activity
                     </Modal.Title>
                     <CloseIcon className='text-danger' />
                 </Modal.Header>
@@ -99,7 +98,7 @@ function ModelPlantingForm() {
                             </div>
 
                         </div>
-                       
+
 
                         <div className="comman_div_button text-center mt-3">
                             <button type="submit" className="btn px-4 py-2 text-white" style={{ backgroundColor: "rgb(108, 146, 108)" }}>Save</button>

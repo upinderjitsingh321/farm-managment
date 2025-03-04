@@ -1,13 +1,12 @@
 import { useState } from "react";
 import Button from "@mui/material/Button";
-import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import EditIcon from '@mui/icons-material/Edit';
 
 function UserList() {
-    const initialData = [
+    const [initialData,setIntitialData] = useState([
         {
+            
             name: "John Doe",
             dob: "123-456-7890",
             address: "35.123, -80.987",
@@ -18,7 +17,17 @@ function UserList() {
             idproof: "6.5",
         },
         {
-            name: "John Doe",
+            name: "vaibhav",
+            dob: "123-456-7890",
+            address: "35.123, -80.987",
+            state: "35.123, -80.987",
+            phone: "Loamy",
+            fathername: "2025",
+            gender: "20",
+            idproof: "6.5",
+        },
+        {
+            name: "joshi",
             dob: "123-456-7890",
             address: "35.123, -80.987",
             state: "35.123, -80.987",
@@ -27,10 +36,14 @@ function UserList() {
             gender: "20",
             idproof: "6.5",
         }
-    ];
+    ]);
 
-    const [data, setData] = useState(initialData);
+    
 
+ const handeldelete=(name) =>{
+    const updatedata = initialData.filter((initial) => initial.name !== name);
+    setIntitialData(updatedata);
+ };
 
 
     return (
@@ -38,11 +51,10 @@ function UserList() {
            <div className="d-flex gap-2 justify-content-between align-items-center">
              <div className="d-flex gap-2 justify-content-between align-items-center">
                 <p className="m-0">Show</p>
-           <input style={{height:"25px",width:"40px"}}>
-          </input>
+           <input type="number" style={{height:"25px",width:"40px"}}/>
+          
            <div className="d-grid">
-            <ArrowDropUpIcon/>
-           <ArrowDropDownIcon/>
+           
            </div>
             <p className="m-0">Entries</p>
             </div>
@@ -66,7 +78,7 @@ function UserList() {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map((record) => (
+                    {initialData.map((record) => (
                         <tr key={record.id} className="border border-gray-300">
                             <td className="border border-gray-300 p-2">{record.name}</td>
                             <td className="border border-gray-300 p-2">{record.dob}</td>
@@ -77,10 +89,10 @@ function UserList() {
                             <td className="border border-gray-300 p-2">{record.gender}</td>
                             <td className="border border-gray-300 p-2">{record.idproof}</td>
                             <td className="border border-gray-300 p-2">
-                                <Button variant="contained" color="success" className="w-25 me-2" >
+                                <Button variant="contained" color="success" className="w-25 me-2 pe-3" >
                                    <EditIcon/> Edit
                                 </Button>
-                                <Button variant="contained" color="error" >
+                                <Button onClick = {() => handeldelete(record.name)} variant="contained" color="error" >
                                    <DeleteForeverIcon/> Delete
                                 </Button>
                             </td>

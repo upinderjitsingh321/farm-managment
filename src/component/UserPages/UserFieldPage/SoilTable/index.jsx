@@ -2,7 +2,6 @@ import React from 'react'
 import "./style.css"
 import MinimizeIcon from '@mui/icons-material/Minimize';
 import CloseIcon from '@mui/icons-material/Close';
-import ModelSoilForm from '../../../Models/Forms/Soilform';
 import EditIcon from '@mui/icons-material/Edit';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { Button } from '@mui/material';

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import Button from "@mui/material/Button";
-import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import  {Link}  from "react-router-dom";
+import "./style.css"
 function FarmerList() {
     const initialData = [
         {
@@ -19,7 +19,7 @@ function FarmerList() {
             action: "25%",
         },
         {
-            id: 1,
+            id: 2,
             name: "John Doe",
             email: "123-456-7890",
             address: "35.123, -80.987",
@@ -41,11 +41,9 @@ function FarmerList() {
            <div className="d-flex gap-2 justify-content-between align-items-center">
              <div className="d-flex gap-2 justify-content-between align-items-center">
                 <p className="m-0">Show</p>
-           <input style={{height:"25px",width:"40px"}}>
-          </input>
+           <input type="number" style={{height:"25px",width:"40px"}}/>
            <div className="d-grid">
-            <ArrowDropUpIcon/>
-           <ArrowDropDownIcon/>
+           
            </div>
             <p className="m-0">Entries</p>
             </div>
@@ -81,13 +79,13 @@ function FarmerList() {
                             <td className="border border-gray-300 p-2">{record.area}</td>
                             <td className="border border-gray-300 p-2">{record.registrationdate}</td>
                             <td className="border border-gray-300 p-2">{record.status}</td>
-                            <td className="border border-gray-300 p-2">
-                                <Button variant="contained" color="success" className="w-50 me-2" >
+                            <td className="border border-gray-300 p-2 text-center">
+                                <Link  to={`/admin/farmerdetails/${record.id}`}  className="link-edit me-2" >
                                    <VisibilityIcon/> View Details
-                                </Button>
-                                <Button variant="contained" color="error" >
+                                </Link>
+                                <Link className="link-edit me-2 bg-danger" >
                                    <DeleteForeverIcon/> Delete
-                                </Button>
+                                </Link>
                             </td>
                         </tr>
                     ))}
