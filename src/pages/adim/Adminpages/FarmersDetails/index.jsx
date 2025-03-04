@@ -1,12 +1,12 @@
 import React from 'react'
-import CropListTable from '../../../../component/UserPages/UserCropPage/CropListTable'
-import UserFarmTable from '../../../../component/UserPages/UserFieldPage/FarmTable'
+import "./style.css"
 import AdminUserFarmTable from '../../../../component/admincomponents/farmerTables/FarmTable'
 import AdminCropListTable from '../../../../component/admincomponents/farmerTables/CropsTables'
 import AdminSoilTable from '../../../../component/admincomponents/farmerTables/SoilTables'
 import AdminChemicaltable from '../../../../component/admincomponents/farmerTables/ChemicalTable'
 import AdminUserFieldTable from '../../../../component/admincomponents/farmerTables/FieldsTable'
 import AdminNutrient from '../../../../component/admincomponents/farmerTables/NutrientsTable'
+import { useParams } from 'react-router'
 
 
 function FarmerDetails() {
@@ -16,9 +16,12 @@ function FarmerDetails() {
         { FarmId:"#01", FarmName:"JattFarm", Type:"Crop", Created:"27-2-2025",  Owner:"Upinderjit Singh", Fields:"4", Acre:"20", Active:"Active"},
         { FarmId:"#01", FarmName:"JattFarm", Type:"Crop", Created:"27-2-2025",  Owner:"Upinderjit Singh", Fields:"4", Acre:"20", Active:"Active"}]
 
+const router= useParams()
 
   return (
     <div className=''>
+      <h4 className='ms-3 mt-2'>{router?.name}</h4>
+      <div className='empty'></div>
       <div className="row mx-1">
         <div className="col-md-6">
         <AdminUserFarmTable heading={"Farm List"} data={FarmTable}  />

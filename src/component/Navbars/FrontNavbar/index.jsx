@@ -9,7 +9,7 @@ function Navbar() {
   const [isLogin, setIslogin] = useState(true)
   const [profile, setProfile] = useState(false)
   const [crop, setCrop] = useState(false)
-  const [navbar, setNavbar] = useState(true)
+  const [navbar, setNavbar] = useState(false)
   const dropdownRef = useRef(null);
   const dropdownoneRef = useRef(null);
 
@@ -142,7 +142,7 @@ function Navbar() {
           }
           <ul className="navbar-nav farm_gap">
           <li className="nav-item ">
-            <Link className="nav-link link-color" to="/admin/mainpage"> Admin</Link>
+            <Link className="nav-link admin-set" to="/admin/mainpage"> Admin</Link>
           </li>
           </ul>
         </div>

@@ -66,7 +66,7 @@ function AllRoutes() {
                 <Route path="/soilpage" element={<UserSoilPage/>} />
                 <Route path="/admin/farmerlist" element={<FarmerList/>} />
                 <Route path="/admin/userslist" element={<UserList/>} />
-                <Route path="/admin/farmerdetails/:id" element={<FarmerDetails/>} />
+                <Route path="/admin/farmerdetails/:name" element={<FarmerDetails/>} />
 
 
 

@@ -58,7 +58,7 @@ function ModelMainSoilForm() {
           <Modal.Title id="example-custom-modal-styling-title">
             Soil Detail 
           </Modal.Title>
-          <CloseIcon className='text-danger'/>
+          <CloseIcon className='text-danger' onClick={() => setShow(false)} style={{ cursor: "pointer" }}/>
         </Modal.Header>
         <Modal.Body>
 

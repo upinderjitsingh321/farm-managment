@@ -42,7 +42,7 @@ const renderActiveShape = (props) => {
 const IrrigationPieChart = ({
   data = [],
   width= 398,
-  height= 524,
+  height= 424,
   innerRadius = 60,
   outerRadius = 80,
   tittle = "default",
@@ -59,14 +59,10 @@ const IrrigationPieChart = ({
 
 
   return (
-    <div className='userdashboardtable1' style={{ width: width, height: height }}>
-      <div className='dash-title d-flex justify-content-end'>
-          <MinimizeIcon className='pb-1' />
-          <CloseIcon className='pt-2 text-danger' />
-        
-      </div>
+    <div className='' style={{ width: width, height: height }}>
+     
       <h4 className=' mt-5 text-center'>{heading}</h4>
-      <ResponsiveContainer width="100%" height="78%">
+      <ResponsiveContainer width="100%" height="92%">
         {data.length > 0 ? (
           <PieChart>
           <Pie

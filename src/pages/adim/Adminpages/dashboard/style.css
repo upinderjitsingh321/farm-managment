@@ -85,11 +85,7 @@
     border-radius: 10px;
 }
 
-.set-color {
-    background-color: rgb(108, 146, 108);
-    height: 35px;
-    text-align: end;
-}
+
 .set-mag{
     margin: 4px -7px;
 }

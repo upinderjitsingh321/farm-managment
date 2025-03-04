@@ -7,8 +7,7 @@ import AdminPieChart from '../../../../component/Charts/AdminCharts/PieChart/Ind
 import IrrigationPieChart from '../../../../component/Charts/AdminCharts/AverageIrrigation';
 import PhPieChart from '../../../../component/Charts/AdminCharts/AveragePhChart/Index';
 import PracticesPieChart from '../../../../component/Charts/AdminCharts/AveragePractices';
-import MinimizeIcon from '@mui/icons-material/Minimize';
-import CloseIcon from '@mui/icons-material/Close';
+
 
 function Dashboard() {
 
@@ -41,7 +40,7 @@ function Dashboard() {
 
   return (
     <div>
-      <div className="right-content" style={{background:"#e1e4e7b3"}}>
+      <div className="right-content" style={{background:"rgb(225 228 231 / 38%);"}}>
         <div className="row dashboardboxwraperrow">
           <div className="col-md-8">
             <div className="dashboardboxwraper d-flex ">
@@ -60,9 +59,7 @@ function Dashboard() {
         </div>
         <div className="row ms-0 my-4" style={{ gap: "20px" }}>
           <div className="col-md-4 bg-white  cropdata">
-            <div className='border border-dark set-mag'>
-              <div className='set-color'><MinimizeIcon className='pb-1' />
-              <CloseIcon className='pt-2 text-danger' /></div>
+            <div className='set-mag'>
               <h4 className='mt-5 text-center '>Crop Growth Analysis</h4>
               <AdminPieChart data={data1} />
 
@@ -72,11 +69,7 @@ function Dashboard() {
             <IrrigationPieChart data={data1} heading='Farm Irrigation Statistics' />
           </div>
           <div className="col-md-4 bg-white  cropdata">
-            <div className='border border-dark set-mag'>
-              <div className='set-color'>
-                <MinimizeIcon className='pb-1' />
-              <CloseIcon className='pt-2 text-danger' />
-              </div>
+            <div className=' set-mag'>             
               <h4 className='mt-5 text-center '>Crop Growth Analysis</h4>
               <AdminPieChart data={data1} />
 
@@ -86,10 +79,8 @@ function Dashboard() {
         </div>
         <div className="row ms-0 my-4 gap-3" >
           <div className="col-md-8 bg-white" style={{width:"65%", borderRadius:"10px"}}>
-            <div className='border border-dark set-mag'>
-              <div className='set-color'><MinimizeIcon className='pb-1' />
-              <CloseIcon className='pt-2 text-danger' /></div>
-              <div className='d-flex justify-content-center' style={{ gap: "6rem" }}>
+            <div className=' set-mag'>
+                 <div className='d-flex justify-content-center' style={{ gap: "6rem" }}>
                 <h4 className='mt-5'> Soil Nutrient Deficiency</h4>
                 <h4 className='mt-5'> Soil Nutrient Surplus</h4>
               </div>

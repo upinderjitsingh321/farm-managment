@@ -8,19 +8,21 @@ import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrow
 import EditIcon from '@mui/icons-material/Edit';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'; import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { CgProfile } from 'react-icons/cg'
-import AgricultureIcon from '@mui/icons-material/Agriculture';
-import { MdLogout } from 'react-icons/md'
+
+import ModelPlantingForm from '../../../Models/Forms/ActivityForm/AddPlanting';
+import ModelHarvestForm from '../../../Models/Forms/ActivityForm/Addharvest';
 
 function ActivityListTable(props) {
 
   const dropdownRef = useRef(null);
-  const [show, setShow] = useState(false);
+  const [showdrop, setShowdrop] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpen1, setModalOpen1] = useState(false);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setShow(false);
+        setShowdrop(false);
       }
     };
 
@@ -37,18 +39,19 @@ function ActivityListTable(props) {
       <div className='dash-title d-flex justify-content-between'>
         <h5 className='pt-1 ps-2'>{props.heading}<KeyboardDoubleArrowDownIcon /></h5>
         <div className='profile-dropdown' ref={dropdownRef}>
-          <button className='add-button' onClick={() => setShow(true)}>
+          <button className='add-button' onClick={() => setShowdrop(true)}>
             <AddCircleIcon /> Add Activities<KeyboardArrowDownIcon/>
             <div className='dropdown-btn'
-              style={{ display: `${show ? "block" : "none"}` }}
+              style={{ display: `${showdrop ? "block" : "none"}` }}
             >
-              <Link to={"/account"} > <img src='img/planting.png' className='img-icon' />Add Planting</Link>
-              <Link to={"/openaccount"}> <img src='img/harvest.png' className='img-icon' />Add Harvest</Link>
+              <Link to={""} onClick={(e) => { e.preventDefault(); setModalOpen(true); }}> <img src='img/planting.png' className='img-icon' />Add Planting</Link>
+              <Link to={""} onClick={(e) => { e.preventDefault(); setModalOpen1(true); }}> <img src='img/harvest.png' className='img-icon' />Add Harvest</Link>
             </div>
           </button>
         </div>
 
-
+        <ModelPlantingForm show={modalOpen} onclose={() => setModalOpen(false)} />
+          <ModelHarvestForm show={modalOpen1} onclose={() => setModalOpen1(false)}/>
 
 
 

@@ -6,7 +6,7 @@ import CloseIcon from '@mui/icons-material/Close';
 
 
 
-function ModelPlantingForm({show,onclose}) {
+function ModelHarvestForm({show,onclose}) {
     
 
     const [farm, setFarm] = useState("")
@@ -15,11 +15,12 @@ function ModelPlantingForm({show,onclose}) {
     const [plantingrate, setPlantingRate] = useState("")
     const [date, setDate] = useState("")
     const [enddate, SetEndDate] = useState("")
+    const [quantity, setQuantity] = useState("")
     const [note, setNote] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(farm, fieldno, activity, plantingrate, date, enddate, note)
+        console.log(farm, fieldno, activity,quantity, plantingrate, date, enddate, user, note)
 
     }
    
@@ -63,7 +64,7 @@ function ModelPlantingForm({show,onclose}) {
                                 <input type="type" class="form-control" id="feild_no" placeholder='#01' onChange={(e) => setActivity(e.target.value)} />
                             </div>
                             <div class="col-md-6">
-                                <label for="farm_area" class="form-label">Planting  Rate (per Acre)</label>
+                                <label for="farm_area" class="form-label">Harvesting  Rate</label>
                                 <input type="type" class="form-control" id="farm_area" placeholder="0" onChange={(e) => setPlantingRate(e.target.value)} />
                             </div>
 
@@ -83,12 +84,14 @@ function ModelPlantingForm({show,onclose}) {
 
                         </div>
                         <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="select_variety" class="form-label">Quantity </label>
+                                <input type='text' class="form-control " placeholder='' onChange={(e) => setQuantity(e.target.value)} />
 
-
-                          
+                            </div>
                             <div class="col-md-6">
                                 <label for="select_variety" class="form-label">Note</label>
-                                <input type='text' class="form-control " placeholder='Crop Variety Name' onChange={(e) => setNote(e.target.value)} />
+                                <input type='text' class="form-control " placeholder='Note' onChange={(e) => setNote(e.target.value)} />
 
                             </div>
 
@@ -105,4 +108,4 @@ function ModelPlantingForm({show,onclose}) {
     );
 }
 
-export default ModelPlantingForm;
+export default ModelHarvestForm;

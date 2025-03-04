@@ -16,7 +16,7 @@ function UserCropTable(props) {
         <CloseIcon className='pt-2 text-danger'/>
         </div>
     </div>
-  <table className="w-100 border-collapse border border-gray-300 mb-5">
+  <table className="w-100 border-collapse border border-gray-300 crop-length">
           <thead>
             <tr className="bg-gray-200">
               <th className="border border-gray-300 p-2">Feild </th>

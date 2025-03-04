@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Button from "@mui/material/Button";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import  {Link}  from "react-router-dom";
@@ -20,7 +19,7 @@ function FarmerList() {
         },
         {
             id: 2,
-            name: "John Doe",
+            name: "upinder",
             email: "123-456-7890",
             address: "35.123, -80.987",
             phone: "Loamy",
@@ -80,7 +79,7 @@ function FarmerList() {
                             <td className="border border-gray-300 p-2">{record.registrationdate}</td>
                             <td className="border border-gray-300 p-2">{record.status}</td>
                             <td className="border border-gray-300 p-2 text-center">
-                                <Link  to={`/admin/farmerdetails/${record.id}`}  className="link-edit me-2" >
+                                <Link  to={`/admin/farmerdetails/${record.name}`}  className="link-edit me-2" >
                                    <VisibilityIcon/> View Details
                                 </Link>
                                 <Link className="link-edit me-2 bg-danger" >
