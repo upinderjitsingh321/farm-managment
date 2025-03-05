@@ -30,6 +30,7 @@ import UserSoilPage from './pages/UserPages/SoilPage';
 import FarmerList from './pages/adim/Adminpages/FarmersTable';
 import UserList from './pages/adim/Adminpages/UserTable';
 import FarmerDetails from './pages/adim/Adminpages/FarmersDetails';
+import OwnerLogin from './pages/adim/AdminLogin';
 
 function AllRoutes() {
     return (
@@ -66,7 +67,9 @@ function AllRoutes() {
                 <Route path="/soilpage" element={<UserSoilPage/>} />
                 <Route path="/admin/farmerlist" element={<FarmerList/>} />
                 <Route path="/admin/userslist" element={<UserList/>} />
+                <Route path="/admin/userslist" element={<UserList/>} />
                 <Route path="/admin/farmerdetails/:name" element={<FarmerDetails/>} />
+                <Route path="/ownerlogin" element={<OwnerLogin/>} />
 
 
 

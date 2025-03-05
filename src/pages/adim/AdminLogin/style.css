@@ -1,0 +1,13 @@
+.custom-modal .modal-dialog {
+    max-width: 400px; /* Change width */
+    height: 400px; /* Change height */
+    
+}
+
+.custom-modal .modal-content {
+    background-color: #f4f4f4; /* Change background color */
+    border-radius: 10px; /* Optional: Round corners */
+    width: 350px;
+   
+
+}

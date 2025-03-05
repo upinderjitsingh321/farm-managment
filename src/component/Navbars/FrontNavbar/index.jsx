@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./Navbar.css"
 import { Link } from 'react-router-dom'
 import NavDropdown from '../../dropdown'
 import { CgProfile } from 'react-icons/cg'
 import AgricultureIcon from '@mui/icons-material/Agriculture';
 import { MdLogout } from 'react-icons/md'
+import OwnerLogin from '../../../pages/adim/AdminLogin'
 function Navbar() {
   const [isLogin, setIslogin] = useState(true)
   const [profile, setProfile] = useState(false)
@@ -140,11 +142,10 @@ function Navbar() {
               </div>
             )
           }
-          <ul className="navbar-nav farm_gap">
-          <li className="nav-item ">
-            <Link to={"/admin/dashboard"} className="nav-link admin-set"> Admin</Link>
-          </li>
-          </ul>
+     
+              
+              <OwnerLogin />
+           
         </div>
       </nav>
 

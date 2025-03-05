@@ -8,8 +8,9 @@ import AddIcon from '@mui/icons-material/Add';
 
 function UserCropTable(props) {
   const [close, setClose] = useState(true)
-  if (!close) return null
   const [minimize, setMinimize] = useState(true)
+  if (!close) return null
+
   return (
     <div className='userdashboardtable shadow my-3 '>
       <div className='dash-title d-flex justify-content-between'>
@@ -20,7 +21,7 @@ function UserCropTable(props) {
             minimize ?
               <MinimizeIcon className='pb-1' onClick={() => setMinimize(false)} style={{ cursor: "pointer" }} />
               :
-              <AddIcon className='pb-1' onClick={() => setMinimize(true)} style={{ cursor: "pointer" }} />
+              <AddIcon className='pt-2' onClick={() => setMinimize(true)} style={{ cursor: "pointer" }} />
           }
           <CloseIcon className='pt-2 text-danger' onClick={() => setClose(false)} style={{ cursor: "pointer" }} />
         </div>
