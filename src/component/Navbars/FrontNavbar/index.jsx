@@ -142,7 +142,7 @@ function Navbar() {
           }
           <ul className="navbar-nav farm_gap">
           <li className="nav-item ">
-            <Link className="nav-link admin-set" to="/admin/mainpage"> Admin</Link>
+            <Link to={"/admin/dashboard"} className="nav-link admin-set"> Admin</Link>
           </li>
           </ul>
         </div>

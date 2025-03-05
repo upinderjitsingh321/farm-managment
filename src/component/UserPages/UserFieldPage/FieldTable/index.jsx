@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./style.css"
 import MinimizeIcon from '@mui/icons-material/Minimize';
 import CloseIcon from '@mui/icons-material/Close';
@@ -9,6 +9,8 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { Button } from '@mui/material';
 
 function UserFieldTable(props) {
+  const [close,setClose]= useState(true)
+  if(!close) return null
   return (
     <div className='userdashboardtable shadow my-3 '>
     <div className='dash-title d-flex justify-content-between'>
@@ -16,7 +18,7 @@ function UserFieldTable(props) {
         <ModelFieldForm/>
         <div>
             <MinimizeIcon className='pb-1'/>
-        <CloseIcon className='pt-2 text-danger'/>
+        <CloseIcon className='pt-2 text-danger' onClick={() =>setClose(false)} style={{cursor:"pointer"}}/>
         </div>
     </div>
   <table className="w-100 border-collapse border border-gray-300 mb-5">

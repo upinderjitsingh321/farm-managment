@@ -73,7 +73,8 @@ const CustomAreaPieChart = ({
   const onPieEnter = (_, index) => {
     setActiveIndex(index);
   };
-
+const [close,setClose] =useState(true)
+if(!close) return null
 
   return (
     <div className='userdashboardtable1 shadow' style={{ width: width, height: height }}>
@@ -81,7 +82,7 @@ const CustomAreaPieChart = ({
         <h5 className='pt-1 ps-2'>{heading}</h5>
         <div>
           <MinimizeIcon className='pb-1' />
-          <CloseIcon className='pt-2 text-danger' />
+          <CloseIcon className='pt-2 text-danger' onClick={() => setClose(false)} style={{cursor:"pointer"}}/>
         </div>
       </div>
 
@@ -108,13 +109,6 @@ const CustomAreaPieChart = ({
           <p style={{ textAlign: "center", color: "#888" }}>No Data Available</p>
         )}
       </ResponsiveContainer>
-
-      <div className='mt-5 text-end arrowdiv1'>
-        <Link style={{ color: 'rgb(79 110 79)', marginRight: "10px" }}>
-          {getlink(tittle)}
-        </Link>
-        <ArrowForwardIcon style={{ backgroundColor: "rgb(79 110 79)", color: "white", borderRadius: "50%", marginRight: "10px", fontSize: "20px" }} />
-      </div>
     </div>
   );
 };

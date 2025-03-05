@@ -34,8 +34,10 @@ function ActivityListTable(props) {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+  const [close,setClose] =useState(true)
+  if(!close) return null
   return (
-    <div className='userdashboardtable shadow my-3 table-length '>
+    <div className='userdashboardtable shadow my-3 '>
       <div className='dash-title d-flex justify-content-between'>
         <h5 className='pt-1 ps-2'>{props.heading}<KeyboardDoubleArrowDownIcon /></h5>
         <div className='profile-dropdown' ref={dropdownRef}>
@@ -57,7 +59,7 @@ function ActivityListTable(props) {
 
         <div>
           <MinimizeIcon className='pb-1' />
-          <CloseIcon className='pt-2 text-danger' />
+          <CloseIcon className='pt-2 text-danger' onClick={( )=> setClose(false)} style={{cursor:"pointer"}} />
         </div>
       </div>
       <table className="w-100 border-collapse border border-gray-300 mb-5">

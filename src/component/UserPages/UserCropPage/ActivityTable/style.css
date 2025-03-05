@@ -1,6 +1,7 @@
 .userdashboardtable {
     width: 100%;
     border: 1px soild black;
+    height: auto;
 }
 
 .dash-title {
@@ -10,9 +11,7 @@
 .arrowdiv {
     background-color: rgb(225 237 225);
 }
-.table-length{
-    height: 242px;
-}
+
 .img-icon{
     height: 25px;
     margin-right: 2px;

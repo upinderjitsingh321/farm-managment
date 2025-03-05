@@ -7,7 +7,7 @@ import { Button } from '@mui/material';
 import ModelNutrientForm from '../../../Models/Forms/NutrientForm';
 function Nutrient(props) {
   return (
-    <div className='userdashboardtable shadow table-length mb-4 '>
+    <div className='userdashboardtable shadow'>
       <div className='dash-title d-flex justify-content-between'>
         <h5 className='pt-1 ps-2'>{props.heading}</h5>
         <ModelNutrientForm/>

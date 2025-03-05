@@ -4,7 +4,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import "./style.css"
 function AdminSoilTable(props) {
   return (
-    <div className='userdashboardtable1 shadow my-3 '>
+    <div className='userdashboardtable shadow my-3 '>
       <div className='dash-title d-flex justify-content-between'>
         <h5 className='pt-1 ps-2'>{props.heading}</h5>
         <div>

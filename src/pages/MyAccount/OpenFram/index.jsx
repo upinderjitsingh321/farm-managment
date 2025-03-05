@@ -44,13 +44,13 @@ function UserFarm() {
           <div className="container">
             <div className="row">
               <div className="col-md-4 p-0 mb-4">
-                <CustomPieChart data={data1} colors='#FF8042' heading="Summary of Year" tittle="crop" />
+                <CustomPieChart data={data1} colors='#FF8042' heading="Summary of Year" tittle="crop" link="/croprotationpage"/>
               </div>
               <div className="col-md-4 ">
-                <CustomPieChart data={data2}  heading="Summary of Chemical[2025]" tittle="chemical" />
+                <CustomPieChart data={data2}  heading="Summary of Chemical[2025]" tittle="chemical" link="/soilpage" />
               </div>
               <div className="col-md-4 position-relative ">
-                <CustomPieChart data={data3}  heading="Cost[2025]" tittle="profit" />
+                <CustomPieChart data={data3}  heading="Cost[2025]" tittle="profit" link="/production" />
 
 
               </div>

@@ -9,8 +9,10 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { Button } from '@mui/material';
 
 function CropListTable(props) {
-
+  const [close,setClose] = useState(true)
+  if (!close) return null;
   return (
+    
     <div className='userdashboardtable shadow my-3 croplist-height1 '>
       <div className='dash-title d-flex justify-content-between'>
         <h5 className='pt-1 ps-2'>
@@ -22,7 +24,7 @@ function CropListTable(props) {
 
         <div>
           <MinimizeIcon className='pb-1'/>
-          <CloseIcon className='pt-2 text-danger'/>
+          <CloseIcon className='pt-2 text-danger' onClick ={() => setClose(false)} style={{cursor:"pointer"}} />
         </div>
       </div>
 
@@ -60,8 +62,12 @@ function CropListTable(props) {
           </tr>
         </tbody>
       </table>
+     
     </div>
-  )
+  
+  
+ 
+)
 }
 
 export default CropListTable;

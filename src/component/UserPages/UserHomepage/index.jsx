@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Button from "@mui/material/Button";
 import "./style.css"
+import { Link } from "react-router-dom";
+import { ButtonBase } from "@mui/material";
 
 function UserHome() {
 const initialData = [
@@ -59,9 +61,9 @@ const initialData = [
               <td className="border border-gray-300 p-2">{record.profit}</td>
             
               <td className="border border-gray-300 p-2 text-center">
-                <Button className="openfarm"  >
+               <Link to={"/openaccount"} className=" openfarm"  >
                   Open This Farm
-                </Button>
+                </Link>
               </td>
               
             </tr>

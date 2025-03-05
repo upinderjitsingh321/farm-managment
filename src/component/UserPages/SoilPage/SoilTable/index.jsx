@@ -8,7 +8,7 @@ import ModelNutrientForm from '../../../Models/Forms/NutrientForm';
 import ModelUpperSoilForm from '../../../Models/Forms/Soilform';
 function SoilTable(props) {
   return (
-    <div className='userdashboardtable shadow table-length'>
+    <div className='userdashboardtable shadow'>
       <div className='dash-title d-flex justify-content-between'>
         <h5 className='pt-1 ps-2'>{props.heading}</h5>
         <ModelUpperSoilForm/>

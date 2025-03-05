@@ -49,7 +49,8 @@ const CustomPieChart = ({
   innerRadius = 60,
   outerRadius = 80,
   tittle = "default",
-  heading = ""
+  heading = "",
+  link=""
 }) => {
 
   const COLORS = ["#bdb76b", "#808080 ", "#836953 ", "#fa8072 ", "#2e8b57", "#4682b4", "#9370db"];
@@ -73,7 +74,8 @@ const CustomPieChart = ({
   const onPieEnter = (_, index) => {
     setActiveIndex(index);
   };
-
+const [close,setClose] =useState(true)
+if(!close) return null
 
   return (
     <div className='userdashboardtable1 shadow' style={{ width: width, height: height }}>
@@ -81,7 +83,7 @@ const CustomPieChart = ({
         <h5 className='pt-1 ps-2'>{heading}</h5>
         <div>
           <MinimizeIcon className='pb-1' />
-          <CloseIcon className='pt-2 text-danger' />
+          <CloseIcon className='pt-2 text-danger' onClick={() => setClose(false)} style={{cursor:"pointer"}} />
         </div>
       </div>
 
@@ -110,10 +112,11 @@ const CustomPieChart = ({
       </ResponsiveContainer>
 
       <div className='mt-5 text-end arrowdiv1'>
-        <Link style={{ color: 'rgb(79 110 79)', marginRight: "10px" }}>
+        <Link to={link} style={{ color: 'rgb(79 110 79)', marginRight: "10px" }}>
           {getlink(tittle)}
+        
+        <ArrowForwardIcon style={{ backgroundColor: "rgb(79 110 79)", color: "white", borderRadius: "50%", marginRight: "10px",marginLeft:"10px", fontSize: "20px" }} />
         </Link>
-        <ArrowForwardIcon style={{ backgroundColor: "rgb(79 110 79)", color: "white", borderRadius: "50%", marginRight: "10px", fontSize: "20px" }} />
       </div>
     </div>
   );
