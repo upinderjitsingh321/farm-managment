@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function Admin() {
     return (
         <>
-         admin Page
+         
         </>
     )
 }

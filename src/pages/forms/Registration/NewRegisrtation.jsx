@@ -6,7 +6,7 @@ import * as yup from "yup";
 import "./registration.css"
 import { useNavigate } from "react-router";
 const FarmerRegistration = () => {
-const farmername = /^[A-Za-z]+$/i
+const farmername = /^[A-Za-z\s]+$/i
 const phoneno =  /^[0-9]+$/;
   const schema = yup.object().shape({
     name: yup.string().required("Name is required").matches(farmername,"Name must be letters"),

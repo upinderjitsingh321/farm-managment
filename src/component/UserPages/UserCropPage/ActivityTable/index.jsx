@@ -8,7 +8,7 @@ import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrow
 import EditIcon from '@mui/icons-material/Edit';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'; import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
-
+import AddIcon from '@mui/icons-material/Add';
 import ModelPlantingForm from '../../../Models/Forms/ActivityForm/AddPlanting';
 import ModelHarvestForm from '../../../Models/Forms/ActivityForm/Addharvest';
 
@@ -18,7 +18,9 @@ function ActivityListTable(props) {
   const [showdrop, setShowdrop] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalOpen1, setModalOpen1] = useState(false);
-
+  const [close,setClose] =useState(true)
+  const [minimize,setMinimize] = useState(true)
+  if(!close) return null
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -34,8 +36,8 @@ function ActivityListTable(props) {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-  const [close,setClose] =useState(true)
-  if(!close) return null
+
+
   return (
     <div className='userdashboardtable shadow my-3 '>
       <div className='dash-title d-flex justify-content-between'>
@@ -57,11 +59,17 @@ function ActivityListTable(props) {
 
 
 
-        <div>
-          <MinimizeIcon className='pb-1' />
-          <CloseIcon className='pt-2 text-danger' onClick={( )=> setClose(false)} style={{cursor:"pointer"}} />
+          <div>
+          {
+            minimize ?
+              <MinimizeIcon className='pb-1' onClick={() => setMinimize(false)} style={{ cursor: "pointer" }} />
+              :
+              <AddIcon className='pt-2' onClick={() => setMinimize(true)} style={{ cursor: "pointer" }} />
+          }
+          <CloseIcon className='pt-2 text-danger' onClick={() => setClose(false)} style={{ cursor: "pointer" }} />
         </div>
       </div>
+      { minimize && (
       <table className="w-100 border-collapse border border-gray-300 mb-5">
         <thead>
           <tr className="bg-gray-200">
@@ -88,7 +96,7 @@ function ActivityListTable(props) {
 
         </tbody>
       </table>
-
+)}
     </div>
   )
 }

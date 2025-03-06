@@ -9,8 +9,8 @@ import { Link } from 'react-router-dom';
 function CropDashboardTable(props) {
   const [close, setClose] = useState(true)
   const [minimize, setMinimize] = useState(true)
-
   if (!close) return null
+  
   return (
     <div className='userdashboardtable shadow'>
       <div className='dash-title d-flex justify-content-between'>
@@ -29,7 +29,7 @@ function CropDashboardTable(props) {
       {minimize && (
         <div>
           <table className="w-100 border-collapse border border-gray-300">
-            <thead>
+            <thead >
               <tr className="bg-gray-200">
                 <th className="border border-gray-300 p-2">Crop Name</th>
                 <th className="border border-gray-300 p-2"> Acre</th>

@@ -8,7 +8,7 @@ import AgricultureIcon from '@mui/icons-material/Agriculture';
 import { MdLogout } from 'react-icons/md'
 import OwnerLogin from '../../../pages/adim/AdminLogin'
 function Navbar() {
-  const [isLogin, setIslogin] = useState(true)
+  const [isLogin, setIslogin] = useState(false)
   const [profile, setProfile] = useState(false)
   const [crop, setCrop] = useState(false)
   const [navbar, setNavbar] = useState(false)
@@ -84,6 +84,9 @@ function Navbar() {
                   <li className="nav-item ">
                     <Link className="nav-link link-color" to="/admin/mainpage">Production Chart</Link>
                   </li>
+                  <li className="nav-item ">
+                    <Link className="nav-link link-color" to="/admin/login"> Admin</Link>
+                  </li>
 
 
                 </ul>
@@ -141,10 +144,8 @@ function Navbar() {
 
               </div>
             )
-          }
-     
+          }  
               
-              <OwnerLogin />
            
         </div>
       </nav>

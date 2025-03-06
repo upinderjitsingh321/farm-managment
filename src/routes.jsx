@@ -30,7 +30,8 @@ import UserSoilPage from './pages/UserPages/SoilPage';
 import FarmerList from './pages/adim/Adminpages/FarmersTable';
 import UserList from './pages/adim/Adminpages/UserTable';
 import FarmerDetails from './pages/adim/Adminpages/FarmersDetails';
-import OwnerLogin from './pages/adim/AdminLogin';
+import AdminLogin from './pages/adim/AdminLogin';
+import AdminForgotPassword from './pages/adim/AdminLogin/AdminForgotPass';
 
 function AllRoutes() {
     return (
@@ -69,7 +70,8 @@ function AllRoutes() {
                 <Route path="/admin/userslist" element={<UserList/>} />
                 <Route path="/admin/userslist" element={<UserList/>} />
                 <Route path="/admin/farmerdetails/:name" element={<FarmerDetails/>} />
-                <Route path="/ownerlogin" element={<OwnerLogin/>} />
+                <Route path="/admin/login" element={<AdminLogin/>} />
+                <Route path="/admin/Forgotpassword" element={<AdminForgotPassword/>} />
 
 
 

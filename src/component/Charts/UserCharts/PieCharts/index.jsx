@@ -82,7 +82,6 @@ if(!close) return null
       <div className='dash-title d-flex justify-content-between'>
         <h5 className='pt-1 ps-2'>{heading}</h5>
         <div>
-          <MinimizeIcon className='pb-1' />
           <CloseIcon className='pt-2 text-danger' onClick={() => setClose(false)} style={{cursor:"pointer"}} />
         </div>
       </div>
