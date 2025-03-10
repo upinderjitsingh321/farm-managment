@@ -7,9 +7,7 @@ function WeatherDashboard() {
     const [forecast, setForecast] = useState([]);
     const inputRef = useRef();
 
-    useEffect(() => {
-        fetchWeather("Mohali");
-    }, []);
+    console.log(weather, "jj")
 
     const apiKey = "73026c5d784229d0572a3c97fb7a0e53"; // Replace with your actual API key
 
@@ -19,7 +17,7 @@ function WeatherDashboard() {
             const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
             const weatherResponse = await fetch(weatherUrl);
             const weatherData = await weatherResponse.json();
-
+            console.log(weatherData, "checkdata")
             setWeather({
                 name: weatherData.name,
                 temp: weatherData.main.temp,
@@ -50,6 +48,10 @@ function WeatherDashboard() {
             console.error("Error fetching weather:", error);
         }
     };
+
+    useEffect(() => {
+        fetchWeather("Mohali");
+    }, []);
 
     return (
         <div className="container py-5">

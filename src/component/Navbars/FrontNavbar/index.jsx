@@ -6,12 +6,11 @@ import NavDropdown from '../../dropdown'
 import { CgProfile } from 'react-icons/cg'
 import AgricultureIcon from '@mui/icons-material/Agriculture';
 import { MdLogout } from 'react-icons/md'
-import OwnerLogin from '../../../pages/adim/AdminLogin'
 function Navbar() {
-  const [isLogin, setIslogin] = useState(false)
+  const [isLogin, setIslogin] = useState(true)
   const [profile, setProfile] = useState(false)
   const [crop, setCrop] = useState(false)
-  const [navbar, setNavbar] = useState(false)
+  const [navbar, setNavbar] = useState(true)
   const dropdownRef = useRef(null);
   const dropdownoneRef = useRef(null);
 
@@ -79,7 +78,7 @@ function Navbar() {
                     <Link className="nav-link link-color" aria-current="page" to="/soiltesting">Soil</Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link link-color" aria-current="page" to="/" >Weather</Link>
+                    <Link className="nav-link link-color" aria-current="page" to="/weather" >Weather</Link>
                   </li>
                   <li className="nav-item ">
                     <Link className="nav-link link-color" to="/admin/mainpage">Production Chart</Link>

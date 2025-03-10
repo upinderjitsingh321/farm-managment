@@ -7,6 +7,8 @@ import AdminChemicaltable from '../../../../component/admincomponents/farmerTabl
 import AdminUserFieldTable from '../../../../component/admincomponents/farmerTables/FieldsTable'
 import AdminNutrient from '../../../../component/admincomponents/farmerTables/NutrientsTable'
 import { useParams } from 'react-router'
+import FarmerPersonalDetailsTable from '../../../../component/admincomponents/farmerTables/FarmerPersonalDetails'
+import { Button } from '@mui/material'
 
 
 function FarmerDetails() {
@@ -20,9 +22,17 @@ const router= useParams()
 
   return (
     <div className=''>
+      <div className='d-flex justify-content-between me-3'>
       <h4 className='ms-3 mt-2'>{router?.name}</h4>
+      <Button className='mt-1' variant="contained" size="small" color="error">
+        <span>Suspend</span>
+      </Button>
+      </div>
       <div className='empty'></div>
       <div className="row mx-1">
+        <div className="col-md-12">
+        <FarmerPersonalDetailsTable heading={"Personal Details"} data={FarmTable}  />
+        </div>
         <div className="col-md-6">
         <AdminUserFarmTable heading={"Farm List"} data={FarmTable}  />
         </div>

@@ -3,6 +3,8 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import  {Link}  from "react-router-dom";
 import "./style.css"
+import { Button } from "@mui/material";
+import UserPersonalDetails from "../../../../component/Models/Forms/UserPersonalDetails";
 function FarmerList() {
     const initialData = [
         {
@@ -38,20 +40,19 @@ function FarmerList() {
     return (
         <div className="p-4">
            <div className="d-flex gap-2 justify-content-between align-items-center">
-             <div className="d-flex gap-2 justify-content-between align-items-center">
+             <div className="d-flex gap-2  align-items-center">
                 <p className="m-0">Show</p>
            <input type="number" style={{height:"25px",width:"40px"}}/>
-           <div className="d-grid">
-           
-           </div>
-            <p className="m-0">Entries</p>
+          
+            {/* <p className="m-0">Entries</p> */}
             </div>
-            <div className="d-flex gap-2"><label>Search</label>
+            <div className="d-flex gap-2 "><label>Search</label>
             <input type="search" />
             </div>
+                <UserPersonalDetails/>      
+           
             </div>
-
-            <table className="w-100 border-collapse border border-gray-300">
+            <table className="w-100 border-collapse border border-gray-300 mt-2">
                 <thead>
                     <tr className="bg-gray-200">
                         <th className="border border-gray-300 p-2">ID</th>

@@ -45,8 +45,9 @@ const initialData = [
 
   return (
     <div className="p-4">
-      <h2 className="text-xl font-bold mb-4">Soil Analysis Records</h2>
-      <table className="w-100 border-collapse border border-gray-300">
+      <h2 className="text-center fs-2">Soil Analysis Records</h2>
+      <div className="heading-list"></div>
+      <table className="w-100 mt-4border-collapse border border-gray-300">
         <thead>
           <tr className="bg-gray-200">
             <th className="border border-gray-300 p-2">ID</th>
