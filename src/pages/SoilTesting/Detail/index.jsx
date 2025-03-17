@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 
-function Detail({ arraycontent }) {
+function Detail({ arraycontent,detaild }) {
   return (
     <div>
       <section className="container mt-4 shadow pt-2 pb-2">
@@ -10,7 +10,7 @@ function Detail({ arraycontent }) {
           arraycontent.map((item, index) => (
             <div className="row first_section shadow">
 
-              <div className="col-md-6 soil_imp shadow">
+              <div className="col-md-6">
 
                 <h2 key={index}>{item.mainheading}</h2>
                 {
@@ -24,7 +24,7 @@ function Detail({ arraycontent }) {
 
 
               </div>
-              <div className="col-md-6">
+              <div className="col-md-6 mt-5">
                 <img src={item.photo} alt="Soil Test" className="img-fluid" />
               </div>
             </div>
@@ -34,7 +34,7 @@ function Detail({ arraycontent }) {
 
         <section className="container mt-4 ">
           <div className="row first_section shadow">
-            <div className="col-md-6 soil_imp">
+            <div className="col-md-6">
               <h2>Types Of Soil Testing</h2>
               <ul className="soil_imp_list">
                 <li>Mineral content</li>
@@ -53,6 +53,33 @@ function Detail({ arraycontent }) {
             </div>
           </div>
         </section>
+
+        {
+          detaild.map((item, index) => (
+            <div className="row first_section shadow">
+
+              <div className="col-md-6">
+
+                <h2 key={index}>{item.mainheading}</h2>
+                {
+                  item.innerItems.map((item) => (
+                    <div className="soil_imp_list">
+                      <div><span className="soil_imp_heading">{item.heading}</span> <span className="soil_para">{item.paragraph}</span></div>
+
+                    </div>
+                  ))
+                }
+
+
+              </div>
+              <div className="col-md-6 mt-5">
+                <img src={item.photo} alt="Soil Test" className="img-fluid" />
+              </div>
+            </div>
+          ))
+
+        }
+        
       </section>
 
     </div>

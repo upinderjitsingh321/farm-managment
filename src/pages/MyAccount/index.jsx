@@ -80,7 +80,8 @@ function Myaccount() {
                     <div style={{ display: "flex" }}>
                         <h3>Address</h3>
                         <div style={{ width: "100%", textAlign: "end", paddingRight: "30px" }}>
-                            <button className='edit-button'>Edit</button></div>
+                            {/* <button className='edit-button'>Edit</button> */}
+                            </div>
                     </div>
 
 

@@ -1,183 +1,181 @@
-import { useState } from "react";
-import "./style.css"
-import PesticideDashboard from "../../component/admincomponents/pesticide";
+// import React from 'react'
 
+// function ChemicalPage() {
+//   return (
+//     <div>
+//       <section className='p-5'>
+//         <h2>Introduction to Agricultural Chemicals</h2>
+//         <p>Agricultural chemicals play a vital role in modern farming by enhancing crop productivity, protecting plants from pests and diseases, and maintaining soil fertility. These chemicals include fertilizers, pesticides, herbicides, fungicides, and growth regulators, each serving a specific function to support healthy plant growth. As the global population continues to rise, the demand for higher agricultural yields has made the responsible use of these chemicals essential for food security and economic stability.
+//           However, while agricultural chemicals provide numerous benefits, their misuse can lead to environmental pollution, soil degradation, and health hazards. Sustainable farming practices, such as Integrated Pest Management (IPM) and the use of eco-friendly alternatives, help minimize negative impacts while maximizing efficiency. By applying these chemicals responsibly, farmers can achieve high productivity while ensuring long-term environmental sustainability.</p>
+//         <h3>The Importance of Agricultural Chemicals</h3>
+//         <p>Agricultural chemicals play a crucial role in modern farming by improving crop productivity, protecting plants from pests and diseases, and enhancing soil fertility. With the growing global population and increasing demand for food, the efficient use of these chemicals is essential to maximize yields while conserving natural resources.As global food demand continues to rise due to population growth, farmers must find ways to increase productivity while conserving resources. Agricultural chemicals allow farmers to optimize crop growth, reduce losses caused by pests and diseases, and maintain soil health. They also help improve efficiency in large-scale farming by reducing labor costs and maximizing land use.</p>
+//         <ol>
+//           <li>
+//             <h5> Enhancing Crop Growth and Soil Fertility</h5>
+//             <ul className=''>
+//               <li>Fertilizers provide essential nutrients such as nitrogen (N), phosphorus (P), and potassium (K), which promote healthy plant growth.</li>
+//               <li>Organic and synthetic fertilizers improve soil structure and nutrient availability, ensuring higher productivity.</li>
+//               <li>Balanced fertilization prevents nutrient depletion and maintains soil health for long-term farming.</li>
+//             </ul>
+//           </li>
+//           <li>
+//             <h5>Protection Against Pests and Diseases</h5>
+//             <ul>
+//               <li>Pesticides help control insects, rodents, and nematodes that damage crops.</li>
+//               <li>Fungicides prevent and treat fungal infections that can significantly reduce yields.</li>
+//               <li>Herbicides eliminate weeds that compete with crops for nutrients, sunlight, and water.</li>
+//               <li>Effective pest and disease control ensures better quality crops and reduces post-harvest losses.</li>
+//             </ul>
+//           </li>
+//           <li>
+//             <h5>Increasing Agricultural Productivity</h5>
+//             <ul>
+//               <li>Chemicals allow farmers to produce more food on limited land, supporting global food security.
+//               </li>
+//               <li>High-yield farming helps meet the food demands of a growing population.
+//               </li>
+//               <li>Improved plant protection reduces crop losses and enhances the overall efficiency of farming operations.
+//               </li>
+//             </ul>
+//           </li>
+//           <li>
+//             <h5> Reducing Labor and Farming Costs</h5>
+//             <ul>
+//               <li>Herbicides reduce the need for manual weeding, saving time and labor costs.
+//               </li>
+//               <li>Chemical-based pest and disease control minimizes crop damage, reducing financial losses.
+//               </li>
+//               <li>Efficient use of fertilizers and pesticides leads to higher returns on investment for farmers.
+//               </li>
+//             </ul>
+//           </li>
+//           <li>
+//             <h5> Supporting Sustainable Farming Practices</h5>
+//             <ul>
+//               <li>Controlled and precise application of chemicals helps reduce environmental impact.
+//               </li>
+//               <li>Advances in agrochemical technology promote eco-friendly solutions such as biodegradable pesticides and organic fertilizers.</li>
+//               <li>Integrated Pest Management (IPM) strategies combine chemical, biological, and cultural methods to minimize excessive chemical use.</li>
+//             </ul>
+//           </li>
+//           <li>
+//             <h5> Ensuring Food Quality and Availability</h5>
+//             <ul>
+//               <li>Chemicals improve crop resilience, leading to better quality produce with longer shelf life.
+//               </li>
+//               <li>Post-harvest treatments help preserve grains, fruits, and vegetables, reducing food waste.
+//               </li>
+//               <li>Ensuring a stable food supply helps prevent hunger and supports economic growth in agricultural industries.</li>
+//             </ul>
+//           </li>
 
-const ChemicalPage = () => {
-  const [chemicals, setChemicals] = useState([]);
-  const [form, setForm] = useState({ name: "", type: "", dosage: "", activeIngredient: "", applicationDate: "", expiryDate: "", manufacturer: "", cropType: "",price:"",remark:"" });
+//         </ol>
+//         <h3>Types of Agricultural Chemicals</h3>
+//         <ol>
+//           <li><span className='fs-5'>Fertilizers</span> – Supply essential nutrients (such as nitrogen, phosphorus, and potassium) to improve soil fertility and enhance plant growth. These can be organic (manure, compost) or synthetic (chemical fertilizers like urea and ammonium nitrate).</li>
+//           <li><span className='fs-5'>Pesticides</span> – Protect crops from harmful insects and pests that can damage plants and reduce yields. Common types include insecticides (for insects), rodenticides (for rodents), and nematicides (for nematodes).</li>
+//           <li><span className='fs-5'>Herbicides </span>– Used to control unwanted weeds that compete with crops for water, nutrients, and sunlight. Selective herbicides target specific weeds, while non-selective herbicides eliminate all plant life in a treated area.</li>
+//           <li><span className='fs-5'>Fungicides</span> – Help prevent and treat fungal infections that can destroy crops. These chemicals protect plants from diseases like powdery mildew, rust, and blight, which can spread rapidly in humid conditions.</li>
+//           <li><span className='fs-5'>Growth Regulators</span> – Influence plant development by promoting or inhibiting growth processes such as flowering, fruiting, and root formation. They are used to improve crop quality and increase harvest efficiency.</li>
+//         </ol>
+//       </section>
+//     </div>
 
-  const addChemical = (e) => {
-    e.preventDefault()
-    setChemicals([...chemicals, form]);
-    setForm({ name: "", type: "", dosage: "", activeIngredient: "", applicationDate: "", expiryDate: "", manufacturer: "", cropType: "" ,price:"",remark:""});
-  };
+//   )
+// }
 
+// export default ChemicalPage
+import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+const sections = [
+  {
+    title: "Enhancing Crop Growth and Soil Fertility",
+    content: [
+      "Fertilizers provide essential nutrients such as nitrogen (N), phosphorus (P), and potassium (K), which promote healthy plant growth.",
+      "Organic and synthetic fertilizers improve soil structure and nutrient availability, ensuring higher productivity.",
+      "Balanced fertilization prevents nutrient depletion and maintains soil health for long-term farming."
+    ]
+  },
+  {
+    title: "Protection Against Pests and Diseases",
+    content: [
+      "Pesticides help control insects, rodents, and nematodes that damage crops.",
+      "Fungicides prevent and treat fungal infections that can significantly reduce yields.",
+      "Herbicides eliminate weeds that compete with crops for nutrients, sunlight, and water.",
+      "Effective pest and disease control ensures better quality crops and reduces post-harvest losses."
+    ]
+  },
+  {
+    title: "Increasing Agricultural Productivity",
+    content: [
+      "Chemicals allow farmers to produce more food on limited land, supporting global food security.",
+      "High-yield farming helps meet the food demands of a growing population.",
+      "Improved plant protection reduces crop losses and enhances the overall efficiency of farming operations."
+    ]
+  },{
+    title: "Reducing Labor and Farming Costs",
+    content: [
+      "Herbicides reduce the need for manual weeding, saving time and labor costs.",
+      "Chemical-based pest and disease control minimizes crop damage, reducing financial losses.",
+"Efficient use of fertilizers and pesticides leads to higher returns on investment for farmers."    ]
+  }
+];
+
+function ChemicalPage() {
+  const [openIndex, setOpenIndex] = useState(null);
 
   return (
+    <div className="container py-5">
+      <section className="card shadow p-4">
+        <h2 className="text-success mb-3">Introduction to Agricultural Chemicals</h2>
+        <p className="text-muted">
+          Agricultural chemicals play a vital role in modern farming by enhancing crop productivity, protecting plants from pests and diseases, and maintaining soil fertility. These chemicals include fertilizers, pesticides, herbicides, fungicides, and growth regulators, each serving a specific function to support healthy plant growth.
+        </p>
 
-    <div className="">
-      <div className="chemical_background">
-        <p className="text-white pt-5 mb-0 fs-3 text-center lh-lg chemicaltext">"Chemical fertilizers give immediate results,</p> <p className="text-white mb-0 fs-3 text-center chemicaltext">but long-term sustainability comes from balanced soil care."</p>
-      </div>
+        <h3 className="text-success mt-4">The Importance of Agricultural Chemicals</h3>
 
-      <div className="container-chemical">
-
-        <section>
-          <div className="boxborder shadow">
-            <h2 className="fs-2">Chemical Usage Guidelines</h2>
-            <ul className="">
-              <li><strong >Read Labels Carefully:</strong> Always read and follow manufacturer instructions to ensure safe and effective application.</li>
-              <li><strong >Wear Protective Equipment:</strong> Use gloves, masks, and protective clothing to prevent exposure to harmful substances.</li>
-              <li><strong >Apply in Suitable Weather:</strong> Avoid spraying chemicals on windy or rainy days to prevent drift and unintended contamination.</li>
-              <li><strong >Follow Recommended Dosage:</strong> Overuse can lead to resistance in pests and environmental damage.</li>
-              <li><strong >Dispose of Containers Properly:</strong> Follow local waste management guidelines for disposal to prevent pollution.</li>
-            </ul>
+        {sections.map((section, index) => (
+          <div key={index} className="mb-3">
+            <button
+              className="btn btn-success w-100 text-start"
+              onClick={() => setOpenIndex(openIndex === index ? null : index)}
+            >
+              <h5 className="mb-0">{section.title}</h5>
+            </button>
+            {openIndex === index && (
+              <ul className="list-group list-group-flush mt-2">
+                {section.content.map((point, i) => (
+                  <li key={i} className="list-group-item">{point}</li>
+                ))}
+              </ul>
+            )}
           </div>
-        </section>
+        ))}
 
-        <section>
-          <div className="boxborder mt-4 shadow">
-            <h2 className="">Chemical Safety Information</h2>
-            <ul className=" ">
-              <li><strong>Personal Protection:</strong> Always wear gloves, safety goggles, and long-sleeved clothing while handling chemicals.</li>
-              <li><strong>First Aid Measures:</strong> In case of accidental exposure, wash the affected area immediately with water and seek medical attention if necessary.</li>
-              <li><strong>Storage Guidelines:</strong> Store chemicals in cool, dry areas away from food, livestock, and water sources.</li>
-              <li><strong>Handling Procedures:</strong> Never mix chemicals unless approved, and avoid direct contact with skin and eyes.</li>
-              <li><strong>Emergency Contact:</strong> Keep emergency contact numbers available for poison control and medical services.</li>
-            </ul>
-          </div>
-        </section>
-
-        <section>
-          <div className="boxborder mt-4 shadow">
-            <h2 className="">Regulatory Compliance & Legal Guidelines</h2>
-            <p className="">Farmers must comply with national and local regulations regarding chemical usage. This includes:</p>
-            <ul className="">
-              <li>Ensuring all chemicals used are approved by local agricultural authorities.</li>
-              <li>Maintaining accurate records of chemical purchases, applications, and disposal.</li>
-              <li>Obtaining proper licenses for handling and applying restricted chemicals.</li>
-              <li>Following all environmental protection laws to prevent contamination.</li>
-            </ul>
-          </div>
-        </section>
-
-        <section>
-          <div className="boxborder mt-4 shadow">
-            <h2 className="">Recommendations & Alternatives</h2>
-            <p className="">To reduce dependency on synthetic chemicals, consider the following alternatives:</p>
-            <ul className=" ">
-              <li>Utilizing crop rotation to naturally manage pests and soil nutrients.</li>
-              <li>Adopting integrated pest management (IPM) strategies to minimize chemical use.</li>
-              <li>Using organic pesticides derived from plant-based sources.</li>
-              <li>Implementing biological controls such as beneficial insects to manage pest populations.</li>
-              <li>Exploring eco-friendly fertilizers and compost to maintain soil health.</li>
-            </ul>
-          </div>
-        </section>
-
-        <section>
-          <div className="boxborder mt-4 shadow">
-            <h2 className="">Frequently Asked Questions (FAQ)</h2>
-            <ul className="">
-              <li><strong>What is the safest way to apply chemicals?</strong> Always follow manufacturer guidelines, wear protective equipment, and apply during appropriate weather conditions.</li>
-              <li><strong>Can I mix different chemicals?</strong> Only if explicitly stated as safe on the product label. Mixing incompatible chemicals can be dangerous.</li>
-              <li><strong>How do I dispose of chemical containers?</strong> Rinse thoroughly, puncture, and follow local hazardous waste disposal regulations.</li>
-              <li><strong>Are there eco-friendly alternatives?</strong> Yes, consider organic pesticides, crop rotation, and integrated pest management techniques.</li>
-              <li><strong>How often should I apply pesticides?</strong> Follow label instructions and avoid excessive application to prevent resistance and environmental harm.</li>
-            </ul>
-          </div>
-        </section>
-
-        <section className="container mt-5 p-4">
-
-
-          <form onSubmit={addChemical} className="registration_form shadow p-4 bg-white rounded reg-padding">
-            <h2 className="text-center mb-4 text-dark heading-list">Fill Chemical Details</h2>
-
-            <div className="row mb-3">
-              <div className="row mb-3">
-                <div className="col-md-6">
-                  <label className="form-label">Feild No.</label>
-                  <input className="form-control" type="text" placeholder="#01" value={form.dosage} onChange={(e) => setForm({ ...form, dosage: e.target.value })} />
-                </div>
-                <div className="col-md-6">
-                  <label className="form-label">Area(Acre)</label>
-                  <input className="form-control" type="text" placeholder="2" value={form.activeIngredient} onChange={(e) => setForm({ ...form, activeIngredient: e.target.value })} />
-
+        <h3 className="text-success mt-4">Types of Agricultural Chemicals</h3>
+        <div className="row mt-3">
+          {[
+            { name: "Fertilizers", desc: "Supply essential nutrients to improve soil fertility." },
+            { name: "Pesticides", desc: "Protect crops from harmful insects and pests." },
+            { name: "Herbicides", desc: "Control unwanted weeds that compete with crops." },
+            { name: "Fungicides", desc: "Prevent and treat fungal infections in crops." },
+            { name: "Growth Regulators", desc: "Influence plant growth and development." }
+          ].map((chemical, index) => (
+            <div key={index} className="col-md-6 mb-3">
+              <div className="card border-success">
+                <div className="card-body">
+                  <h4 className="card-title text-success">{chemical.name}</h4>
+                  <p className="card-text">{chemical.desc}</p>
                 </div>
               </div>
-              <div className="col-md-6">
-                <label className="form-label">Crop Type</label>
-                <input className="form-control" type="text" placeholder="Crop Type" value={form.cropType} onChange={(e) => setForm({ ...form, cropType: e.target.value })} />
-              </div>
-
-              <div className="col-md-6">
-                <label className="form-label">Type</label>
-                <select className="form-control" placeholder="Type" value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value })} >
-                  <option value="">Select Type </option>
-                  <option value="dry">Pesticide</option>
-                  <option value="moist">Fertilizer</option>
-                  <option value="wet">Fungicide</option>
-                  <option value="wet">Manure</option>
-                </select>
-              </div>
             </div>
-            <div className="row mb-3">
-              <div className="col-md-6">
-                <label className="form-label">Product Name</label>
-                <input className="form-control" type="text" placeholder="Product Name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
-              </div>
-
-              <div className="col-md-6">
-                <label className="form-label">Active Ingredient</label>
-                <input className="form-control" type="text" placeholder="Active Ingredient" value={form.activeIngredient} onChange={(e) => setForm({ ...form, activeIngredient: e.target.value })} />
-
-              </div>
-            </div>
-            <div className="row mb-3">
-              <div className="col-md-6">
-                <label className="form-label">Manufacturer</label>
-                <input className="form-control" type="text" placeholder="Manufacturer" value={form.manufacturer} onChange={(e) => setForm({ ...form, manufacturer: e.target.value })} />
-              </div>
-              <div className="col-md-6">
-                <label className="form-label">Dosage per Acre</label>
-                <input className="form-control" type="text" placeholder="Dosage" value={form.dosage} onChange={(e) => setForm({ ...form, dosage: e.target.value })} />
-              </div>
-            </div>
-            <div className="row mb-3">
-              <div className="col-md-6">
-                <label className="form-label">Application Date</label>
-                <input className="form-control" type="date" value={form.applicationDate} onChange={(e) => setForm({ ...form, applicationDate: e.target.value })} />
-              </div>
-              <div className="col-md-6">
-                <label className="form-label">Expiry Date</label>
-                <input className="form-control" type="date" value={form.expiryDate} onChange={(e) => setForm({ ...form, expiryDate: e.target.value })} />
-              </div>
-            </div>
-            <div className="row md-3">
-                        <div class="col-md-6">
-                            <label for="price" class="form-label">Price</label>
-                            <input type="type" class="form-control" id="price" value={form.price} onChange={(e) =>  setForm({ ...form, price: e.target.value })} />
-                        </div>
-                        <div class="col-md-6">
-                            <label for="remarks" class="form-label">Remarks</label>
-                            <input type="type" class="form-control" id="remarks" value={form.remark} onChange={(e) =>  setForm({ ...form, remark: e.target.value })} />
-                        </div>
-                    </div>
-
-            <div className="comman_div_button text-center mt-3">
-              <button type="submit" className="btn btn-success px-4 py-2 rounded-pill">Add Chemical</button>
-            </div>
-          </form>
-
-
-        </section>
-        <PesticideDashboard />
-      </div>
-
+          ))}
+        </div>
+      </section>
     </div>
-
   );
 }
+
 export default ChemicalPage;
+

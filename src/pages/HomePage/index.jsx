@@ -12,15 +12,6 @@ function HomePage() {
 
 
     ])
-
-    const handleCLick = () => {
-        const newObject =
-            { heading: "Expense Tracking", paragraph: "paragraklmjd" }
-        setArray(() => [...array, newObject])
-        console.log(newObject, 'newObject')
-    }
-
-
     useEffect(() => {
         console.log("Useeffect")
     }, [array])
@@ -30,7 +21,6 @@ function HomePage() {
             <Banner />
             <AgriFeatures aggriArray={array} />
            
-            {/* <button onClick={handleCLick}>click</button> */}
         </>
     )
 }

@@ -15,12 +15,9 @@ const AgriFeatures = ({ aggriArray }) => {
             <div key={index} className="col text-start">
               <div className="p-3 ">
                 <img className='icons-item' src={item.icon} />
-                <Link to={`/details/${item.heading}`}>
-
-
                   <Card
                     head={item.heading} para={item.paragraph} />
-                </Link>
+               
               </div>
             </div>
           ))

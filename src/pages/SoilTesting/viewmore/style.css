@@ -10,14 +10,14 @@
 .row-color{
     margin: 0px 100px;
     background-color: white;
-    padding: 0px 100px;
+    padding: 60px 60px;
+
 }
 .soilpic-one{
-    border-radius: 30px;
-    height: 300px;
-    width: 85%;
-    padding: 20px;
-    object-fit: cover;
+    width: 100%;
+    border: 2px solid #d2cece;
+    padding: 10px;
+    border-radius: 25px;
     
 }
 .back-color{
@@ -33,5 +33,5 @@
 }
 .view-center{
     text-align: justify;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }

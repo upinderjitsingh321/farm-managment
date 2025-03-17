@@ -7,8 +7,8 @@ import { CgProfile } from 'react-icons/cg'
 import AgricultureIcon from '@mui/icons-material/Agriculture';
 import { MdLogout } from 'react-icons/md'
 function Navbar() {
-  const [isLogin, setIslogin] = useState(true)
-  const [profile, setProfile] = useState(false)
+  const [isLogin, setIslogin] = useState(false)
+  const [profile, setProfile] = useState(true)
   const [crop, setCrop] = useState(false)
   const [navbar, setNavbar] = useState(true)
   const dropdownRef = useRef(null);
@@ -84,7 +84,7 @@ function Navbar() {
                     <Link className="nav-link link-color" to="/admin/mainpage">Production Chart</Link>
                   </li>
                   <li className="nav-item ">
-                    <Link className="nav-link link-color" to="/admin/login"> Admin</Link>
+                    <Link className="nav-link link-color" to="/admin/dashboard"> Admin</Link>
                   </li>
 
 
@@ -110,7 +110,7 @@ function Navbar() {
 
 
                   <Link to={"/soilpage"} className='userlist text-white link-color'><img className="usernav-icon pe-1" src='img/soil.png' />Soil</Link>
-                  <Link to={"/"} className='userlist text-white link-color'><img className="usernav-icon pe-1" src='img/cloudy.png' />Weather</Link>
+                  <Link to={"/weather"} className='userlist text-white link-color'><img className="usernav-icon pe-1" src='img/cloudy.png' />Weather</Link>
                   <Link to={"/production"} className='userlist text-white link-color'><img className="usernav-icon  pe-1" src='img/incom.png' />Production cost</Link>
                 </ul>
               )}

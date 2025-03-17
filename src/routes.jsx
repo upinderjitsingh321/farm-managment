@@ -2,7 +2,6 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom';
 import FarmerRegistration from './pages/forms/Registration/NewRegisrtation'
 import AddCrop from './pages/forms/AddCrop'
-import DynamicPage from './pages/DynamicPage'
 import SoilTesting from './pages/SoilTesting'
 import ViewMore from './pages/SoilTesting/viewmore'
 import ChemicalPage from './pages/chemical'
@@ -34,6 +33,7 @@ import AdminLogin from './pages/adim/AdminLogin';
 import AdminForgotPassword from './pages/adim/AdminLogin/AdminForgotPass';
 import WeatherDashboard from './pages/Weather';
 import ChemicalRecordsTable from './pages/adim/Adminpages/chemical';
+import AdminCropList from './pages/adim/Adminpages/CropList';
 
 function AllRoutes() {
     return (
@@ -45,7 +45,6 @@ function AllRoutes() {
                 <Route path="/addland" element={<FeildForm />} />
                 <Route path="/addfarm" element={<FarmForm />} />
                 <Route path="/addcrop" element={<AddCrop />} />
-                <Route path="/details/:name" element={<DynamicPage />} />
                 <Route path="/home" element={<HomePage />} />
                 <Route path="/soiltesting" element={<SoilTesting />} />
                 <Route path="/seemore" element={<ViewMore />} />
@@ -76,6 +75,7 @@ function AllRoutes() {
                 <Route path="/admin/Forgotpassword" element={<AdminForgotPassword/>} />
                 <Route path="/weather" element={<WeatherDashboard/>} />
                 <Route path="/admin/chemicaltable" element={<ChemicalRecordsTable/>} />
+                <Route path="/admin/croplist" element={<AdminCropList/>} />
 
 
 
