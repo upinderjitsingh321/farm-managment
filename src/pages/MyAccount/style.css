@@ -66,3 +66,11 @@
     width: 80px;
     background-color: green;
 }
+.btn-pass{
+    position: relative;
+}
+.button-pos{
+position: absolute;
+top: -35px;
+left: 20px;
+}

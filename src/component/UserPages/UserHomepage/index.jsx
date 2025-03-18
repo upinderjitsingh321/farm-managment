@@ -33,7 +33,7 @@ const initialData = [
   
 
   return (
-    <div className="p-4">
+    <div className="p-4 vh-100">
       <table className="w-100 border-collapse border border-gray-300">
         <thead className="head-border">
           <tr>

@@ -34,6 +34,7 @@ import AdminForgotPassword from './pages/adim/AdminLogin/AdminForgotPass';
 import WeatherDashboard from './pages/Weather';
 import ChemicalRecordsTable from './pages/adim/Adminpages/chemical';
 import AdminCropList from './pages/adim/Adminpages/CropList';
+import AdminProfile from './pages/adim/AdminProfile';
 
 function AllRoutes() {
     return (
@@ -76,6 +77,7 @@ function AllRoutes() {
                 <Route path="/weather" element={<WeatherDashboard/>} />
                 <Route path="/admin/chemicaltable" element={<ChemicalRecordsTable/>} />
                 <Route path="/admin/croplist" element={<AdminCropList/>} />
+                <Route path="/admin/profile" element={<AdminProfile/>} />
 
 
 

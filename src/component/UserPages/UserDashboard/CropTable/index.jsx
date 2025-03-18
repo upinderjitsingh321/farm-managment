@@ -12,7 +12,7 @@ function CropDashboardTable(props) {
   if (!close) return null
   
   return (
-    <div className='userdashboardtable shadow'>
+    <div className='userdashboardtable2 shadow'>
       <div className='dash-title d-flex justify-content-between'>
         <h5 className='pt-1 ps-2'>{props.heading}</h5>
         <div>

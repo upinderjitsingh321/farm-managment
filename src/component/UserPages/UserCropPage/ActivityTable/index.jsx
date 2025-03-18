@@ -18,9 +18,9 @@ function ActivityListTable(props) {
   const [showdrop, setShowdrop] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [modalOpen1, setModalOpen1] = useState(false);
-  const [close,setClose] =useState(true)
-  const [minimize,setMinimize] = useState(true)
-  if(!close) return null
+  const [close, setClose] = useState(true);
+  const [minimize, setMinimize] = useState(true);
+  
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -36,7 +36,8 @@ function ActivityListTable(props) {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-
+  
+  if (!close) return null;
 
   return (
     <div className='userdashboardtable shadow my-3 '>
@@ -44,7 +45,7 @@ function ActivityListTable(props) {
         <h5 className='pt-1 ps-2'>{props.heading}<KeyboardDoubleArrowDownIcon /></h5>
         <div className='profile-dropdown' ref={dropdownRef}>
           <button className='add-button' onClick={() => setShowdrop(true)}>
-            <AddCircleIcon /> Add Activities<KeyboardArrowDownIcon/>
+            <AddCircleIcon /> Add Activities<KeyboardArrowDownIcon />
             <div className='dropdown-btn'
               style={{ display: `${showdrop ? "block" : "none"}` }}
             >
@@ -55,11 +56,11 @@ function ActivityListTable(props) {
         </div>
 
         <ModelPlantingForm show={modalOpen} onclose={() => setModalOpen(false)} />
-          <ModelHarvestForm show={modalOpen1} onclose={() => setModalOpen1(false)}/>
+        <ModelHarvestForm show={modalOpen1} onclose={() => setModalOpen1(false)} />
 
 
 
-          <div>
+        <div>
           {
             minimize ?
               <MinimizeIcon className='pb-1' onClick={() => setMinimize(false)} style={{ cursor: "pointer" }} />
@@ -69,34 +70,34 @@ function ActivityListTable(props) {
           <CloseIcon className='pt-2 text-danger' onClick={() => setClose(false)} style={{ cursor: "pointer" }} />
         </div>
       </div>
-      { minimize && (
-      <table className="w-100 border-collapse border border-gray-300 mb-5">
-        <thead>
-          <tr className="bg-gray-200">
-            <th className="border border-gray-300 p-2">Activity </th>
-            <th className="border border-gray-300 p-2"> Date</th>
-            <th className="border border-gray-300 p-2"> Rate</th>
-            <th className="border border-gray-300 p-2"> User</th>
-            <th className="border border-gray-300 p-2"> Note</th>
-          </tr>
-        </thead>
-        <tbody>
+      {minimize && (
+        <table className="w-100 border-collapse border border-gray-300 mb-5">
+          <thead>
+            <tr className="bg-gray-200">
+              <th className="border border-gray-300 p-2">Activity </th>
+              <th className="border border-gray-300 p-2"> Date</th>
+              <th className="border border-gray-300 p-2"> Rate</th>
+              <th className="border border-gray-300 p-2"> User</th>
+              <th className="border border-gray-300 p-2"> Note</th>
+            </tr>
+          </thead>
+          <tbody>
 
-          <tr className="border border-gray-300">
-            <td className="border border-gray-300 p-2">{props.activity}</td>
-            <td className="border border-gray-300 p-2">{props.date}</td>
-            <td className="border border-gray-300 p-2">{props.rate}</td>
-            <td className="border border-gray-300 p-2">{props.user}</td>
-            <td className="border border-gray-300 p-2">{props.note}</td>
-            <td className="border border-gray-300 p-2">
-              <Button variant="contained" color="success" ><EditIcon /><ArrowDropDownIcon /></Button>
-            </td>
+            <tr className="border border-gray-300">
+              <td className="border border-gray-300 p-2">{props.activity}</td>
+              <td className="border border-gray-300 p-2">{props.date}</td>
+              <td className="border border-gray-300 p-2">{props.rate}</td>
+              <td className="border border-gray-300 p-2">{props.user}</td>
+              <td className="border border-gray-300 p-2">{props.note}</td>
+              <td className="border border-gray-300 p-2">
+                <Button variant="contained" color="success" ><EditIcon /><ArrowDropDownIcon /></Button>
+              </td>
 
-          </tr>
+            </tr>
 
-        </tbody>
-      </table>
-)}
+          </tbody>
+        </table>
+      )}
     </div>
   )
 }

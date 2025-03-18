@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import AgriFeatures from './Features'
 import Banner from '../../component/banner'
+import LoginRegister from '../loginregisterpage'
 
 
 
@@ -19,8 +20,9 @@ function HomePage() {
     return (
         <>
             <Banner />
+            <LoginRegister/>
             <AgriFeatures aggriArray={array} />
-           
+          
         </>
     )
 }

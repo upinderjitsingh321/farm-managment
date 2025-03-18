@@ -5,12 +5,8 @@ import { Button} from '@mui/material'
 function LoginRegister() {
     return (
         <>
-            <div className='d-flex justify-content-between loginregister'>
-                <h4>Farmer Login/Register </h4>
-                <Link to={"/"}><Button variant="contained" color="primary">Home</Button></Link>
-
-            </div>
-            <hr style={{ margin: "30px 97px" }} className='border-dark'></hr>
+           
+            <hr style={{ margin: "30px 97px" }} className='border-success'></hr>
 
             <div className='container logoregister-bgcolor'>
                 <div className='row logoregister-padding '>

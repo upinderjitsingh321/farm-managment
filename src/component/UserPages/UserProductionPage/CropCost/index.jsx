@@ -5,30 +5,26 @@ function UserExpenseTable() {
 const initialData = [
   {
     crops:"cron",
-    variety:"29-02-2025",
-    snowing:"2025",
-    harvest:"4",
-    spending:"24",
-    spendingperacre:"5",
-    production:"200000",
-    income:"1500000",
-    incomeperacre:"110000",
-    profit:"800000",
-    profitperacre:"800000",
+    fertilizer:"2025",
+    herbic:"4",
+    pesticide:"24",
+    fungicide:"5",
+    manure:"200000",
+    labourcost:"1500000",
+    activities:"110000",
+    othercost:"800000",
 },
-  {
-    crops:"beet",
-    variety:"29-02-2025",
-    snowing:"2025",
-    harvest:"4",
-    spending:"24",
-    spendingperacre:"5",
-    production:"200000",
-    income:"1500000",
-    incomeperacre:"110000",
-    profit:"800000",
-    profitperacre:"800000",
-  }
+{
+  crops:"cron",
+  fertilizer:"2025",
+  herbic:"4",
+  pesticide:"24",
+  fungicide:"5",
+  manure:"200000",
+  labourcost:"1500000",
+  activities:"110000",
+  othercost:"800000",
+}
 ];
 
   const [data, setData] = useState(initialData);
@@ -41,7 +37,6 @@ const initialData = [
         <thead className="head-border">
           <tr>
             <th className="border border-gray-300 p-2"> Crops</th>
-            <th className="border border-gray-300 p-2">Seeds </th>
             <th className="border border-gray-300 p-2">Fertilizer</th>
             <th className="border border-gray-300 p-2">Herbic</th>
             <th className="border border-gray-300 p-2"> Pesticide</th>
@@ -54,18 +49,17 @@ const initialData = [
           </tr>
         </thead>
         <tbody>
-          {data.map((record) => (
-            <tr key={record.id} className="border border-gray-300">
-              <td className="border border-gray-300 p-2">{record.crops}</td>
-              <td className="border border-gray-300 p-2">{record.variety}</td>
-              <td className="border border-gray-300 p-2">{record.snowing}</td>
-              <td className="border border-gray-300 p-2">{record.harvest}</td>
-              <td className="border border-gray-300 p-2">{record.spending}</td>
-              <td className="border border-gray-300 p-2">{record.spendingperacre}</td>
-              <td className="border border-gray-300 p-2">{record.production}</td>
-              <td className="border border-gray-300 p-2">{record.income}</td>
-              <td className="border border-gray-300 p-2">{record.incomeperacre}</td>
-              <td className="border border-gray-300 p-2">{record.profit}</td>
+          {data.map((records) => (
+            <tr key={records.id} className="border border-gray-300">
+              <td className="border border-gray-300 p-2">{records.crops}</td>
+              <td className="border border-gray-300 p-2">{records.fertilizer}</td>
+              <td className="border border-gray-300 p-2">{records.herbic}</td>
+              <td className="border border-gray-300 p-2">{records.pesticide}</td>
+              <td className="border border-gray-300 p-2">{records.fungicide}</td>
+              <td className="border border-gray-300 p-2">{records.manure}</td>
+              <td className="border border-gray-300 p-2">{records.labourcost}</td>
+              <td className="border border-gray-300 p-2">{records.activities}</td>
+              <td className="border border-gray-300 p-2">{records.othercost}</td>
             
               
             </tr>

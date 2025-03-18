@@ -15,7 +15,7 @@ body {
 }
 
 .main-navbar {
-  
+
     position: sticky;
     top: 0;
     width: 100%;
@@ -71,8 +71,6 @@ body {
 
 .link-color:hover::before {
     transform: scalex(1);
-
-
 }
 
 .link-color:hover {
@@ -106,7 +104,7 @@ body {
 .dropdown-btn {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;  
+    background-color: #f9f9f9;
     margin-top: 10px;
     min-width: 140px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -124,6 +122,32 @@ body {
     background-color: #3e8e41;
 }
 
+.for-user {
+    color: white;
+    background-color: #198754;
+    border-radius: 30px;
+
+}
+.for-user1 {
+    color: #198754;
+    background-color: #b9deccfa;
+    border-radius: 30px;
+    
+}
+
+.box-postion {
+    position: relative;
+    z-index: 1;
+
+
+}
+
+.box-postion1 {
+    position: absolute;
+    top: 11px;
+    left: 916px;
+}
+
 /* .profile-dropdown:hover .dropdown-btn {
     display: block;
 } */
@@ -131,38 +155,43 @@ body {
 
 
 /* second navbar */
-.Usernavbar{
+.Usernavbar {
     list-style: none;
     display: flex;
-    gap: 20px   ;
+    gap: 20px;
     color: white;
     font-size: 20px;
     justify-content: center;
     align-items: center;
     margin: 0;
-   
+
 }
-.userlist{
-    background-color:rgb(65 88 65) ;
+
+.userlist {
+    background-color: rgb(65 88 65);
     border-radius: 2px;
 }
-.usernav-icon{
+
+.usernav-icon {
     width: 25px;
     padding-bottom: 4px;
 }
-.link-color-set{
+
+.link-color-set {
     background-color: white;
     margin-bottom: 7px;
 }
-.link-color-set1{
+
+.link-color-set1 {
     background-color: white;
-    
+
 }
 
-.set-font{
+.set-font {
     font-size: 20px;
 }
-.admin-set{
+
+.admin-set {
     color: white;
     background-color: green;
     border-radius: 5px;

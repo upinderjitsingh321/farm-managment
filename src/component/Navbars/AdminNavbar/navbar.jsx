@@ -29,7 +29,7 @@ function Uppernavbar() {
               </Dropdown.Toggle>
 
               <Dropdown.Menu className="dropdown-menu">
-                <Dropdown.Item className="dropdown-item" ><CgProfile className='me-2'/><Link className='color-list' to={"/"}>Profile</Link></Dropdown.Item>
+                <Dropdown.Item className="dropdown-item" ><CgProfile className='me-2'/><Link className='color-list' to={"/admin/profile"}>Profile</Link></Dropdown.Item>
                 <Dropdown.Item className="dropdown-item" ><IoSettings className='me-2'/><Link className='color-list' to={"/"}>Setting</Link></Dropdown.Item>
                 <hr class="dropdown-divider" />
                 <Dropdown.Item className="dropdown-item hh" ><MdLogout className='me-2 text-danger'/><Link className='color-list text-danger' to={"/"}>Logout</Link></Dropdown.Item>

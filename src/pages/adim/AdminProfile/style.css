@@ -1,0 +1,12 @@
+.profile-pos{
+    position: relative;
+}
+.edit-camera-icon1{
+    position: absolute;
+    top: 226px;
+    left: 508px;
+}
+.recent-table{
+    padding: "10px";
+    text-align: "left"
+}

@@ -11,21 +11,21 @@ function UserField() {
 
 
   return (
-    <div className=''>
+    <div className='my-5 vh-100'>
       <div className="row mx-1">
         <div className="col-md-12">
             <UserFarmTable heading={"Farm List"} data={FarmTable}  />
         </div>
 
-        <div className="col-md-4">
-        <UserFieldTable heading={"Field List"} Field={"4"} Acre={"20"}  Farm={"#01"} Active={"Active"} OwnerShip={"Contract"} />
+        <div className="col-md-6">
+        <UserFieldTable heading={"Field List"} Field={"4"} Acre={"20"}  Farm={"#01"} Active={"Active"} OwnerShip={"Contract"} FarmPractices={"organic"} />
         </div>
-        <div className="col-md-4">
-        <UserCropTable heading={"Crop List"} Field={"#F01>4"} Acre={"20"} Crop={"Rice"} Year={"2025"} Variety={"1509"} />
+        <div className="col-md-6">
+        <UserCropTable heading={"Crop List"} Field={"#F01>4"} Acre={"20"} Crop={"Rice"} Year={"2025"} Variety={"1509"} Production={"50"}/>
         </div>
-        <div className="col-md-4">
+        {/* <div className="col-md-4">
         <UserSoilTable heading={"Soil Detail[2025]"} field={"#01"} type={"clay"} issue={"low fertility"} organic={"low"} link={"Go to Soil List"} />
-        </div>
+        </div> */}
 
       </div>
     </div>

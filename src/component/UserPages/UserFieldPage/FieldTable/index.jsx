@@ -40,6 +40,7 @@ function UserFieldTable(props) {
               <th className="border border-gray-300 p-2"> Acre</th>
               <th className="border border-gray-300 p-2"> OwnerShip</th>
               <th className="border border-gray-300 p-2"> Active</th>
+              <th className="border border-gray-300 p-2">Farm Practices </th>
 
 
             </tr>
@@ -52,6 +53,7 @@ function UserFieldTable(props) {
               <td className="border border-gray-300 p-2">{props.Acre}</td>
               <td className="border border-gray-300 p-2">{props.OwnerShip}</td>
               <td className="border border-gray-300 p-2">{props.Active}</td>
+              <td className="border border-gray-300 p-2">{props.FarmPractices}</td>
               <td className="border border-gray-300 p-2">
                 <Button variant="contained" color="success" ><EditIcon /><ArrowDropDownIcon /></Button>
               </td>

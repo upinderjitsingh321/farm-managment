@@ -35,6 +35,7 @@ function UserCropTable(props) {
               <th className="border border-gray-300 p-2"> Crop</th>
               <th className="border border-gray-300 p-2"> Acre</th>
               <th className="border border-gray-300 p-2"> Variety</th>
+              <th className="border border-gray-300 p-2"> Production(Qtl)</th>
 
 
             </tr>
@@ -47,6 +48,7 @@ function UserCropTable(props) {
               <td className="border border-gray-300 p-2">{props.Crop}</td>
               <td className="border border-gray-300 p-2">{props.Acre}</td>
               <td className="border border-gray-300 p-2">{props.Variety}</td>
+              <td className="border border-gray-300 p-2">{props.Production}</td>
 
             </tr>
 

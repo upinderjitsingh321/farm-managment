@@ -1,6 +1,8 @@
 import React from 'react'
 import "./style.css"
 import { Link } from 'react-router-dom'
+import { Button } from '@mui/material'
+import EditIcon from '@mui/icons-material/Edit';
 function Myaccount() {
     const data = {
         name: "Upinderjit Singh",
@@ -31,7 +33,7 @@ function Myaccount() {
             <div className='container container-right-one container-gap mb-4'>
                 <div className='profile_photo1' >
                     <img className='profile_photo' src='img/profile-picture.png' />
-                    <input id='image' type='file' className='d-none'/>
+                    <input id='image' type='file' className='d-none' />
                     <label className='camera-icon' htmlFor='image'><i class="fa-solid fa-camera fs-5" role='button'></i></label>
 
                 </div>
@@ -72,6 +74,14 @@ function Myaccount() {
                         <p>Id Proof</p>
                         <p>{data.personalInfo.idproof}</p>
                     </div>
+                    <div className='col-md-4 btn-pass'>
+                        <p>Password</p>
+                        <span>********</span>
+                        <Button className='ms-3 button-pos' variant="outlined" color="error">
+                            <EditIcon/>
+                        </Button>
+                    </div>
+
 
                 </div>
             </div>
@@ -81,7 +91,7 @@ function Myaccount() {
                         <h3>Address</h3>
                         <div style={{ width: "100%", textAlign: "end", paddingRight: "30px" }}>
                             {/* <button className='edit-button'>Edit</button> */}
-                            </div>
+                        </div>
                     </div>
 
 

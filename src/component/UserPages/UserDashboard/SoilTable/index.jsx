@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import "./style.css"
 import MinimizeIcon from '@mui/icons-material/Minimize';
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -12,7 +11,7 @@ function SoilDashboardTable(props) {
   
     if(!close) return null
   return (
-    <div className='userdashboardtable shadow'>
+    <div className='userdashboardtable2 shadow'>
       <div className='dash-title d-flex justify-content-between'>
         <h5 className='pt-1 ps-2'>{props.heading}</h5>
         <div>

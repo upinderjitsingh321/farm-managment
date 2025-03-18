@@ -14,7 +14,7 @@ function UserCropRotationPage() {
 
 
   return (
-    <div className=''>
+    <div className='my-5'>
       <div className="row mx-1">
         <div className="col-md-12">
           <CropRotationTable heading={" Crop Rotation History"} tittle={"add"} fields={"#F01>4"} acre={"20"} year1={""} year2={""} year3={""} year4={""} year5={""}/>

@@ -37,7 +37,7 @@ function SoilForm() {
     return (
         <>
             <section className="container mt-5 p-4">
-                <form onSubmit={handleSubmit} className="registration_form shadow p-4 bg-white rounded reg-padding">
+                <form onSubmit={handleSubmit} className="registration_form first_section p-4 bg-white rounded reg-padding">
                     <h2 className="text-center mb-4 text-dark">Soil Statistics Form</h2>
 
                     <div className="row mb-3">

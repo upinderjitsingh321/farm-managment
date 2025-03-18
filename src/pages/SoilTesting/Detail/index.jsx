@@ -8,15 +8,15 @@ function Detail({ arraycontent,detaild }) {
       <section className="container mt-4 shadow pt-2 pb-2">
         {
           arraycontent.map((item, index) => (
-            <div className="row first_section shadow">
+            <div className="row first_section">
 
               <div className="col-md-6">
 
-                <h2 key={index}>{item.mainheading}</h2>
+                <h2 className='text-success' key={index}>{item.mainheading}</h2>
                 {
                   item.innerItems.map((item) => (
                     <div className="soil_imp_list">
-                      <div><span className="soil_imp_heading">{item.heading}</span> <span className="soil_para">{item.paragraph}</span></div>
+                      <div><span className="soil_imp_heading text-success">{item.heading}</span> <span className="soil_para">{item.paragraph}</span></div>
 
                     </div>
                   ))
@@ -33,9 +33,9 @@ function Detail({ arraycontent,detaild }) {
         }
 
         <section className="container mt-4 ">
-          <div className="row first_section shadow">
+          <div className="row first_section">
             <div className="col-md-6">
-              <h2>Types Of Soil Testing</h2>
+              <h2 className='text-success'>Types Of Soil Testing</h2>
               <ul className="soil_imp_list">
                 <li>Mineral content</li>
                 <li>PH level</li>
@@ -45,7 +45,7 @@ function Detail({ arraycontent,detaild }) {
                 <li>Structure and texture</li>
               </ul>
               <div className="view_more">
-                <Link to="/seemore" className="btn btn-primary">View More</Link>
+                <Link to="/seemore" className="btn btn-success">View More</Link>
               </div>
             </div>
             <div className="col-md-6">
@@ -56,15 +56,15 @@ function Detail({ arraycontent,detaild }) {
 
         {
           detaild.map((item, index) => (
-            <div className="row first_section shadow">
+            <div className="row first_section">
 
               <div className="col-md-6">
 
-                <h2 key={index}>{item.mainheading}</h2>
+                <h2 className='text-success' key={index}>{item.mainheading}</h2>
                 {
                   item.innerItems.map((item) => (
                     <div className="soil_imp_list">
-                      <div><span className="soil_imp_heading">{item.heading}</span> <span className="soil_para">{item.paragraph}</span></div>
+                      <div><span className="soil_imp_heading text-success">{item.heading}</span> <span className="soil_para">{item.paragraph}</span></div>
 
                     </div>
                   ))

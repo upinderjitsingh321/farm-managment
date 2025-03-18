@@ -16,12 +16,12 @@ function Sidebar() {
       <ul class="nav flex-column mt-4">
         <li class="nav-item"><Link class="nav-link text-white" to={"/admin/dashboard"}> <DashboardIcon sx={{ color: "#f5227b" }} /> Dashboard</Link></li>
         <li class="nav-item"><Link class="nav-link text-white" to={"/admin/farmerlist"} >👨‍🌾 Farmers</Link></li>
-        <li class="nav-item"><Link class="nav-link text-white" to={"/admin/userslist"} >👨‍🌾 Users</Link></li>
+        {/* <li class="nav-item"><Link class="nav-link text-white" to={"/admin/userslist"} >👨‍🌾 Users</Link></li> */}
         <li class="nav-item"><Link class="nav-link text-white" to={"/admin/croplist"} >🌾 Crops</Link></li>
         <li class="nav-item"><Link class="nav-link text-white" to={"admin/soiltable"}><GrassIcon sx={{ color: "#cd7d61;" }} /> Soil </Link></li>
         <li class="nav-item"><Link class="nav-link text-white" to={"/admin/chemicaltable"}>🧪 Chemicals</Link></li>
-        <li class="nav-item"><a class="nav-link text-white" href="#">📦 Inventory</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="#">📑 Reports</a></li>
+        {/* <li class="nav-item"><a class="nav-link text-white" href="#">📦 Inventory</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#">📑 Reports</a></li> */}
       </ul>
     </>
 

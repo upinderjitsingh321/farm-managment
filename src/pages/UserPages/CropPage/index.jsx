@@ -8,7 +8,7 @@ function UserCropPage() {
 
 
   return (
-    <div className=''>
+    <div className='my-5 vh-100'>
       <div className="row mx-1">
         <div className="col-md-8">
         <CropListTable heading={"Crop List"} Field={"#F01>4"} Acre={"20"} Crop={"Rice"} Year={"2025"} Variety={"1509"} irrigation={"None"} snowing={"none"} production={"20"} note={"Nothing to write"} />

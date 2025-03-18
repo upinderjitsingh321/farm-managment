@@ -1,90 +1,3 @@
-// import React from 'react'
-
-// function ChemicalPage() {
-//   return (
-//     <div>
-//       <section className='p-5'>
-//         <h2>Introduction to Agricultural Chemicals</h2>
-//         <p>Agricultural chemicals play a vital role in modern farming by enhancing crop productivity, protecting plants from pests and diseases, and maintaining soil fertility. These chemicals include fertilizers, pesticides, herbicides, fungicides, and growth regulators, each serving a specific function to support healthy plant growth. As the global population continues to rise, the demand for higher agricultural yields has made the responsible use of these chemicals essential for food security and economic stability.
-//           However, while agricultural chemicals provide numerous benefits, their misuse can lead to environmental pollution, soil degradation, and health hazards. Sustainable farming practices, such as Integrated Pest Management (IPM) and the use of eco-friendly alternatives, help minimize negative impacts while maximizing efficiency. By applying these chemicals responsibly, farmers can achieve high productivity while ensuring long-term environmental sustainability.</p>
-//         <h3>The Importance of Agricultural Chemicals</h3>
-//         <p>Agricultural chemicals play a crucial role in modern farming by improving crop productivity, protecting plants from pests and diseases, and enhancing soil fertility. With the growing global population and increasing demand for food, the efficient use of these chemicals is essential to maximize yields while conserving natural resources.As global food demand continues to rise due to population growth, farmers must find ways to increase productivity while conserving resources. Agricultural chemicals allow farmers to optimize crop growth, reduce losses caused by pests and diseases, and maintain soil health. They also help improve efficiency in large-scale farming by reducing labor costs and maximizing land use.</p>
-//         <ol>
-//           <li>
-//             <h5> Enhancing Crop Growth and Soil Fertility</h5>
-//             <ul className=''>
-//               <li>Fertilizers provide essential nutrients such as nitrogen (N), phosphorus (P), and potassium (K), which promote healthy plant growth.</li>
-//               <li>Organic and synthetic fertilizers improve soil structure and nutrient availability, ensuring higher productivity.</li>
-//               <li>Balanced fertilization prevents nutrient depletion and maintains soil health for long-term farming.</li>
-//             </ul>
-//           </li>
-//           <li>
-//             <h5>Protection Against Pests and Diseases</h5>
-//             <ul>
-//               <li>Pesticides help control insects, rodents, and nematodes that damage crops.</li>
-//               <li>Fungicides prevent and treat fungal infections that can significantly reduce yields.</li>
-//               <li>Herbicides eliminate weeds that compete with crops for nutrients, sunlight, and water.</li>
-//               <li>Effective pest and disease control ensures better quality crops and reduces post-harvest losses.</li>
-//             </ul>
-//           </li>
-//           <li>
-//             <h5>Increasing Agricultural Productivity</h5>
-//             <ul>
-//               <li>Chemicals allow farmers to produce more food on limited land, supporting global food security.
-//               </li>
-//               <li>High-yield farming helps meet the food demands of a growing population.
-//               </li>
-//               <li>Improved plant protection reduces crop losses and enhances the overall efficiency of farming operations.
-//               </li>
-//             </ul>
-//           </li>
-//           <li>
-//             <h5> Reducing Labor and Farming Costs</h5>
-//             <ul>
-//               <li>Herbicides reduce the need for manual weeding, saving time and labor costs.
-//               </li>
-//               <li>Chemical-based pest and disease control minimizes crop damage, reducing financial losses.
-//               </li>
-//               <li>Efficient use of fertilizers and pesticides leads to higher returns on investment for farmers.
-//               </li>
-//             </ul>
-//           </li>
-//           <li>
-//             <h5> Supporting Sustainable Farming Practices</h5>
-//             <ul>
-//               <li>Controlled and precise application of chemicals helps reduce environmental impact.
-//               </li>
-//               <li>Advances in agrochemical technology promote eco-friendly solutions such as biodegradable pesticides and organic fertilizers.</li>
-//               <li>Integrated Pest Management (IPM) strategies combine chemical, biological, and cultural methods to minimize excessive chemical use.</li>
-//             </ul>
-//           </li>
-//           <li>
-//             <h5> Ensuring Food Quality and Availability</h5>
-//             <ul>
-//               <li>Chemicals improve crop resilience, leading to better quality produce with longer shelf life.
-//               </li>
-//               <li>Post-harvest treatments help preserve grains, fruits, and vegetables, reducing food waste.
-//               </li>
-//               <li>Ensuring a stable food supply helps prevent hunger and supports economic growth in agricultural industries.</li>
-//             </ul>
-//           </li>
-
-//         </ol>
-//         <h3>Types of Agricultural Chemicals</h3>
-//         <ol>
-//           <li><span className='fs-5'>Fertilizers</span> – Supply essential nutrients (such as nitrogen, phosphorus, and potassium) to improve soil fertility and enhance plant growth. These can be organic (manure, compost) or synthetic (chemical fertilizers like urea and ammonium nitrate).</li>
-//           <li><span className='fs-5'>Pesticides</span> – Protect crops from harmful insects and pests that can damage plants and reduce yields. Common types include insecticides (for insects), rodenticides (for rodents), and nematicides (for nematodes).</li>
-//           <li><span className='fs-5'>Herbicides </span>– Used to control unwanted weeds that compete with crops for water, nutrients, and sunlight. Selective herbicides target specific weeds, while non-selective herbicides eliminate all plant life in a treated area.</li>
-//           <li><span className='fs-5'>Fungicides</span> – Help prevent and treat fungal infections that can destroy crops. These chemicals protect plants from diseases like powdery mildew, rust, and blight, which can spread rapidly in humid conditions.</li>
-//           <li><span className='fs-5'>Growth Regulators</span> – Influence plant development by promoting or inhibiting growth processes such as flowering, fruiting, and root formation. They are used to improve crop quality and increase harvest efficiency.</li>
-//         </ol>
-//       </section>
-//     </div>
-
-//   )
-// }
-
-// export default ChemicalPage
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -113,13 +26,30 @@ const sections = [
       "High-yield farming helps meet the food demands of a growing population.",
       "Improved plant protection reduces crop losses and enhances the overall efficiency of farming operations."
     ]
-  },{
+  }, {
     title: "Reducing Labor and Farming Costs",
     content: [
       "Herbicides reduce the need for manual weeding, saving time and labor costs.",
       "Chemical-based pest and disease control minimizes crop damage, reducing financial losses.",
-"Efficient use of fertilizers and pesticides leads to higher returns on investment for farmers."    ]
+      "Efficient use of fertilizers and pesticides leads to higher returns on investment for farmers."]
+  },
+  {
+    title: "Supporting Sustainable Farming Practices",
+    content: [
+      "  Controlled and precise application of chemicals helps reduce environmental impact.",
+      "Advances in agrochemical technology promote eco-friendly solutions such as biodegradable pesticides and organic fertilizers.",
+      "Integrated Pest Management (IPM) strategies combine chemical, biological, and cultural methods to minimize excessive chemical use."
+
+    ]
+  },
+  {
+    title: "Ensuring Food Quality and Availability",
+    content: ["Chemicals improve crop resilience, leading to better quality produce with longer shelf life.",
+      "Post-harvest treatments help preserve grains, fruits, and vegetables, reducing food waste.",
+      "Ensuring a stable food supply helps prevent hunger and supports economic growth in agricultural industries."
+    ]
   }
+
 ];
 
 function ChemicalPage() {
@@ -130,9 +60,9 @@ function ChemicalPage() {
       <section className="card shadow p-4">
         <h2 className="text-success mb-3">Introduction to Agricultural Chemicals</h2>
         <p className="text-muted">
-          Agricultural chemicals play a vital role in modern farming by enhancing crop productivity, protecting plants from pests and diseases, and maintaining soil fertility. These chemicals include fertilizers, pesticides, herbicides, fungicides, and growth regulators, each serving a specific function to support healthy plant growth.
+          Agricultural chemicals, commonly known as agrochemicals, are substances used to enhance crop production by improving soil fertility, protecting plants from pests and diseases, and increasing overall agricultural efficiency. These chemicals include fertilizers, pesticides, herbicides, fungicides, and plant growth regulators, each serving a specific role in ensuring healthy plant development. By supplying essential nutrients, controlling harmful organisms, and preventing weed competition, agricultural chemicals help farmers achieve higher yields and maintain a steady food supply for a growing global population.
+          <br></br>The use of agricultural chemicals has revolutionized modern farming, enabling large-scale food production to meet the demands of urbanization and population growth. When applied correctly, they contribute to sustainable farming by preventing crop losses, reducing labor costs, and improving the quality and longevity of harvested produce. However, responsible usage and proper management are crucial to minimizing environmental risks and ensuring that these chemicals support long-term agricultural sustainability.
         </p>
-
         <h3 className="text-success mt-4">The Importance of Agricultural Chemicals</h3>
 
         {sections.map((section, index) => (
@@ -156,11 +86,11 @@ function ChemicalPage() {
         <h3 className="text-success mt-4">Types of Agricultural Chemicals</h3>
         <div className="row mt-3">
           {[
-            { name: "Fertilizers", desc: "Supply essential nutrients to improve soil fertility." },
-            { name: "Pesticides", desc: "Protect crops from harmful insects and pests." },
-            { name: "Herbicides", desc: "Control unwanted weeds that compete with crops." },
-            { name: "Fungicides", desc: "Prevent and treat fungal infections in crops." },
-            { name: "Growth Regulators", desc: "Influence plant growth and development." }
+            { name: "Fertilizers", desc: "Fertilizers are substances used to enhance soil fertility and promote plant growth by providing essential nutrients like nitrogen, phosphorus, and potassium. They can be organic, derived from natural sources like compost and manure, or inorganic, made from synthetic chemicals for quicker nutrient absorption. Proper use of fertilizers improves crop yield, strengthens plant resistance, and maintains soil health, ensuring sustainable farming practices." },
+            { name: "Pesticides", desc: "Pesticides are substances used to protect crops from pests, diseases, and weeds, ensuring better yield and quality. They can be chemical-based or organic, targeting insects, fungi, or unwanted plants. Proper pesticide use helps prevent crop damage, reduces losses, and improves food production efficiency while requiring careful handling to minimize environmental and health risks." },
+            { name: "Herbicides", desc: "Herbicides are chemicals used to control or eliminate unwanted weeds that compete with crops for nutrients, water, and sunlight. They can be selective, targeting specific weed species, or non-selective, affecting all plants they come into contact with. Proper use of herbicides helps improve crop yield, reduce manual labor, and maintain soil health, but they must be applied carefully to avoid harming beneficial plants and the environment." },
+            { name: "Fungicides", desc: "Fungicides are chemicals or biological agents used to prevent, control, or eliminate fungal diseases that affect crops. They help protect plants from infections like rust, mildew, and blight, which can reduce yield and quality. Fungicides can be contact-based, forming a protective barrier on plant surfaces, or systemic, being absorbed and distributed within the plant. Proper application ensures healthy crop growth while minimizing environmental impact." },
+            { name: "Growth Regulators", desc: "Growth regulators are chemical substances that influence plant growth and development by modifying processes like flowering, fruiting, root formation, and stem elongation. They include plant hormones such as auxins, gibberellins, and cytokinins, which can stimulate or inhibit growth depending on the desired effect. Proper use of growth regulators helps improve crop yield, enhance quality, and manage plant growth for better agricultural productivity." }
           ].map((chemical, index) => (
             <div key={index} className="col-md-6 mb-3">
               <div className="card border-success">
