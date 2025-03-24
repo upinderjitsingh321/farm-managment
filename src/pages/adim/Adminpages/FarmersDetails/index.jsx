@@ -37,12 +37,12 @@ const router= useParams()
         <AdminUserFarmTable heading={"Farm List"} data={FarmTable}  />
         </div>
         <div className="col-md-6">
-        <AdminCropListTable heading={"Crop List"} Field={"#F01>4"} Acre={"20"} Crop={"Rice"} Year={"2025"} Variety={"1509"} irrigation={"None"} snowing={"none"} production={"20"} note={"Nothing to write"}/>
+        <AdminCropListTable heading={"Crop List"} Field={"#F01>4"} Acre={"20"} Crop={"Rice"} Year={"2025"} Variety={"1509"} irrigation={"None"} sowing={"none"} production={"20"} note={"Nothing to write"}/>
 
         </div>
         
         <div className="col-md-6">
-        <AdminChemicaltable heading={" Chemical"} Field={"#F01>4"} Acre={"20"} Crop={"Rice"} Year={"2025"} Variety={"1509"} irrigation={"None"} snowing={"none"} production={"20"} note={"Nothing to write"}/>
+        <AdminChemicaltable heading={" Chemical"} Field={"#F01>4"} Acre={"20"} Crop={"Rice"} Year={"2025"} Variety={"1509"} irrigation={"None"} sowing={"none"} production={"20"} note={"Nothing to write"}/>
 
         </div>
         

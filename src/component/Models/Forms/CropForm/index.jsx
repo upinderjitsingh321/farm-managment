@@ -2,36 +2,38 @@ import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import CloseIcon from '@mui/icons-material/Close';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
-
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 
 
 function ModelCropForm() {
     const [show, setShow] = useState(false);
 
+    const schema = yup.object().shape({
+        fieldno: yup.string().required("Field is required"),
+        acre: yup.string().required("Acre is required"),
+        cropname: yup.string().required("Crop name is required"),
+        variety: yup.string().required("variety name is required"),
+        previouscrop: yup.string().required("Crop name is required"),
+        snowingexpense: yup.string().required("Crop name is required"),
+        harvestexpense: yup.string().required("Crop name is required"),
+        sowingdate: yup.string().required("Crop name is required"),
+        harvestdate: yup.string().required("Crop name is required"),
+        labourcost: yup.string().required("Crop name is required"),
+        production: yup.string().required("Crop name is required"),
+        price: yup.string().required("Crop name is required"),
+        irrigationmeth: yup.string().required("Crop name is required"),
+        snowingmth: yup.string().required("Crop name is required"),
+        seasonyear: yup.string().required("Crop name is required"),
+        season: yup.string().required("Crop name is required"),
 
-    const [cropname, setCropName] = useState("")
-    const [fieldno, setFieldNo] = useState("")
-    const [variety, setVariety] = useState("")
-    const [seasonyear, setSeasonYear] = useState("")
-    const [season, setSeason] = useState("")
-    const [farmarea, setFarmArea] = useState("")
-    const [production, setProduction] = useState("")
-    const [irrigationMethod, setIrrigationMethod] = useState("");
-    const [harvestDate, setHarvestDate] = useState("");
-    const [snowingDate, setSnowingDate] = useState("");
-    const [snowingmethod, setSnowingMethod] = useState("");
-    const [snowingexpense, setSnowingExpense] = useState("");
-    const [harvestexpense, setHarvestExpense] = useState("");
-    const [labourcost, setLabourCost] = useState("");
-    const [remark, setRemark] = useState("")
-    const [price, setPrice] = useState("");
+    });
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        resolver: yupResolver(schema),
+    });
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log(fieldno, cropname, variety, seasonyear, season, farmarea, production, price, remark, snowingDate, snowingmethod, harvestDate, harvestexpense, labourcost, snowingexpense, irrigationMethod,)
-
-    }
 
 
     return (
@@ -52,21 +54,31 @@ function ModelCropForm() {
                     <Modal.Title id="example-custom-modal-styling-title">
                         Crop Detail
                     </Modal.Title>
-                    <CloseIcon className='text-danger' onClick={() => setShow(false)} style={{ cursor: "pointer" }}/>
+                    <CloseIcon className='text-danger' onClick={() => setShow(false)} style={{ cursor: "pointer" }} />
                 </Modal.Header>
                 <Modal.Body>
 
-                    <form onSubmit={handleSubmit} className=" shadow p-4 bg-white rounded farm-padding">
+                    <form onSubmit={handleSubmit()} className=" shadow p-4 bg-white rounded farm-padding">
 
                         <div class="row mb-3">
 
                             <div class="col-md-6">
                                 <label for="feild_no" class="form-label">Field No.</label>
-                                <input type="type" class="form-control" id="feild_no" placeholder='#01' onChange={(e) => setFieldNo(e.target.value)} />
+                                <input {...register("fieldno")} className="form-control" placeholder=" Field No."
+                                />
+                                {
+                                    errors.fieldno?.message &&
+                                    <p className="text-danger">{errors.fieldno?.message}</p>
+                                }
                             </div>
                             <div class="col-md-6">
                                 <label for="farm_area" class="form-label">Area in(Arce.)</label>
-                                <input type="type" class="form-control" id="farm_area" placeholder="0" onChange={(e) => setFarmArea(e.target.value)} />
+                                <input {...register("acre")} className="form-control" placeholder=" Acre"
+                                />
+                                {
+                                    errors.acre?.message &&
+                                    <p className="text-danger">{errors.acre?.message}</p>
+                                }
                             </div>
 
 
@@ -74,16 +86,25 @@ function ModelCropForm() {
                         <div className="row mb-3">
                             <div className="col-md-6">
                                 <label className="form-label">Season Year</label>
-                                <select type="text" className="form-control" placeholder="2024-2025" onChange={(e) => setSeasonYear(e.target.value)} >
+                                <select  {...register("seasonyear")} type="text" className="form-control" placeholder="2024-2025" onChange={(e) => setSeasonYear(e.target.value)} >
                                     <option selected>Select</option>
                                     <option value="2024-2025">2024-2025</option>
                                     <option value="2023-2024">2023-2024</option>
                                     <option value="2022-2023">2022-2023</option>
                                 </select>
+                                {
+                                    errors.seasonyear?.message &&
+                                    <p className="text-danger">{errors.seasonyear?.message}</p>
+                                }
                             </div>
                             <div class="col-md-6">
                                 <label for="crop_name" class="form-label">Crop Name</label>
-                                <input type="type" class="form-control" id="crop_name" placeholder='Crop  Name' onChange={(e) => setCropName(e.target.value)} />
+                                <input {...register("cropname")} className="form-control" placeholder=" Crop Name"
+                                />
+                                {
+                                    errors.cropname?.message &&
+                                    <p className="text-danger">{errors.cropname?.message}</p>
+                                }
                             </div>
 
                         </div>
@@ -91,25 +112,33 @@ function ModelCropForm() {
 
                             <div class="col-md-6">
                                 <label for="select_season" class="form-label common_select">Season</label>
-                                <select class="form-select " onChange={(e) => setSeason(e.target.value)}>
+                                <select {...register("season")}  class="form-select " onChange={(e) => setSeason(e.target.value)}>
                                     <option selected>Select</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
                                 </select>
+                                {
+                                    errors.season?.message &&
+                                    <p className="text-danger">{errors.season?.message}</p>
+                                }
                             </div>
                             <div class="col-md-6">
                                 <label for="select_variety" class="form-label">Variety</label>
-                                <input type='text' class="form-control " placeholder='Crop Variety Name' onChange={(e) => setVariety(e.target.value)} />
-
+                                <input {...register("variety")} className="form-control" placeholder=" Variety"
+                                />
+                                {
+                                    errors.variety?.message &&
+                                    <p className="text-danger">{errors.variety?.message}</p>
+                                }
                             </div>
 
                         </div>
                         <div class="row mb-3">
 
                             <div className="col-md-6">
-                                <label className="form-label">Snowing Method</label>
-                                <select className="form-select" onChange={(e) => setSnowingMethod(e.target.value)}>
+                                <label className="form-label">Sowing Method</label>
+                                <select  {...register("snowingmth")} className="form-select" onChange={(e) => setSowingMethod(e.target.value)}>
                                     <option>Select</option>
                                     <option value="BroadCasting">BroadCasting</option>
                                     <option value="NO Til Drill">NO Til Drill</option>
@@ -117,59 +146,107 @@ function ModelCropForm() {
                                     <option value="Super Seeder">Super Seeder</option>
                                     <option value="Surface Seeder">Surface Seeder</option>
                                 </select>
+                                {
+                                    errors.snowingmth?.message &&
+                                    <p className="text-danger">{errors.snowingmth?.message}</p>
+                                }
                             </div>
                             <div className="col-md-6">
                                 <label className="form-label">Crop Rotation</label>
-                                <input type="text" className="form-control" placeholder="Previous crops grown" onChange={(e) => setCropRotation(e.target.value)} />
+                                <input {...register("previouscrop")} className="form-control" placeholder=" Previous Crop"
+                                />
+                                {
+                                    errors.previouscrop?.message &&
+                                    <p className="text-danger">{errors.previouscrop?.message}</p>
+                                }
                             </div>
                         </div>
 
 
                         <div class="row mb-3">
                             <div className="col-md-6">
-                                <label className="form-label"> Snowing Expense</label>
-                                <input type="number" className="form-control" onChange={(e) => setSnowingExpense(e.target.value)} />
-                            </div>
+                                <label className="form-label"> Sowing Expense</label>
+                                <input {...register("snowingexpense")} className="form-control" placeholder=" Snowing Cost"
+                                />
+                                {
+                                    errors.snowingexpense?.message &&
+                                    <p className="text-danger">{errors.snowingexpense?.message}</p>
+                                }             
+                                               </div>
                             <div className="col-md-6">
                                 <label className="form-label"> Harvest Expense</label>
-                                <input type="number" className="form-control" onChange={(e) => setHarvestExpense(e.target.value)} />
-                            </div>
+                                <input {...register("harvestexpense")} className="form-control" placeholder=" Harvest Cost"
+                                />
+                                {
+                                    errors.harvestexpense?.message &&
+                                    <p className="text-danger">{errors.harvestexpense?.message}</p>
+                                }               
+                                                </div>
                         </div>
                         <div class="row mb-3">
                             <div className="col-md-6">
-                                <label className="form-label">Expected Snowing Date</label>
-                                <input type="date" className="form-control" onChange={(e) => setSnowingDate(e.target.value)} />
-                            </div>
+                                <label className="form-label">Expected Sowing Date</label>
+                                <input {...register("sowingdate")} className="form-control" placeholder=" Date"
+                                />
+                                {
+                                    errors.sowingdate?.message &&
+                                    <p className="text-danger">{errors.sowingdate?.message}</p>
+                                }                
+                                               </div>
                             <div className="col-md-6">
                                 <label className="form-label">Expected Harvest Date</label>
-                                <input type="date" className="form-control" onChange={(e) => setHarvestDate(e.target.value)} />
-                            </div>
+                                <input {...register("harvestdate")} className="form-control" placeholder=" Date"
+                                />
+                                {
+                                    errors.harvestdate?.message &&
+                                    <p className="text-danger">{errors.harvestdate?.message}</p>
+                                }                     
+                                          </div>
                         </div>
                         <div className="row mb-3">
                             <div class="col-md-6">
                                 <label for="labourcost" class="form-label">Labour Cost</label>
-                                <input type="type" class="form-control" id="labourcost" placeholder=' Total Labour Cost' onChange={(e) => setLabourCost(e.target.value)} />
-                            </div>
+                                <input {...register("labourcost")} className="form-control" placeholder=" Cost"
+                                />
+                                {
+                                    errors.labourcost?.message &&
+                                    <p className="text-danger">{errors.labourcost?.message}</p>
+                                }                     
+                                          </div>
                             <div className="col-md-6">
                                 <label className="form-label">Irrigation Method</label>
-                                <select className="form-select" onChange={(e) => setIrrigationMethod(e.target.value)}>
+                                <select {...register("irrigationmeth")}  className="form-select" >
                                     <option>Select</option>
                                     <option value="Drip">Drip/Sprinkler</option>
                                     <option value="Sprinkler">Tubewell</option>
                                     <option value="Flood">Canal</option>
                                 </select>
+                                {
+                                    errors.irrigationmeth?.message &&
+                                    <p className="text-danger">{errors.irrigationmeth?.message}</p>
+                                }  
                             </div>
 
                         </div>
                         <div className="row md-3">
                             <div class="col-md-6">
                                 <label for="production" class="form-label">Expected Production(Quintal)</label>
-                                <input type="type" class="form-control" id="production" placeholder='' onChange={(e) => setProduction(e.target.value)} />
-                            </div>
+                                <input {...register("production")} className="form-control" placeholder=" Likely Production"
+                                />
+                                {
+                                    errors.production?.message &&
+                                    <p className="text-danger">{errors.production?.message}</p>
+                                }                    
+                                           </div>
                             <div class="col-md-6">
                                 <label for="price" class="form-label">Expected Price</label>
-                                <input type="type" class="form-control" id="price" placeholder='Rupees' onChange={(e) => setPrice(e.target.value)} />
-                            </div>
+                                <input {...register("price")} className="form-control" placeholder=" Price"
+                                />
+                                {
+                                    errors.price?.message &&
+                                    <p className="text-danger">{errors.price?.message}</p>
+                                }   
+                                                            </div>
 
                         </div>
 

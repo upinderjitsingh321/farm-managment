@@ -39,7 +39,7 @@ function UserFarmTable({ heading, data }) {
             <th className="border border-gray-300 p-2"> Owner</th>
             <th className="border border-gray-300 p-2"> Fields</th>
             <th className="border border-gray-300 p-2"> Acre</th>
-            <th className="border border-gray-300 p-2"> Active</th>
+            <th className="border border-gray-300 p-2"> Status</th>
 
 
           </tr>

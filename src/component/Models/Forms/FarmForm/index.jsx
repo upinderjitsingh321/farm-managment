@@ -2,24 +2,26 @@ import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import CloseIcon from '@mui/icons-material/Close';
-
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 import "./style.css"
 
 
 function ModelFarmForm() {
   const [show, setShow] = useState(false);
 
-  const [type, setType] = useState("")
-  const [farmname, setFarmName] = useState("")
-  const [farmername, setFarmerName] = useState("")
-  const [farmid, setFarmId] = useState("")
-  const [longitude, setLongitude] = useState("")
-  const [latitude, setLatitude] = useState("")
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log( farmid, farmername, farmname,longitude,latitude, type)
-  }
+  
+  const schema = yup.object().shape({
+        farmid: yup.string().required("Farm is required"),
+        name: yup.string().required("Farm is required"),
+        type: yup.string().required("Type is required"),
+        owner: yup.string().required("Owner name is required"),
+    
+  });
+  const { register, handleSubmit, formState: { errors } } = useForm({
+      resolver: yupResolver(schema),
+    });
 
   return (
     <>
@@ -43,7 +45,7 @@ function ModelFarmForm() {
         </Modal.Header>
         <Modal.Body>
 
-        <form onSubmit={handleSubmit} className=" shadow p-4 bg-white rounded farm-padding">
+        <form onSubmit={handleSubmit()} className=" shadow p-4 bg-white rounded farm-padding">
           
         
 
@@ -51,30 +53,43 @@ function ModelFarmForm() {
           <div className="row mb-3">
             <div className="col-md-6">
               <label className="form-label fw-bold">Farm Id</label>
-              <input type="text" className="form-control" placeholder="#01" onChange={(e) => setFarmId(e.target.value)} />
-            </div>
+              <input {...register("farmid")} className="form-control" placeholder=" Id"
+                />
+                {
+                  errors.farmid?.message &&
+                  <p className="text-danger">{errors.farmid?.message}</p>
+                }           
+                 </div>
             <div className="col-md-6">
               <label className="form-label fw-bold">Farm Name</label>
-              <input type="text" className="form-control" placeholder="Name" onChange={(e) => setFarmName(e.target.value)} />
-            </div>
+              <input {...register("name")} className="form-control" placeholder=" Farm Name"
+                />
+                {
+                  errors.name?.message &&
+                  <p className="text-danger">{errors.name?.message}</p>
+                }           
+                    </div>
           </div>
 
           <div className="row mb-3">
             <div class="col-md-6">
               <label className="form-label fw-bold">Type</label>
-              <select  type="select" className="form-select " onChange={(e) => setType(e.target.value)}>
-               
-                <option>Crop  </option>
-                <option>Garden  </option>
-                <option>Orchard Farm </option>
-                
-              </select>
-                
+              <input {...register("type")} className="form-control" placeholder="Crop"
+                />
+                {
+                  errors.type?.message &&
+                  <p className="text-danger">{errors.type?.message}</p>
+                }           
             </div>
             <div className="col-md-6">
               <label className="form-label fw-bold">Owner</label>
-              <input type="text" className="form-control" onChange={(e) => setOwner(e.target.value)} />
-            </div>
+              <input {...register("owner")} className="form-control" placeholder="Name"
+                />
+                {
+                  errors.owner?.message &&
+                  <p className="text-danger">{errors.owner?.message}</p>
+                }               
+                 </div>
 
           </div>
 

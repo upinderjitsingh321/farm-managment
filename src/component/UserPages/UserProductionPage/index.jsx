@@ -6,7 +6,7 @@ const initialData = [
   {
     crops:"cron",
     variety:"29-02-2025",
-    snowing:"2025",
+    sowing:"2025",
     harvest:"4",
     spending:"24",
     spendingperacre:"5",
@@ -19,7 +19,7 @@ const initialData = [
   {
     crops:"beet",
     variety:"29-02-2025",
-    snowing:"2025",
+    sowing:"2025",
     harvest:"4",
     spending:"24",
     spendingperacre:"5",
@@ -42,7 +42,7 @@ const initialData = [
           <tr>
             <th className="border border-gray-300 p-2"> Crops</th>
             <th className="border border-gray-300 p-2">Variety </th>
-            <th className="border border-gray-300 p-2">Snowing(ac)</th>
+            <th className="border border-gray-300 p-2">Sowing(ac)</th>
             <th className="border border-gray-300 p-2">Harvested(ac)</th>
             <th className="border border-gray-300 p-2"> Spending</th>
             <th className="border border-gray-300 p-2">Spending/ac</th>
@@ -59,7 +59,7 @@ const initialData = [
             <tr key={record.id} className="border border-gray-300">
               <td className="border border-gray-300 p-2">{record.crops}</td>
               <td className="border border-gray-300 p-2">{record.variety}</td>
-              <td className="border border-gray-300 p-2">{record.snowing}</td>
+              <td className="border border-gray-300 p-2">{record.sowing}</td>
               <td className="border border-gray-300 p-2">{record.harvest}</td>
               <td className="border border-gray-300 p-2">{record.spending}</td>
               <td className="border border-gray-300 p-2">{record.spendingperacre}</td>

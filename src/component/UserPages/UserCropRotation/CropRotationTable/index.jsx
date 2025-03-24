@@ -3,7 +3,6 @@ import "./style.css"
 import MinimizeIcon from '@mui/icons-material/Minimize';
 import CloseIcon from '@mui/icons-material/Close';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
-import ModelCropRotaionForm from '../../../Models/Forms/AddCropRotaion';
 import AddIcon from '@mui/icons-material/Add';
   
 function CropRotationTable(props) {
@@ -14,7 +13,7 @@ function CropRotationTable(props) {
     <div className='userdashboardtable shadow my-3 '>
     <div className='dash-title d-flex justify-content-between'>
         <h5 className='pt-1 ps-2'>{props.heading}<KeyboardDoubleArrowDownIcon/></h5>
-        <ModelCropRotaionForm/>
+        
         <div>
         {
             minimize ?

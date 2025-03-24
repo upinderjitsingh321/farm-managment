@@ -11,7 +11,9 @@
 .arrowdiv {
     background-color: rgb(225 237 225);
 }
-
+.th_img{
+    max-width: 30px;
+}
 /* table {
     width: 100%;
     table-layout: fixed;

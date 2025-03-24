@@ -52,6 +52,9 @@ function CropAreaTable(props) {
             </tr>
 
           </tbody>
+          <tr>
+              <th>Total Farm[ac]</th>
+            </tr>
         </table>
       )}
     </div>

@@ -14,9 +14,11 @@ function Myaccount() {
             idproof: "Aadhar Card"
         },
         address: {
-            country: "India",
+            state: "Punjab",
             city: "Gurdaspur",
-            pincode: "143528"
+            pincode: "143528",
+            district: "Gurdaspur",
+            block: "Khanuwan"
         }
     }
     return (
@@ -54,31 +56,35 @@ function Myaccount() {
                         <p>First Name</p>
                         <p>{data.personalInfo.firstname}</p>
                     </div>
-                    <div className='col-md-4'>
-                        <p>Second Name</p>
-                        <p>{data.personalInfo.secondname}</p>
-                    </div>
-                    <div className='col-md-4'>
-                        <p>Date-of-Birth</p>
-                        <p>{data.personalInfo.dateofbirth}</p>
 
-                    </div>
-                </div>
-                <div className='row'>
+
                     <div className='col-md-4'>
                         <p>Phone Number</p>
                         <p>{data.personalInfo.mobileno}</p>
                     </div>
+                    <div className='col-md-4'>
+                        <p>Date of Birth</p>
+                        <p>{data.personalInfo.dateofbirth}</p>
+                    </div>
+
+                </div>
+                <div className='row'>
 
                     <div className='col-md-4'>
                         <p>Id Proof</p>
                         <p>{data.personalInfo.idproof}</p>
                     </div>
+
+                    <div className='col-md-4 btn-pass'>
+                        <p>Email</p>
+                        <span>upinderjitsingh32@gmail.com</span>
+
+                    </div>
                     <div className='col-md-4 btn-pass'>
                         <p>Password</p>
                         <span>********</span>
                         <Button className='ms-3 button-pos' variant="outlined" color="error">
-                            <EditIcon/>
+                            <EditIcon />
                         </Button>
                     </div>
 
@@ -97,15 +103,23 @@ function Myaccount() {
 
                     <div className='bottom-line'></div>
                     <div className='col-md-4'>
-                        <p>Country</p>
-                        <p>{data.address.country}</p>
+                        <p>State</p>
+                        <p>{data.address.state}</p>
                     </div>
-
+                    <div className='col-md-4 '>
+                        <p> District</p>
+                        <p>{data.address.district} </p>
+                    </div>
                     <div className='col-md-4'>
                         <p>City</p>
                         <p>{data.address.city} </p>
                     </div>
-                    <div className='col-md-4'>
+
+                    <div className='col-md-4 mt-3'>
+                        <p>Block </p>
+                        <p>{data.address.block} </p>
+                    </div>
+                    <div className='col-md-4 mt-3'>
                         <p>Pin Code</p>
                         <p>{data.address.pincode} </p>
                     </div>

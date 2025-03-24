@@ -2,31 +2,28 @@ import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import CloseIcon from '@mui/icons-material/Close';
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 
-
-function ModelChemicalForm() {
+function ModelInputForm() {
     const [show, setShow] = useState(false);
 
-    const [product, setProductNmae] = useState("")
-    const [ingredient, setActiveIngredient] = useState("")
-    const [dosage, setDosageperAcre] = useState("")
-    const [application, setApplicationDate] = useState("")
-    const [manufacture, SetManufacturer] = useState("")
-    const [expiredate, SetExpiryDate] = useState("")
-    const [price, setPrice] = useState("");
-    const [type, setType] = useState("");
-
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log(product, ingredient, dosage, application, expiredate, manufacture, type, price)
-
-    }
+    const schema = yup.object().shape({
+            farmid: yup.string().required("Farm is required"),
+            fieldno: yup.string().required("Field is required"),
+            inputs: yup.string().required("Input is required"),
+            date: yup.string().required("Date is required"),
+    })
+      const { register, handleSubmit, formState: { errors } } = useForm({
+            resolver: yupResolver(schema),
+        });
+    
     return (
         <>
             <button className='add-button' onClick={() => setShow(true)}>
-                <AddCircleIcon /> Add New Chemical
+                <AddCircleIcon /> Add  Inputs
             </button>
 
             <Modal
@@ -39,28 +36,36 @@ function ModelChemicalForm() {
             >
                 <Modal.Header style={{ backgroundColor: "rgb(108, 146, 108)", padding: "0px 10px", color: "white", display: "flex", justifyContent: "space-between" }}>
                     <Modal.Title id="example-custom-modal-styling-title">
-                        Chemical Detail
+                        Inputs
                     </Modal.Title>
                     <CloseIcon className='text-danger' onClick={() => setShow(false)} style={{ cursor: "pointer" }}/>
                 </Modal.Header>
                 <Modal.Body>
 
-                    <form onSubmit={handleSubmit} className=" shadow p-4 bg-white rounded farm-padding">
+                    <form onSubmit={handleSubmit()} className=" shadow p-4 bg-white rounded farm-padding">
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="farm-no" class="form-label">Farm Id</label>
-                                <input type="type" class="form-control" id="farm-no" placeholder='#01' onChange={(e) => setFarm(e.target.value)} />
-                            </div>
+                                <input {...register("farmid")} className="form-control" placeholder=" Farm Id."
+                                />
+                                {
+                                    errors.farmid?.message &&
+                                    <p className="text-danger">{errors.farmid?.message}</p>
+                                }                               </div>
                             <div class="col-md-6">
                                 <label for="fieldno" class="form-label">Field No.</label>
-                                <input type="type" class="form-control" id="fieldno" placeholder="0" onChange={(e) => setFieldNo(e.target.value)} />
-                            </div>
+                                <input {...register("fieldno")} className="form-control" placeholder=" Field No"
+                                />
+                                {
+                                    errors.fieldno?.message &&
+                                    <p className="text-danger">{errors.fieldno?.message}</p>
+                                }                            </div>
                         </div>
                         <div class="row mb-3">
 
                             <div class="col-md-6">
                                 <label for="name" class="form-label">Product Name</label>
-                                <input type="type" class="form-control" id="name" placeholder='#01' onChange={(e) => setProductNmae(e.target.value)} />
+                                <input type="type" class="form-control" id="name" placeholder='Name' onChange={(e) => setProductNmae(e.target.value)} />
                             </div>
                             <div class="col-md-6">
                                 <label for="ingredient" class="form-label">Active Ingredient</label>
@@ -72,19 +77,22 @@ function ModelChemicalForm() {
                         <div className="row mb-3">
 
                             <div className="col-md-6">
-                                <label className="form-label">Type</label>
-                                <select className="form-control" placeholder="Type"  onChange={(e) => setType(e.target.value)} >
+                                <label className="form-label">Inputs</label>
+                                <select {...register("inputs")} className="form-control" placeholder="Type"  onChange={(e) => setType(e.target.value)} >
                                     <option value="">Select Type </option>
                                     <option value="dry">Pesticide</option>
                                     <option value="dry">Herbicide</option>
                                     <option value="moist">Fertilizer</option>
-                                    <option value="wet">Fungicide</option>
-                                    <option value="wet">Manure</option>
+                                    <option value="wet">Organic</option>
                                 </select>
+                                {
+                                    errors.inputs?.message &&
+                                    <p className="text-danger">{errors.inputs?.message}</p>
+                                }   
                             </div>
                             <div class="col-md-6">
                                 <label for="dosage" class="form-label">Dosage per Acre</label>
-                                <input type="type" class="form-control" id="dosage" placeholder='Crop  Name' onChange={(e) => setDosageperAcre(e.target.value)} />
+                                <input type="type" class="form-control" id="dosage" placeholder='Dosage' onChange={(e) => setDosageperAcre(e.target.value)} />
                             </div>
 
 
@@ -93,24 +101,33 @@ function ModelChemicalForm() {
 
                             <div class="col-md-6">
                                 <label for="application" class="form-label">Application Date</label>
-                                <input type="type" class="form-control" id="application" placeholder='Crop  Name' onChange={(e) => setApplicationDate(e.target.value)} />
-                            </div>
+                                <input {...register("date")} className="form-control" placeholder=" Field No"
+                                />
+                                {
+                                    errors.date?.message &&
+                                    <p className="text-danger">{errors.date?.message}</p>
+                                }                             </div>
 
                             <div class="col-md-6">
-                                <label for="select_variety" class="form-label">Expiry Date</label>
-                                <input type='text' class="form-control " placeholder='Crop Variety Name' onChange={(e) => SetExpiryDate(e.target.value)} />
-
+                                <label for="select_variety" class="form-label">Period</label>
+                                <select className="form-control" placeholder="Type"  onChange={(e) => setType(e.target.value)} >
+                                    <option value="">Select Type </option>
+                                    <option value="dry">Aut.</option>
+                                    <option value="dry">Spring</option>
+                                    <option value="moist">Summer</option>
+                                    <option value="wet">Winter</option>
+                                </select>
                             </div>
 
                         </div>
                         <div class="row mb-3">
                             <div className="col-md-6">
                                 <label className="form-label">Manufacturer</label>
-                                <input type="text" className="form-control" placeholder="Previous crops grown" onChange={(e) => SetManufacturer(e.target.value)} />
+                                <input type="text" className="form-control" placeholder="Company Name" onChange={(e) => SetManufacturer(e.target.value)} />
                             </div>
                             <div className="col-md-6">
                                 <label className="form-label">Price</label>
-                                <input type="text" className="form-control" placeholder="Previous crops grown" onChange={(e) => setPrice(e.target.value)} />
+                                <input type="text" className="form-control" placeholder="Price" onChange={(e) => setPrice(e.target.value)} />
                             </div>
 
                         </div>
@@ -125,4 +142,4 @@ function ModelChemicalForm() {
     );
 }
 
-export default ModelChemicalForm;
+export default ModelInputForm;

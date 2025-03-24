@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { PieChart, Pie,Cell, Sector, ResponsiveContainer } from "recharts";
 import MinimizeIcon from '@mui/icons-material/Minimize';
 import CloseIcon from '@mui/icons-material/Close';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { Link } from 'react-router-dom';
 import "./style.css";
 
 const renderActiveShape = (props) => {

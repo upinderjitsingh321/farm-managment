@@ -2,12 +2,11 @@ import React, { useEffect, useRef, useState } from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Navbar.css"
 import { Link } from 'react-router-dom'
-import NavDropdown from '../../dropdown'
 import { CgProfile } from 'react-icons/cg'
 import AgricultureIcon from '@mui/icons-material/Agriculture';
 import { MdLogout } from 'react-icons/md'
 function Navbar() {
-  const [profile, setProfile] = useState(true)
+  const [profile, setProfile] = useState(false)
   const [crop, setCrop] = useState(false)
   const [navbar, setNavbar] = useState(false)
   const dropdownRef = useRef(null);
@@ -46,10 +45,9 @@ function Navbar() {
   return (
     <>
       <nav className="navbar navbar-expand-lg main-navbar" style={{ backgroundColor: `${navbar ? " #043820" : "rgb(65 88 65) "}` }}>
-        <div style={{ width: "50px" }}>
-          <Link className="logo" to={"/home"}>
-            <img src='img/logo.png'/></Link>
-        </div>
+        <Link className="logo" to={"/home"}>
+          <img style={{ width: "85px" }} src='img/logo.png' /></Link>
+
         <div className="container-fluid container-navbar">
           <div className="collapse navbar-collapse farm_nav" id="navbarNavDropdown">
             {
@@ -78,17 +76,20 @@ function Navbar() {
                     <Link className="nav-link link-color" to="/admin/mainpage">Production Chart</Link>
                   </li> */}
                   <li className=" ">
-                    <Link className="nav-link link-color" to="/admin/dashboard"> Admin</Link>
+                    <Link className="nav-link link-color" to="/admin/login"> Admin</Link>
                   </li>
-                  
-                  <li className="box-postion ">
-                    <Link className="nav-link for-user px-4" to="/register">Sign Up</Link>
-                  </li>
-                  <li className=" box-postion1">
-                    <Link className="nav-link for-user1 ps-5 px-4" to="/alredyaccount">Log in</Link>
-                  </li>   
+
+                 <div style={{    marginLeft: "400px"}}>
+                 <li className="box-postion ">
+                 <Link className="nav-link for-user px-4" to="/register">Sign Up</Link>
+               </li>
+               <li className=" box-postion1">
+                 <Link className="nav-link for-user1 ps-5 px-4" to="/alredyaccount">Log in</Link>
+               </li>
+                 </div>
 
                 </ul>
+                
               ) : (
                 <ul className='Usernavbar'>
                   <Link className=' userlist text-white link-color' to={"/userhome"}><li className='userlist'><img className="usernav-icon  pe-1" src='img/home.png' /> Home</li></Link>
@@ -112,23 +113,24 @@ function Navbar() {
                   <Link to={"/soilpage"} className='userlist text-white link-color'><img className="usernav-icon pe-1" src='img/soil.png' />Soil</Link>
                   <Link to={"/weather"} className='userlist text-white link-color'><img className="usernav-icon pe-1" src='img/cloudy.png' />Weather</Link>
                   <Link to={"/production"} className='userlist text-white link-color'><img className="usernav-icon  pe-1" src='img/incom.png' />Production cost</Link>
+                  <div className='profile-dropdown' ref={dropdownRef}>
+
+                    <button onClick={() => setProfile(true)} className='profile-btn'><img className='profile-img' src='img/account.png' /></button>
+                    <div className='dropdown-btn'
+                      style={{ display: `${profile ? "block" : "none"}` }}>
+                      <Link to={"/account"} > <CgProfile className='me-2' />Profile</Link>
+                      <Link to={"/openaccount"}> <AgricultureIcon className='me-2' />Open Fram</Link>
+                      <Link> <MdLogout className='me-2 text-danger' />Logout</Link>
+                    </div>
+                  </div>
                 </ul>
               )}
 
 
 
           </div>
-         
-              <div className='profile-dropdown' ref={dropdownRef}>
 
-                <button onClick={() => setProfile(true)} className='profile-btn'><img className='profile-img' src='img/account.png' /></button>
-                <div className='dropdown-btn'
-                  style={{ display: `${profile ? "block" : "none"}` }}>
-                  <Link to={"/account"} > <CgProfile className='me-2' />Profile</Link>
-                  <Link to={"/openaccount"}> <AgricultureIcon className='me-2' />Open Fram</Link>
-                  <Link> <MdLogout className='me-2 text-danger' />Logout</Link>
-                </div>
-              </div>   
+
         </div>
       </nav>
 

@@ -58,9 +58,10 @@ if(!show) return null
             </Link>
           </div>
 
-        <button type="submit" className="btn btn-success w-100 mt-3 p-2">
+        <Link to={"/admin/dashboard"}><button type="submit" className="btn btn-success w-100 mt-3 p-2">
             Login
           </button>
+          </Link>
       </form>
     </div>
     </div>

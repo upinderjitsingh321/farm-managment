@@ -21,7 +21,7 @@ function FarmerTables(props) {
               <th className="border border-gray-300 p-2"> Crop</th>
               <th className="border border-gray-300 p-2"> Acre</th>
               <th className="border border-gray-300 p-2"> Variety</th>
-              <th className="border border-gray-300 p-2"> Snowing Meth.</th>
+              <th className="border border-gray-300 p-2"> Sowing Meth.</th>
               <th className="border border-gray-300 p-2"> Irrigation Meth.</th>
               <th className="border border-gray-300 p-2"> Prodcution(Qtl) </th>
               <th className="border border-gray-300 p-2"> Note </th>
@@ -37,7 +37,7 @@ function FarmerTables(props) {
                 <td className="border border-gray-300 p-2">{props.Crop}</td>
                 <td className="border border-gray-300 p-2">{props.Acre}</td>
                 <td className="border border-gray-300 p-2">{props.Variety}</td>
-                <td className="border border-gray-300 p-2">{props.snowing}</td>
+                <td className="border border-gray-300 p-2">{props.sowing}</td>
                 <td className="border border-gray-300 p-2">{props.irrigation}</td>
                 <td className="border border-gray-300 p-2">{props.prodcution}</td>
                 <td className="border border-gray-300 p-2">{props.note}</td>

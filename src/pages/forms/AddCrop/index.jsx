@@ -12,14 +12,14 @@ function AddCrop() {
     const [production, setProduction] = useState("")
     const [irrigationMethod, setIrrigationMethod] = useState("");
     const [harvestDate, setHarvestDate] = useState("");
-    const [snowingDate, setSnowingDate] = useState("");
-    const [snowingmethod, setSnowingMethod] = useState("");
-    const [snowingexpense, setSnowingExpense] = useState("");
+    const [sowingDate, setSowingDate] = useState("");
+    const [sowingmethod, setSowingMethod] = useState("");
+    const [sowingexpense, setSowingExpense] = useState("");
     const [harvestexpense, setHarvestExpense] = useState("");
     const [labourcost, setLabourCost] = useState("");
     const [remark, setRemark] = useState("")
     const [price, setPrice] = useState("");
-    console.log(fieldno, cropname, variety, seasonyear, season, farmarea, production, price,remark, snowingDate, snowingmethod, harvestDate, harvestexpense, labourcost, snowingexpense, irrigationMethod,)
+    console.log(fieldno, cropname, variety, seasonyear, season, farmarea, production, price,remark, sowingDate, sowingmethod, harvestDate, harvestexpense, labourcost, sowingexpense, irrigationMethod,)
     return (
         <>
             <section className="container mt-5 p-4 ">
@@ -76,8 +76,8 @@ function AddCrop() {
                     <div class="row mb-3">
 
                         <div className="col-md-6">
-                            <label className="form-label">Snowing Method</label>
-                            <select className="form-select" onChange={(e) => setSnowingMethod(e.target.value)}>
+                            <label className="form-label">Sowing Method</label>
+                            <select className="form-select" onChange={(e) => setSowingMethod(e.target.value)}>
                                 <option>Select</option>
                                 <option value="BroadCasting">BroadCasting</option>
                                 <option value="NO Til Drill">NO Til Drill</option>
@@ -95,8 +95,8 @@ function AddCrop() {
 
                     <div class="row mb-3">
                         <div className="col-md-6">
-                            <label className="form-label"> Snowing Expense</label>
-                            <input type="date" className="form-control" onChange={(e) => setSnowingExpense(e.target.value)} />
+                            <label className="form-label"> Sowing Expense</label>
+                            <input type="date" className="form-control" onChange={(e) => setSowingExpense(e.target.value)} />
                         </div>
                         <div className="col-md-6">
                             <label className="form-label"> Harvest Expense</label>
@@ -105,8 +105,8 @@ function AddCrop() {
                     </div>
                     <div class="row mb-3">
                         <div className="col-md-6">
-                            <label className="form-label">Expected Snowing Date</label>
-                            <input type="date" className="form-control" onChange={(e) => setSnowingDate(e.target.value)} />
+                            <label className="form-label">Expected Sowing Date</label>
+                            <input type="date" className="form-control" onChange={(e) => setSowingDate(e.target.value)} />
                         </div>
                         <div className="col-md-6">
                             <label className="form-label">Expected Harvest Date</label>

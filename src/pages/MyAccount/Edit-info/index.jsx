@@ -8,14 +8,14 @@ const EditPersonalInfo = () => {
   const [fatherName, setfatherName] = useState("")
   const [farmerAddress, setfarmerAddress] = useState("")
   const [state, setstate] = useState("")
-  const [male, setmale] = useState("")
-  const [female, setfemale] = useState("")
+  const [city, setCity] = useState("")
+  const [pincode, setPincode] = useState("")
   const [idProof, setidProof] = useState("")
   const [proofType, setproofType] = useState("")
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(farmersName, dateOfBirth, fatherName, MobileNumber, farmerAddress, state, male, female, idProof, proofType)
+    console.log(farmersName, dateOfBirth, fatherName, MobileNumber, farmerAddress, city,pincode,state, idProof, proofType)
   }
 
   return (
@@ -65,8 +65,8 @@ const EditPersonalInfo = () => {
 
               <div><img className="edit-logo" src="img/flag.png" /></div>
               <div style={{ display: "flex" }}>
-                <p>Country:</p>
-                <p style={{ paddingLeft: "5px" }}>India</p>
+                <p>State:</p>
+                <p style={{ paddingLeft: "5px" }}>Punjab</p>
               </div>
 
             </div>
@@ -120,7 +120,7 @@ const EditPersonalInfo = () => {
 
             <div className="row mb-3">
               <div className="col-md-6">
-                <label className="form-label">Farmer Address</label>
+                <label className="form-label">Address</label>
                 <input className="form-control" type="text" placeholder="Village" onClick={(e) => setfarmerAddress(e.target.value)} />
               </div>
               <div className="col-md-6">
@@ -130,18 +130,14 @@ const EditPersonalInfo = () => {
             </div>
 
             <div className="row mb-3">
+            <div className="col-md-6">
+                <label className="form-label">City</label>
+                <input className="form-control" type="text"  onChange={(e) => setCity(e.target.value)} />
+              </div>
+              
               <div className="col-md-6">
-                <label className="form-label">Gender</label>
-                <div className="d-flex gap-3">
-                  <div className="form-check">
-                    <input className="form-check-input" type="radio" name="gender" value="Male" id="male" onChange={(e) => setmale(e.target.value)} />
-                    <label className="form-check-label" htmlFor="male">Male</label>
-                  </div>
-                  <div className="form-check">
-                    <input className="form-check-input" type="radio" name="gender" value="Female" id="female" onChange={(e) => setfemale(e.target.value)} />
-                    <label className="form-check-label" htmlFor="female">Female</label>
-                  </div>
-                </div>
+                <label className="form-label">Pin Code</label>
+                <input className="form-control" type="text"  onChange={(e) => setPincode(e.target.value)} />
               </div>
             </div>
 

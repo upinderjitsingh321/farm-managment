@@ -8,10 +8,10 @@ import SoilDashboardTable from '../../../component/UserPages/UserDashboard/SoilT
 function UserFarm() {
 
   const data1 = [
-    { name: 'Group A', value: 400 },
-    { name: 'Group B', value: 300 },
-    { name: 'Group C', value: 300 },
-    { name: 'Group D', value: 200 },
+    { name: 'Wheat', value: 400 },
+    { name: ' Rice', value: 300 },
+    { name: 'MazeC', value: 300 },
+    { name: 'Sugercane', value: 200 },
   ];
 
   const data2 = [
@@ -21,7 +21,7 @@ function UserFarm() {
   ];
   const data3 = [
     { name: ' Harvest Exp.', value: 5000 },
-    { name: 'Snowing Exp.', value: 2500 },
+    { name: 'Sowing Exp.', value: 2500 },
     { name: 'Labour Exp.', value: 4500 },
     { name: 'Fertilizer Exp.', value: 700 },
   ];
@@ -44,7 +44,7 @@ function UserFarm() {
           <div className="container">
             <div className="row">
               <div className="col-md-4 p-0 mb-4">
-                <CustomPieChart data={data1} colors='#FF8042' heading="Summary of Year" tittle="crop" link="/croprotationpage"/>
+                <CustomPieChart data={data1} colors='#FF8042' heading="Summary of crops" tittle="crop" link="/croprotationpage"/>
               </div>
               <div className="col-md-4 ">
                 <CustomPieChart data={data2}  heading="Summary of Chemical[2025]" tittle="chemical" link="/soilpage" />

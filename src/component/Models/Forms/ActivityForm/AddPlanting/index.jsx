@@ -1,31 +1,29 @@
-import { useState  } from 'react';
+import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
 import CloseIcon from '@mui/icons-material/Close';
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+function ModelPlantingForm({ show, onclose }) {
+
+    const schema = yup.object().shape({
+        farmid: yup.string().required("Farm is required"),
+        fieldno: yup.string().required("Field is required"),
+        activity: yup.string().required("Activity is required"),
+        planting: yup.string().required("Please enter cost"),
+        enddate: yup.string().required("Ending Date is required"),
+        quantity: yup.string().required("Quantity is required"),
+        startdate: yup.string().required("Starting Date is required"),
+    })
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        resolver: yupResolver(schema),
+    });
 
 
-
-
-function ModelPlantingForm({show,onclose}) {
-    
-
-    const [farm, setFarm] = useState("")
-    const [fieldno, setFieldNo] = useState("")
-    const [activity, setActivity] = useState("")
-    const [plantingrate, setPlantingRate] = useState("")
-    const [date, setDate] = useState("")
-    const [enddate, SetEndDate] = useState("")
-    const [note, setNote] = useState("");
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log(farm, fieldno, activity, plantingrate, date, enddate, note)
-
-    }
-   
     return (
         <>
-            
+
             <Modal
                 show={show}
                 onHide={onclose}
@@ -42,16 +40,25 @@ function ModelPlantingForm({show,onclose}) {
                 </Modal.Header>
                 <Modal.Body>
 
-                    <form onSubmit={handleSubmit} className=" shadow p-4 bg-white rounded farm-padding">
+                    <form onSubmit={handleSubmit()} className=" shadow p-4 bg-white rounded farm-padding">
                         <div class="row mb-3">
 
                             <div class="col-md-6">
                                 <label for="farm-no" class="form-label">Farm Id</label>
-                                <input type="type" class="form-control" id="farm-no" placeholder='#01' onChange={(e) => setFarm(e.target.value)} />
-                            </div>
+                                <input {...register("farmid")} className="form-control" placeholder=" Farm Id."
+                                />
+                                {
+                                    errors.farmid?.message &&
+                                    <p className="text-danger">{errors.farmid?.message}</p>
+                                }                                  </div>
                             <div class="col-md-6">
                                 <label for="fieldno" class="form-label">Field No.</label>
-                                <input type="type" class="form-control" id="fieldno" placeholder="0" onChange={(e) => setFieldNo(e.target.value)} />
+                                <input {...register("fieldno")} className="form-control" placeholder=" Field No"
+                                />
+                                {
+                                    errors.fieldno?.message &&
+                                    <p className="text-danger">{errors.fieldno?.message}</p>
+                                }
                             </div>
 
 
@@ -60,11 +67,20 @@ function ModelPlantingForm({show,onclose}) {
 
                             <div class="col-md-6">
                                 <label for="feild_no" class="form-label">Activity</label>
-                                <input type="type" class="form-control" id="feild_no" placeholder='#01' onChange={(e) => setActivity(e.target.value)} />
-                            </div>
+                                <input {...register("activity")} className="form-control" placeholder="Activity"
+                                />
+                                {
+                                    errors.activity?.message &&
+                                    <p className="text-danger">{errors.activity?.message}</p>
+                                }                                  </div>
                             <div class="col-md-6">
                                 <label for="farm_area" class="form-label">Planting  Rate (per Acre)</label>
-                                <input type="type" class="form-control" id="farm_area" placeholder="0" onChange={(e) => setPlantingRate(e.target.value)} />
+                                <input {...register("planting")} className="form-control" placeholder=" Cost"
+                                />
+                                {
+                                    errors.planting?.message &&
+                                    <p className="text-danger">{errors.planting?.message}</p>
+                                }
                             </div>
 
 
@@ -73,22 +89,30 @@ function ModelPlantingForm({show,onclose}) {
 
 
                             <div class="col-md-6">
-                                <label for="crop_name" class="form-label">Date</label>
-                                <input type="type" class="form-control" id="crop_name" placeholder='Crop  Name' onChange={(e) => setDate(e.target.value)} />
-                            </div>
+                                <label for="crop_name" class="form-label">Starting Date</label>
+                                <input {...register("startdate")} className="form-control" placeholder=" Cost"
+                                />
+                                {
+                                    errors.startdate?.message &&
+                                    <p className="text-danger">{errors.startdate?.message}</p>
+                                }                                </div>
                             <div class="col-md-6">
                                 <label for="crop_name" class="form-label">End Date</label>
-                                <input type="type" class="form-control" id="crop_name" placeholder='Crop  Name' onChange={(e) => SetEndDate(e.target.value)} />
-                            </div>
+                                <input {...register("enddate")} className="form-control" placeholder=" Cost"
+                                />
+                                {
+                                    errors.enddate?.message &&
+                                    <p className="text-danger">{errors.enddate?.message}</p>
+                                }                               </div>
 
                         </div>
                         <div class="row mb-3">
 
 
-                          
+
                             <div class="col-md-6">
                                 <label for="select_variety" class="form-label">Note</label>
-                                <input type='text' class="form-control " placeholder='Crop Variety Name' onChange={(e) => setNote(e.target.value)} />
+                                <input type='text' class="form-control " placeholder='Give Note' onChange={(e) => setNote(e.target.value)} />
 
                             </div>
 

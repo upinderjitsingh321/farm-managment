@@ -39,10 +39,9 @@ function UserFieldTable(props) {
               <th className="border border-gray-300 p-2"> Farm</th>
               <th className="border border-gray-300 p-2"> Acre</th>
               <th className="border border-gray-300 p-2"> OwnerShip</th>
-              <th className="border border-gray-300 p-2"> Active</th>
+              <th className="border border-gray-300 p-2"> Khasra No.</th>
               <th className="border border-gray-300 p-2">Farm Practices </th>
-
-
+              <th className="border border-gray-300 p-2"> Status </th>
             </tr>
           </thead>
           <tbody>
@@ -52,8 +51,10 @@ function UserFieldTable(props) {
               <td className="border border-gray-300 p-2">{props.Farm}</td>
               <td className="border border-gray-300 p-2">{props.Acre}</td>
               <td className="border border-gray-300 p-2">{props.OwnerShip}</td>
-              <td className="border border-gray-300 p-2">{props.Active}</td>
+              <td className="border border-gray-300 p-2">{props.khasrano}</td>
               <td className="border border-gray-300 p-2">{props.FarmPractices}</td>
+              <td className="border border-gray-300 p-2">{props.status}</td>
+
               <td className="border border-gray-300 p-2">
                 <Button variant="contained" color="success" ><EditIcon /><ArrowDropDownIcon /></Button>
               </td>

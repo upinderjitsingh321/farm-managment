@@ -2,22 +2,28 @@ import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import CloseIcon from '@mui/icons-material/Close';
-
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 
 function ModelFieldForm() {
   const [show, setShow] = useState(false);
 
-const [fielldno, setFieldNo] = useState("")
-  const [farmarea, setFarmArea] = useState("")
-  const [khasranumber, setKhasraNumber] = useState("")
-  const [landownership, setLandOwnership] = useState("")
-  const [farmpractices, setFarmPractices] = useState("")
+
  
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log(fielldno, landownership, fathername, farmarea, khasranumber, farmpractices)
-  }
+ const schema = yup.object().shape({
+         farmid: yup.string().required("Farm is required"),
+         fieldno: yup.string().required("Field no. is required"),
+         acre: yup.string().required("Acre is required"),
+         khasra: yup.string().required("Khasra no.  is required"),
+         ownership: yup.string().required("Ownership  is required"),
+     
+   });
+   const { register, handleSubmit, formState: { errors } } = useForm({
+       resolver: yupResolver(schema),
+     });
+ 
   return (
     <>
       <button className='add-button' onClick={() => setShow(true)}>
@@ -40,34 +46,53 @@ const [fielldno, setFieldNo] = useState("")
         </Modal.Header>
         <Modal.Body>
 
-        <form onSubmit={handleSubmit} className=" shadow p-4 bg-white rounded farm-padding">
+        <form onSubmit={handleSubmit()} className=" shadow p-4 bg-white rounded farm-padding">
           
 
           <div className="row mb-3">
           <div className="col-md-6">
               <label className="form-label">Farm Id</label>
-              <input type="text" className="form-control" placeholder="#01" onChange={(e) => setFarmId(e.target.value)} />
-            </div>
+              <input {...register("farmid")} className="form-control" placeholder=" Farm"
+                />
+                {
+                  errors.farmid?.message &&
+                  <p className="text-danger">{errors.farmid?.message}</p>
+                }       
+                        </div>
             <div className="col-md-6">
               <label className="form-label">Feild No.</label>
-              <input type="text" className="form-control" placeholder="#01" onChange={(e) => setFieldNo(e.target.value)} />
-            </div>
+              <input {...register("fieldno")} className="form-control" placeholder=" Field no."
+                />
+                {
+                  errors.fieldno?.message &&
+                  <p className="text-danger">{errors.fieldno?.message}</p>
+                }               
+                   </div>
            
           </div>
 
           <div className="row mb-3">
           <div className="col-md-6">
-              <label className="form-label"> Area (in Arce.)</label>
-              <input type="text" className="form-control" placeholder="0" onChange={(e) => setFarmArea(e.target.value)} />
-            </div>
+              <label className="form-label"> Area (in Acre.)</label>
+              <input {...register("acre")} className="form-control"
+                />
+                {
+                  errors.acre?.message &&
+                  <p className="text-danger">{errors.acre?.message}</p>
+                }    
+                            </div>
             <div class="col-md-6">
               <label className="form-label">Land Ownership</label>
-              <select className="form-select " onChange={(e) => setLandOwnership(e.target.value)}>
+              <select {...register("ownership")} className="form-select ">
                 <option>Select</option>
                 <option value="Owned">Owned</option>
                 <option value="Leased">Leased</option>
                 <option value="Leased">Contract</option>
               </select>
+              {
+                  errors.ownership?.message &&
+                  <p className="text-danger">{errors.ownership?.message}</p>
+                } 
             </div>
             
           </div>
@@ -75,8 +100,13 @@ const [fielldno, setFieldNo] = useState("")
           <div className="row mb-3">
             <div className="col-md-6">
               <label className="form-label">Khasra NO.</label>
-              <input type="text" className="form-control" onChange={(e) => setKhasraNumber(e.target.value)} />
-            </div>
+              <input {...register("khasra")} className="form-control" placeholder=" Khasra No."
+                />
+                {
+                  errors.khasra?.message &&
+                  <p className="text-danger">{errors.khasra?.message}</p>
+                }       
+                         </div>
             <div className="col-md-6">
               <label className="form-label">Farm Practices</label>
               <input type="text" className="form-control" onChange={(e) => setFarmPractices(e.target.value)} />

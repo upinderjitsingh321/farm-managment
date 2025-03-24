@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import MinimizeIcon from '@mui/icons-material/Minimize';
 import CloseIcon from '@mui/icons-material/Close';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
-import ModelChemicalForm from '../../../Models/Forms/AddChemical';
+import ModelChemicalForm from '../../../Models/Forms/AddInputs';
 import EditIcon from '@mui/icons-material/Edit';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { Button } from '@mui/material';

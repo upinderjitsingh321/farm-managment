@@ -58,7 +58,7 @@ const PracticesPieChart = ({
 
   return (
     <div className='' style={{ width: width, height: height, borderRadius:"10px", backgroundImage:`linear-gradient(to right, ${color?.[0]}, ${color?.[1]})` }}>
-      <h4 className='pt-3 text-center practices-radius text-white fs-4 fw-bold'>{heading}</h4>
+      <h4 className='pt-3 px-2 text-center practices-radius text-white fs-4 fw-bold'>{heading}</h4>
       <ResponsiveContainer width="100%" height="80%">
         {data.length > 0 ? (
           <PieChart>

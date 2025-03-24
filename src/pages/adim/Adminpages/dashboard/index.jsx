@@ -37,6 +37,17 @@ function Dashboard() {
     { name: 'Coffee', value: 4500 },
 
   ];
+  const data3=[
+    {name:"organic",value:40},
+    {name:"inorganic",value:60},
+
+  ];
+  const data4=[
+    {name:"Drip/sprinkler",value:20},
+    {name:"Tubewell",value:30},
+    {name:"Canal",value:50},
+
+  ]
 
   return (
     <div>
@@ -47,34 +58,14 @@ function Dashboard() {
               <DashboardBox color={["#1da256", "#48d483"]} cardicon={<TrendingUpIcon />} icon={"Profile"} grow={true} totaluser={100} tittle={"Total User"} />
               <DashboardBox color={["#c012e2", "#eb64fe"]} cardicon={<TrendingUpIcon />} icon={"activeprofile"} grow={true} totaluser={70} tittle={"Active User"} />
               <DashboardBox color={["#2c78e5", "#60aff5"]} cardicon={<TrendingDownIcon />} icon={"profile"} grow={true} totaluser={7} tittle={"Pending Reports"} />
-              <DashboardBox color={["#e1950e", "#f3cd29"]} cardicon={<TrendingDownIcon />} icon={"activeprofile"} grow={true} totaluser={7} tittle={"Pending Reports"} />
+              <DashboardBox color={["#e1950e", "#f3cd29"]} cardicon={<TrendingDownIcon />} icon={"activeprofile"} grow={true} totaluser={70} tittle={"Last Month Users"} />
             </div>
           </div>
           <div className="col-md-4 p-0">
             <div className="">
-            <PracticesPieChart data={data1} heading='ORGANIC MATERS'/>
+            <PracticesPieChart data={data3} heading='ORGANIC AND INORGANIC FARM RATIO'/>
 
             </div>
-          </div>
-        </div>
-        <div className="row ms-0 my-4" style={{ gap: "20px" }}>
-          <div className="col-md-4 bg-white shadow cropdata">
-            <div className='set-mag'>
-              <h4 className='mt-5 text-center '>Crop Growth Analysis</h4>
-              <AdminPieChart data={data1} />
-
-            </div>
-          </div>
-          <div className="col-md-4 bg-white shadow cropdata1">
-            <IrrigationPieChart data={data1} heading='Farm Irrigation Statistics' />
-          </div>
-          <div className="col-md-4 bg-white shadow  cropdata">
-            <div className=' set-mag'>             
-              <h4 className='mt-5 text-center '>Crop Growth Analysis</h4>
-              <AdminPieChart data={data1} />
-
-            </div>
-
           </div>
         </div>
         <div className="row ms-0 my-4 gap-3" >
@@ -93,6 +84,27 @@ function Dashboard() {
 
           </div>
         </div>
+        <div className="row ms-0 my-4" style={{ gap: "20px" }}>
+          <div className="col-md-4 bg-white shadow cropdata">
+            <div className='set-mag'>
+              <h4 className='mt-5 text-center '>Crop Growth Analysis</h4>
+              <AdminPieChart data={data1} />
+
+            </div>
+          </div>
+          <div className="col-md-4 bg-white shadow cropdata1">
+            <IrrigationPieChart data={data4} heading='Farm Irrigation Statistics' />
+          </div>
+          {/* <div className="col-md-4 bg-white shadow  cropdata">
+            <div className=' set-mag'>             
+              <h4 className='mt-5 text-center '>Crop Growth Analysis</h4>
+              <AdminPieChart data={data1} />
+
+            </div>
+
+          </div> */}
+        </div>
+       
 
       </div>
 

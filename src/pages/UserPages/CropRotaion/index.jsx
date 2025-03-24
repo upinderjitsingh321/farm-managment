@@ -6,10 +6,10 @@ import CustomAreaPieChart from '../../../component/Charts/UserCharts/SeededAreaC
 function UserCropRotationPage() {
 
   const data1 = [
-    { name: 'Group A', value: 400 },
-    { name: 'Group B', value: 300 },
-    { name: 'Group C', value: 300 },
-    { name: 'Group D', value: 200 },
+    { name: 'Rice', value: 400 },
+    { name: 'Wheat', value: 300 },
+    { name: 'Maze', value: 300 },
+    { name: 'Sugarcane', value: 200 },
   ];
 
 
