@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
 import "./style.css"
-import MinimizeIcon from '@mui/icons-material/Minimize';
-import CloseIcon from '@mui/icons-material/Close';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
-import AddIcon from '@mui/icons-material/Add';
 
 function CropAreaTable(props) {
   const [close, setClose] = useState(true)
@@ -13,15 +10,20 @@ function CropAreaTable(props) {
     <div className='userdashboardtable shadow my-3 croplist-height '>
       <div className='dash-title d-flex justify-content-between'>
         <h5 className='pt-1 ps-2'>{props.heading}<KeyboardDoubleArrowDownIcon /></h5>
-        <div>
-          {
+       
+        <div className='d-flex align-items-center gap-2 me-2'>
+        {
             minimize ?
-              <MinimizeIcon className='pb-1' onClick={() => setMinimize(false)} style={{ cursor: "pointer" }} />
+              <div className='' onClick={() => setMinimize(false)} style={{ cursor: "pointer" }} ><i class="fa-solid fa-minus" ></i>
+               </div>
+              
+              
               :
-              <AddIcon className='pt-2' onClick={() => setMinimize(true)} style={{ cursor: "pointer" }} />
+              <div className='' onClick={() => setMinimize(true)} style={{ cursor: "pointer" }} ><i class="fa-solid fa-plus"></i></div>
           }
-          <CloseIcon className='pt-2 text-danger' onClick={() => setClose(false)} style={{ cursor: "pointer" }} />
-        </div>
+              <div className='text-danger' onClick={() => setClose(false)} style={{ cursor: "pointer" }} ><i class="fa-solid fa-xmark"></i></div>
+            
+      </div>
       </div>
       {minimize && (
         <table className="w-100 border-collapse border border-gray-300 mb-5 ">

@@ -33,18 +33,19 @@ const initialData = [
 
   return (
     <div className="p-4">
+            <h4 className="pb-3">Output</h4>
+
       <table className="w-100 border-collapse border border-gray-300">
         <thead className="head-border">
           <tr>
-            <th className="border border-gray-300 p-2"> Crops</th>
-            <th className="border border-gray-300 p-2">Fertilizer</th>
-            <th className="border border-gray-300 p-2">Herbic</th>
-            <th className="border border-gray-300 p-2"> Pesticide</th>
-            <th className="border border-gray-300 p-2">Fungicide</th>
-            <th className="border border-gray-300 p-2">Manure</th>
-            <th className="border border-gray-300 p-2">Labour Cost</th>
-            <th className="border border-gray-300 p-2">Activities</th>
-            <th className="border border-gray-300 p-2">Other Cost</th>
+            <th className="border border-gray-300 p-2"> Crop</th>
+            <th className="border border-gray-300 p-2"> Acre</th>
+            <th className="border border-gray-300 p-2"> Production(Qtl.)</th>
+            <th className="border border-gray-300 p-2">Price(Qtl.)</th>
+            <th className="border border-gray-300 p-2">Total Income</th>
+            <th className="border border-gray-300 p-2"> Income/acre</th>
+            <th className="border border-gray-300 p-2">Net Income</th>
+          
             
           </tr>
         </thead>
@@ -56,10 +57,7 @@ const initialData = [
               <td className="border border-gray-300 p-2">{records.herbic}</td>
               <td className="border border-gray-300 p-2">{records.pesticide}</td>
               <td className="border border-gray-300 p-2">{records.fungicide}</td>
-              <td className="border border-gray-300 p-2">{records.manure}</td>
-              <td className="border border-gray-300 p-2">{records.labourcost}</td>
-              <td className="border border-gray-300 p-2">{records.activities}</td>
-              <td className="border border-gray-300 p-2">{records.othercost}</td>
+            
             
               
             </tr>

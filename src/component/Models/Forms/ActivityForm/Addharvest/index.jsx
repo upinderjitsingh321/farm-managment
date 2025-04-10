@@ -17,7 +17,6 @@ function ModelHarvestForm({show,onclose}) {
     activity: yup.string().required("Activity is required"),
     harvest: yup.string().required("Please enter cost"),
     enddate: yup.string().required("Ending Date is required"),
-    quantity: yup.string().required("Quantity is required"),
     startdate: yup.string().required("Starting Date is required"),
    })
    const { register, handleSubmit, formState: { errors } } = useForm({
@@ -113,15 +112,7 @@ function ModelHarvestForm({show,onclose}) {
 
                         </div>
                         <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label for="select_variety" class="form-label">Quantity(Qtl) </label>
-                                <input {...register("quantity")} className="form-control" placeholder=" Quantity"
-                                />
-                                {
-                                    errors.quantity?.message &&
-                                    <p className="text-danger">{errors.quantity?.message}</p>
-                                }    
-                            </div>
+                          
                             <div class="col-md-6">
                                 <label for="select_variety" class="form-label">Note</label>
                                 <input type='text' class="form-control " placeholder='Note' onChange={(e) => setNote(e.target.value)} />

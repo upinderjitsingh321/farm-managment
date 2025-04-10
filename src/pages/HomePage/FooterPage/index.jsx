@@ -16,17 +16,17 @@ const Footer = () => {
               <div className="d-flex justify-content-center align-item-center gap-3 ">
                 
                   <a  class="social-icon facebook " href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                  <img src="img/facebook-logo.png" alt="Facebook"  />
+                  <img src="http://localhost:5173/img/facebook-logo.png" alt="Facebook"  />
                 </a>
                 
                  
                   <a class="social-icon  twitter " href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                  <img src="img/twitter_icon.png" alt="Twitter" />
+                  <img src="http://localhost:5173/img/twitter_icon.png" alt="Twitter" />
                 </a>
                 
                 
                   <a class="social-icon instagram" href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                  <img src="img/instagram.png" alt="Instagram"  />
+                  <img src="http://localhost:5173/img/instagram.png" alt="Instagram"  />
                 </a>
                 
 
@@ -38,7 +38,7 @@ const Footer = () => {
                 <tbody>
                   <tr>
                     <td className="w-25 text-end bg-dark ">
-                      <img className='footor-contact-logo' src="img/phone.png" alt="Phone" width="40" />
+                      <img className='footor-contact-logo' src="http://localhost:5173/img/phone.png" alt="Phone" width="40" />
                     </td >
                     <td style={{paddingTop:"17px"}} className="w-50 text-start bg-dark text-white ">9781617288</td>
                   </tr>
@@ -48,7 +48,7 @@ const Footer = () => {
                   </tr>
                   <tr>
                     <td className='w-25 text-end bg-dark'>
-                      <img  className='footor-contact-logo' src="img/emaillogo.png" alt="Email"  width="40"  />
+                      <img  className='footor-contact-logo' src="http://localhost:5173/img/emaillogo.png" alt="Email"  width="40"  />
                     </td>
                     <td style={{paddingTop:"17px"}}  className='w-50 text-start bg-dark text-white'>upinderjitsingh32@gmail.com</td>
                   </tr>

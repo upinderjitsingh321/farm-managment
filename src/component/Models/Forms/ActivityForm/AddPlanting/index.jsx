@@ -4,22 +4,55 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { USER } from '../../../../../config/endpoints';
+import axios from 'axios';
 
 function ModelPlantingForm({ show, onclose }) {
 
     const schema = yup.object().shape({
-        farmid: yup.string().required("Farm is required"),
-        fieldno: yup.string().required("Field is required"),
-        activity: yup.string().required("Activity is required"),
-        planting: yup.string().required("Please enter cost"),
-        enddate: yup.string().required("Ending Date is required"),
-        quantity: yup.string().required("Quantity is required"),
-        startdate: yup.string().required("Starting Date is required"),
+        farm_id: yup.string().required("Farm is required"),
+        field_no: yup.string().required("Field is required"),
+        activity_name: yup.string().required("Activity is required"),
+        rate: yup.string().required("Please enter cost"),
+        end_date: yup.string().required("Ending Date is required"),
+        start_date: yup.string().required("Starting Date is required"),
+        note: yup.string()
     })
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema),
     });
 
+
+    let access_token = localStorage.getItem("access_token");
+
+    const handleSubmitForm = async (data) => {
+      console.log(data, "checkdatahere");
+  
+      const payload = {
+        farm_id: data.farm_id,
+        field_no: data.field_no,
+        activity_name: data.activity_name,
+        end_date: data.end_date,
+        start_date: data.start_date,
+        rate: data.rate,
+        note: data.note,
+      };
+      console.log(payload, "data");
+  
+      try {
+        const res = await axios.post(`${USER.CREATE_ACTIVITY}`,payload, {
+          headers: {
+            access_token: access_token,
+          },
+        });
+        console.log(res, "check resoonseeee");
+        // toast.success(`Enter Succesfully`);
+        setShow(false)
+      } catch (error) {
+        console.log(error);
+        // toast.error(`${erro r.response.data.message}`)
+      }
+    };
 
     return (
         <>
@@ -40,24 +73,24 @@ function ModelPlantingForm({ show, onclose }) {
                 </Modal.Header>
                 <Modal.Body>
 
-                    <form onSubmit={handleSubmit()} className=" shadow p-4 bg-white rounded farm-padding">
+                    <form onSubmit={handleSubmit(handleSubmitForm)} className=" shadow p-4 bg-white rounded farm-padding">
                         <div class="row mb-3">
 
                             <div class="col-md-6">
                                 <label for="farm-no" class="form-label">Farm Id</label>
-                                <input {...register("farmid")} className="form-control" placeholder=" Farm Id."
+                                <input {...register("farm_id")} className="form-control" placeholder=" Farm Id."
                                 />
                                 {
-                                    errors.farmid?.message &&
-                                    <p className="text-danger">{errors.farmid?.message}</p>
+                                    errors.farm_id?.message &&
+                                    <p className="text-danger">{errors.farm_id?.message}</p>
                                 }                                  </div>
                             <div class="col-md-6">
                                 <label for="fieldno" class="form-label">Field No.</label>
-                                <input {...register("fieldno")} className="form-control" placeholder=" Field No"
+                                <input {...register("field_no")} className="form-control" placeholder=" Field No"
                                 />
                                 {
-                                    errors.fieldno?.message &&
-                                    <p className="text-danger">{errors.fieldno?.message}</p>
+                                    errors.field_no?.message &&
+                                    <p className="text-danger">{errors.field_no?.message}</p>
                                 }
                             </div>
 
@@ -67,19 +100,19 @@ function ModelPlantingForm({ show, onclose }) {
 
                             <div class="col-md-6">
                                 <label for="feild_no" class="form-label">Activity</label>
-                                <input {...register("activity")} className="form-control" placeholder="Activity"
+                                <input {...register("activity_name")} className="form-control" placeholder="Activity"
                                 />
                                 {
-                                    errors.activity?.message &&
-                                    <p className="text-danger">{errors.activity?.message}</p>
+                                    errors.activity_name?.message &&
+                                    <p className="text-danger">{errors.activity_name?.message}</p>
                                 }                                  </div>
                             <div class="col-md-6">
                                 <label for="farm_area" class="form-label">Planting  Rate (per Acre)</label>
-                                <input {...register("planting")} className="form-control" placeholder=" Cost"
+                                <input {...register("rate")} className="form-control" placeholder=" Cost"
                                 />
                                 {
-                                    errors.planting?.message &&
-                                    <p className="text-danger">{errors.planting?.message}</p>
+                                    errors.rate?.message &&
+                                    <p className="text-danger">{errors.rate?.message}</p>
                                 }
                             </div>
 
@@ -90,19 +123,19 @@ function ModelPlantingForm({ show, onclose }) {
 
                             <div class="col-md-6">
                                 <label for="crop_name" class="form-label">Starting Date</label>
-                                <input {...register("startdate")} className="form-control" placeholder=" Cost"
+                                <input {...register("start_date")} type='date' className="form-control" placeholder=" Cost"
                                 />
                                 {
-                                    errors.startdate?.message &&
-                                    <p className="text-danger">{errors.startdate?.message}</p>
+                                    errors.start_date?.message &&
+                                    <p className="text-danger">{errors.start_date?.message}</p>
                                 }                                </div>
                             <div class="col-md-6">
                                 <label for="crop_name" class="form-label">End Date</label>
-                                <input {...register("enddate")} className="form-control" placeholder=" Cost"
+                                <input {...register("end_date")} type='date' className="form-control" placeholder=" Cost"
                                 />
                                 {
-                                    errors.enddate?.message &&
-                                    <p className="text-danger">{errors.enddate?.message}</p>
+                                    errors.end_date?.message &&
+                                    <p className="text-danger">{errors.end_date?.message}</p>
                                 }                               </div>
 
                         </div>
@@ -112,7 +145,7 @@ function ModelPlantingForm({ show, onclose }) {
 
                             <div class="col-md-6">
                                 <label for="select_variety" class="form-label">Note</label>
-                                <input type='text' class="form-control " placeholder='Give Note' onChange={(e) => setNote(e.target.value)} />
+                                <input {...register("note")} type='text' class="form-control " placeholder='Give Note' onChange={(e) => setNote(e.target.value)} />
 
                             </div>
 

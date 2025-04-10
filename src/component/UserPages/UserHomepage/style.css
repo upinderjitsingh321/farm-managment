@@ -1,8 +1,50 @@
-.openfarm{
-    background-color:rgb(108, 146, 108) !important;
+.openfarm {
+    background-color: rgb(108, 146, 108) !important;
     color: white !important;
     padding: 7px 10px;
 }
-.head-border{
+
+.head-border {
     border-bottom: 2px solid black;
+}
+
+.user_card {
+    width: 350px;
+    background-color: #a1bc9dba;
+    padding: 10px 7px;
+}
+
+.hor_line {
+    width: 5px;
+    height: 5px;
+}
+
+.pic_size {
+    width: 27px;
+}
+
+.head_pic {
+    width: 50px;
+    border-radius: 7px;
+    border: 3px solid #237f17;
+}
+
+.bt_color {
+    background-color: #428c39b0;
+    font-size: 17px;
+    border: 2px solid rgb(42, 222, 48) !important;
+
+}
+
+.bt_color1 {
+    background-color: #eb5929b0;
+    border: 2px solid rgb(222, 56, 56) !important;
+
+}
+
+.drop_color {
+    background-color: #a3c69fb0;
+    padding: 2px;
+    border-radius: 3px;
+    border: 2px solid black;
 }

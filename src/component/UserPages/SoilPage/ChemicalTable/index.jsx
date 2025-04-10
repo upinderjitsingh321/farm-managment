@@ -32,7 +32,6 @@ function Chemicaltable(props) {
   <table className="w-100 border-collapse border border-gray-300">
           <thead>
             <tr className="bg-gray-200">
-            <th className="border border-gray-300 p-2">Farm</th>
             <th className="border border-gray-300 p-2">Field</th>
               <th className="border border-gray-300 p-2">Product</th>
               <th className="border border-gray-300 p-2">Active Ingredient</th>
@@ -45,7 +44,6 @@ function Chemicaltable(props) {
           <tbody>
           
               <tr className="border border-gray-300">
-                <td className="border border-gray-300 p-2">{props.farm}</td>
                 <td className="border border-gray-300 p-2">{props.field}</td>
                 <td className="border border-gray-300 p-2">{props.product}</td>
                 <td className="border border-gray-300 p-2">{props.activengredient}</td>

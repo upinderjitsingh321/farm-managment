@@ -197,3 +197,14 @@ body {
     background-color: green;
     border-radius: 5px;
 }
+.drop-set{
+    width: 100%;
+    border: none;
+    background-color: white;
+    text-align: left;
+    padding: 8px;
+    
+}
+.drop-set:hover{
+    background-color: #3e8e41;
+}

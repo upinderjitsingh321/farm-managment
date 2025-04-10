@@ -5,18 +5,23 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import "./registration.css"
 import { useNavigate } from "react-router";
-const FarmerRegistration = () => {
-  const farmername = /^[A-Za-z\s]+$/i
-  const phoneno = /^[0-9]+$/;
+import axios from "axios";
+import { USER } from "../../../config/endpoints";
+import { toast } from "react-toastify";
+const   FarmerRegistration = () => {
+  const name = /^[A-Za-z\s]+$/i
+  const number = /^[0-9]+$/;
+
+
   const schema = yup.object().shape({
-    name: yup.string().required("Name is required").matches(farmername, "Name must be letters"),
+    name: yup.string().required("Name is required").matches(name, "Name must be letters"),
     email: yup.string().email("Invalid email").required("Email is required"),
     password: yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
-    phone: yup.string().min(10, "Number must be at least 10 Digit").required("Number is required").matches(phoneno, "Phone number must contain only digits"),
+    number: yup.string().min(10, "Number must be at least 10 Digit").required("Number is required").matches(number, "Phone number must contain only digits"),
     address: yup.string().required("Address is required"),
     district: yup.string().required("District is required"),
     block: yup.string().required("Block is required"),
-
+    relative_name:yup.string(),
     file: yup.mixed()
       .test("fileRequired", "File is required", (value) => value && value.length > 0)
       .test("fileSize", "File size must be less than 2MB", (value) => value && value[0]?.size <= 2 * 1024 * 1024)
@@ -32,10 +37,49 @@ const FarmerRegistration = () => {
   });
   const navigate = useNavigate()
 
-  const handleSubmitForm = (e) => {
+  const handleSubmitForm = async (data) => {
+    console.log(data, "checkdatahere")
+
+  // Create FormData object
+  const formData = new FormData();
+  
+  // Append regular data (text fields)
+  formData.append('email', data.email);
+  formData.append('password', data.password);
+  formData.append('name', data.name);
+  formData.append('number', data.number);
+  formData.append('district', data.district);
+  formData.append('block', data.block);
+  formData.append('address', data.address);
+  formData.append('relative_name', data.relative_name || ''); // optional field
+  
+  // Append file if it exists
+  if (data.file && data.file[0]) {
+    formData.append('file', data.file[0]);
+  }
+
+
+
+    try {
+      const res = await axios.post(`${USER.SIGN_UP}`, formData)
+      console.log(res, "check resoonseeee")
+      toast.success(`Signup Succesfully`)
+
+    } catch (error) {
+      console.log(error)
+      // toast.error(`${erro r.response.data.message}`)
+
+    }
+
+    // console.log(res, "checkreponse")
+
+
     navigate("/alredyaccount")
 
   }
+
+
+
 
   return (
     <section className="container mt-5 p-4 register-bgcolor">
@@ -92,16 +136,16 @@ const FarmerRegistration = () => {
             <div className="row mb-3">
               <div className="col-md-6">
                 <label className="form-label">Mobile no.</label>
-                <input {...register("phone")} className="form-control" placeholder="0000000000" />
+                <input {...register("number")} className="form-control" placeholder="0000000000" />
                 {
-                  errors.phone?.message &&
-                  <p className="text-danger">{errors.phone?.message}</p>
+                  errors.number?.message &&
+                  <p className="text-danger">{errors.number?.message}</p>
                 }
               </div>
               <div className="col-md-6">
                 <label className="form-label">Father/Husband Name</label>
-                <input className="form-control" type="text" placeholder="Full Name" />
-              </div>
+                <input {...register("relative_name")} className="form-control" type="text" placeholder="Full Name" />
+                </div>
             </div>
 
             <div className="row mb-3">
@@ -131,7 +175,7 @@ const FarmerRegistration = () => {
               </div>
               <div className="col-md-6">
                 <label className="form-label">Block</label>
-                <input {...register("address")} className="form-control" type="text" placeholder="Block" />
+                <input {...register("block")} className="form-control" type="text" placeholder="Block" />
                 {
                   errors.block?.message &&
                   <p className="text-danger">{errors.block?.message}</p>

@@ -6,6 +6,7 @@ import Footer from './pages/HomePage/FooterPage';
 import AllRoutes from './routes';
 import AdminLayout from './pages/adim/Layout';
 import Navbar from './component/Navbars/FrontNavbar';
+import { ToastContainer, toast } from 'react-toastify';
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
       }
     }
   }, [location])
-  console.log(isAdmin, "isSAdmin")
+ 
   return (
     <div>
       {
@@ -35,11 +36,10 @@ function App() {
             <AllRoutes />
             {!isAdmin && <Footer />}
           </>
-
         )
-        
       }
-{/* <Apps/> */}
+      {/* <Apps/> */}
+      <ToastContainer />
 
 
     </div>

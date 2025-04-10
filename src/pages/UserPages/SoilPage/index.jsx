@@ -19,9 +19,9 @@ function UserSoilPage() {
         <div className="col-md-12 my-5">
           <Nutrient heading={"Nutrient List"} Nitrogen={""} Phosphorus={""} Calcium={""} Potassium={""} Sulfur={""} Magnesium={""} Iron={""} Manganese={""} Zinc={""} Copper={""} Chlorine={""} Boron={""} />
         </div>
-        <div className="col-md-12 my-5">
+        {/* <div className="col-md-12 my-5">
           <Chemicaltable heading={" Chemical"} farm={"#01"} Field={"#F01>4"} product={""} activeingredient={"Rice"} manufacture={"2025"} dosage={"1509"} applydate={""}  price={"Nothing to write"} />
-        </div>
+        </div> */}
       </div>
     </div>
   )

@@ -1,17 +1,47 @@
 import React, { useEffect, useRef, useState } from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Navbar.css"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { CgProfile } from 'react-icons/cg'
 import AgricultureIcon from '@mui/icons-material/Agriculture';
 import { MdLogout } from 'react-icons/md'
+import { jwtDecode } from "jwt-decode";
+
+
+
 function Navbar() {
   const [profile, setProfile] = useState(false)
   const [crop, setCrop] = useState(false)
-  const [navbar, setNavbar] = useState(false)
+  // const [navbar, setNavbar] = useState(true  )
+  const navigate = useNavigate()
   const dropdownRef = useRef(null);
   const dropdownoneRef = useRef(null);
+   //get token
+   const token = localStorage.getItem("access_token")
 
+   const userlogout =() =>{
+ // remove token
+  localStorage.removeItem("access_token")
+  localStorage.removeItem("user_details")
+  navigate('/home')
+
+   }
+
+   useEffect(() => {
+    if (token) {
+      try {
+        const decoded = jwtDecode(token);
+        const currentTime = Date.now() / 1000;
+        if (decoded.exp < currentTime) {
+          userlogout();
+        }
+      } catch (error) {
+        console.error("Invalid token:", error);
+        userlogout();
+      }
+    }
+  }, [token]);
+  
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -27,12 +57,15 @@ function Navbar() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownoneRef.current && !dropdownoneRef.current.contains(event.target)) {
         setCrop(false);
       }
     };
+ 
 
     // Add event listener
     document.addEventListener("mousedown", handleClickOutside);
@@ -44,14 +77,14 @@ function Navbar() {
   }, []);
   return (
     <>
-      <nav className="navbar navbar-expand-lg main-navbar" style={{ backgroundColor: `${navbar ? " #043820" : "rgb(65 88 65) "}` }}>
+      <nav className="navbar navbar-expand-lg main-navbar" style={{ backgroundColor: `${!token ? " #043820" : "rgb(65 88 65) "}` }}>
         <Link className="logo" to={"/home"}>
-          <img style={{ width: "85px" }} src='img/logo.png' /></Link>
+          <img style={{ width: "85px" }} src='http://localhost:5173/img/logo.png' /></Link>
 
         <div className="container-fluid container-navbar">
           <div className="collapse navbar-collapse farm_nav" id="navbarNavDropdown">
             {
-              navbar ? (
+              !token ? (
                 <ul className="navbar-nav farm_gap">
                   <li className="">
                     <Link className="nav-link link-color" aria-current="page" to={"/home"}>Home</Link>
@@ -116,11 +149,13 @@ function Navbar() {
                   <div className='profile-dropdown' ref={dropdownRef}>
 
                     <button onClick={() => setProfile(true)} className='profile-btn'><img className='profile-img' src='img/account.png' /></button>
+                  
+                  
                     <div className='dropdown-btn'
                       style={{ display: `${profile ? "block" : "none"}` }}>
-                      <Link to={"/account"} > <CgProfile className='me-2' />Profile</Link>
-                      <Link to={"/openaccount"}> <AgricultureIcon className='me-2' />Open Fram</Link>
-                      <Link> <MdLogout className='me-2 text-danger' />Logout</Link>
+                      <button className='drop-set'><a href='/account' className='p-0' > <CgProfile className='me-2' />Profile</a></button>
+                      <button className='drop-set' ><a href='/openaccount' className='p-0'> <AgricultureIcon className='me-2' />Open Fram</a></button>
+                      <button className='drop-set' onClick={()=> userlogout()} > <MdLogout className='me-2 text-danger' />Logout</button>
                     </div>
                   </div>
                 </ul>

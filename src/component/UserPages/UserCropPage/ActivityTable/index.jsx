@@ -60,15 +60,18 @@ function ActivityListTable(props) {
 
 
 
-        <div>
-          {
+        <div className='d-flex align-items-center gap-2 me-2'>
+        {
             minimize ?
-              <MinimizeIcon className='pb-1' onClick={() => setMinimize(false)} style={{ cursor: "pointer" }} />
+              <div className='' onClick={() => setMinimize(false)} style={{ cursor: "pointer" }} ><i class="fa-solid fa-minus" ></i>
+               </div>
+              
+              
               :
-              <AddIcon className='pt-2' onClick={() => setMinimize(true)} style={{ cursor: "pointer" }} />
+              <div className='' onClick={() => setMinimize(true)} style={{ cursor: "pointer" }} ><i class="fa-solid fa-plus"></i></div>
           }
-          <CloseIcon className='pt-2 text-danger' onClick={() => setClose(false)} style={{ cursor: "pointer" }} />
-        </div>
+              <div className='text-danger' onClick={() => setClose(false)} style={{ cursor: "pointer" }} ><i class="fa-solid fa-xmark"></i></div>
+              </div>
       </div>
       {minimize && (
         <table className="w-100 border-collapse border border-gray-300 mb-5">

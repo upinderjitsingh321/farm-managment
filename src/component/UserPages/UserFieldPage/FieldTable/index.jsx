@@ -11,6 +11,8 @@ import AddIcon from '@mui/icons-material/Add';
 
 
 function UserFieldTable(props) {
+
+  
   const [close, setClose] = useState(true)
   const [minimize, setMinimize] = useState(true)
   if (!close) return null
@@ -45,6 +47,7 @@ function UserFieldTable(props) {
             </tr>
           </thead>
           <tbody>
+    {props.selectedFarmId !==null && (
 
             <tr className="border border-gray-300">
               <td className="border border-gray-300 p-2">{props.Field}</td>
@@ -60,10 +63,32 @@ function UserFieldTable(props) {
               </td>
 
             </tr>
-
+    )}
           </tbody>
         </table>
       )}
+      <div className="d-flex justify-content-between align-items-center px-3 py-2">
+        <div className="text-muted">
+          Page {props.currentPage} of {Math.ceil(props.totalCount / props.rowsPerPage)} — Total
+          Fields: {props.totalCount}
+        </div>
+        <div>
+          <button
+            className="btn btn-sm btn-outline-secondary me-2"
+            disabled={props.currentPage === 1}
+            onClick={() => onPageChange(props.currentPage - 1)}
+          >
+            Previous
+          </button>
+          <button
+            className="btn btn-sm btn-outline-secondary"
+            disabled={props.currentPage === Math.ceil(props.totalCount / props.rowsPerPage)}
+            onClick={() => onPageChange(props.currentPage + 1)}
+          >
+            Next
+          </button>
+        </div>
+      </div>
     </div>
   )
 }
