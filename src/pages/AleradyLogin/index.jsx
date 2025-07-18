@@ -6,7 +6,7 @@ import * as yup from "yup";
 import axios from "axios";
 import { USER } from "../../config/endpoints";
 const passwordRegex =
-  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$/;
+ /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 const schema = yup.object().shape({
   email: yup.string().email("Invalid email").required("Email is required"),
   password: yup
@@ -84,7 +84,7 @@ function AlreadyAccount() {
                 Sign Up
               </button>
             </div>
-            <div className="d-flex loginacc-bg justify-content-center py-2 mb-2 ">
+            {/* <div className="d-flex loginacc-bg justify-content-center py-2 mb-2 ">
               <img className="loginacc-logo" src="img/facebooklogo.png" />
               <p style={{ color: "#2b88bfc9", marginBottom: "0" }}>
                 CONTINUE WITH FACEBOOK
@@ -93,7 +93,7 @@ function AlreadyAccount() {
             <div className=" d-flex loginacc-bg justify-content-center py-2 mb-2 ">
               <img className="loginacc-logo" src="img/googlelogo.png" />
               <p style={{ marginBottom: "0" }}>CONTINUE WITH GOOGLE</p>
-            </div>
+            </div> */}
             <div className="mb-3">
               <input
                 {...register("email")}

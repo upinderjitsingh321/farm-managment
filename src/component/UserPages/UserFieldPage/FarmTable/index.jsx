@@ -57,39 +57,53 @@ function UserFarmTable({
             <tr className="bg-gray-200">
               <th className="border border-gray-300 p-2">Farm Id</th>
               <th className="border border-gray-300 p-2"> Farm Name</th>
-              <th className="border border-gray-300 p-2"> Type</th>
+              <th className="border border-gray-300 p-2"> Organic</th>
               <th className="border border-gray-300 p-2"> Created</th>
               <th className="border border-gray-300 p-2"> Owner</th>
               <th className="border border-gray-300 p-2"> Fields</th>
               <th className="border border-gray-300 p-2"> Acre</th>
-              <th className="border border-gray-300 p-2"> Status</th>
-              <th className="border border-gray-300 p-2">Actions</th>
+              {/* <th className="border border-gray-300 p-2"> Status</th> */}
+              {/* <th className="border border-gray-300 p-2">Actions</th> */}
             </tr>
           </thead>
           <tbody>
-            {data.map((item, index) => (
-              <tr
-                key={index}
-                onClick={() => onRowClick(item.farm_id)}
-                style={{ cursor: "pointer" }}
-                className="border border-gray-300"
-              >
-                <td className="border border-gray-300 p-2">{item.farm_id}</td>
-                <td className="border border-gray-300 p-2">{item.farm_name}</td>
-                <td className="border border-gray-300 p-2">{item.type}</td>
-                <td className="border border-gray-300 p-2">{item.Created}</td>
-                <td className="border border-gray-300 p-2">{item.owner}</td>
-                <td className="border border-gray-300 p-2">{item.Fields}</td>
-                <td className="border border-gray-300 p-2">{item.Acre}</td>
-                <td className="border border-gray-300 p-2">{item.Active}</td>
-                <td className="border border-gray-300 p-2">
-                  <Button variant="contained" color="success">
-                    <EditIcon />
-                    <ArrowDropDownIcon />
-                  </Button>
+            {data.length > 0 ? (
+              data.map((item, index) => (
+                <tr
+                  key={index}
+                  onClick={() => onRowClick(item.id)}
+                  style={{ cursor: "pointer" }}
+                  className="border border-gray-300"
+                >
+                  <td className="border border-gray-300 p-2">{item.farm_id}</td>
+                  <td className="border border-gray-300 p-2">
+                    {item.farm_name}
+                  </td>
+                  <td className="border border-gray-300 p-2">
+                    {item.is_organic ? "True" : "False"}
+                  </td>
+                  <td className="border border-gray-300 p-2">{item.Created}</td>
+                  <td className="border border-gray-300 p-2">{item.owner}</td>
+                  <td className="border border-gray-300 p-2">{item.Fields}</td>
+                  <td className="border border-gray-300 p-2">{item.Acre}</td>
+                  {/* <td className="border border-gray-300 p-2">{item.Active}</td> */}
+                  {/* <td>
+                    <button className="button_dez">
+                      <i class="fa-solid fa-ellipsis-vertical"></i>
+                   
+                    </button>
+                  </td> */}
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="6" className="text-center p-2">
+                  {" "}
+                  {/* Change 6 to 8 because you have 8 columns */}
+                  No farms found.
                 </td>
               </tr>
-            ))}
+            )}
           </tbody>
         </table>
       )}

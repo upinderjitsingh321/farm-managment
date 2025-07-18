@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from 'react'
-import "./style.css"
-import 'bootstrap/dist/css/bootstrap.min.css';
-import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
-import ModelCropForm from '../../../Models/Forms/CropForm';
-import EditIcon from '@mui/icons-material/Edit';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import { Button } from '@mui/material';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Tooltip from 'react-bootstrap/Tooltip';
+import React, { useEffect, useState } from "react";
+import "./style.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { USER } from "../../../../config/endpoints";
+import axios from "axios";
+import ModelCropForm from "../../../Models/Forms/CropForm";
+import ModelMainCropForm from "../../../Models/Forms/CropForm/mainindex";
 
 function CropListTable({
   heading,
@@ -16,171 +19,233 @@ function CropListTable({
   rowsPerPage,
   totalCount,
   onPageChange,
-  
+  selectedFieldId,
+  onFieldChange,
+  onRowClick,
 }) {
-  const [close, setClose] = useState(true)
-  const [minimize, setMinimize] = useState(true)
+  const [close, setClose] = useState(true);
+  const [minimize, setMinimize] = useState(true);
+  const [fieldList, setFieldList] = useState([]);
+  const [fieldid, setFieldId] = useState();
+  const [fieldNo, setFieldNo] = useState();
+  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
+  const schema = yup.object().shape({
+    field: yup.string(),
+  });
 
+  const { register } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const access_token = localStorage.getItem("access_token");
+
+  const fetchCropData = async () => {
+    try {
+      const result = await axios.get(
+        `${USER.USER_CROP_LIST}?field_id=${selectedFieldId}&page_no=${currentPage}&rows=${rowsPerPage}`,
+        {
+          headers: { access_token },
+        }
+      );
+      const response = result?.data?.data;
+      // Set data via props or parent handler if needed
+    } catch (error) {
+      console.log("Failed to fetch crop list", error);
+    }
+  };
+
+  const years = Array.from(
+    { length: 31 },
+    (_, i) => new Date().getFullYear() - i
+  );
+
+  const fetchFields = async () => {
+    try {
+      const res = await axios.get(`${USER.DROPDOWN_FIELD_LIST}`, {
+        headers: { access_token },
+      });
+
+      if (res.status === 200 && res.data?.data?.list?.length > 0) {
+        setFieldList(res.data.data.list);
+      }
+    } catch (err) {
+      console.error("Failed to fetch field list:", err);
+    }
+  };
+
+  useEffect(() => {
+    if (selectedFieldId) {
+      fetchCropData();
+    }
+  }, [selectedFieldId, currentPage, rowsPerPage]);
+
+  useEffect(() => {
+    fetchFields();
+  }, []);
+
+  const handleSelectField = (e) => {
+    const value = e.target.value; // this is a JSON string
+    const obj = JSON.parse(value); // convert it to object
+
+    setFieldId(obj.id);
+    setFieldNo(obj.field_no);
+
+    setValue("field", obj.id);
+    trigger("field");
+
+    // Debug logs
+    console.log(obj.id, "Field ID");
+    console.log(obj.field_no, "Field No");
+    console.log(value, "Raw selected value (JSON string)");
+  };
 
   if (!close) return null;
+
   return (
+    <div
+      className="userdashboardtable shadow my-3"
+      style={{ paddingBottom: minimize ? "470px" : "0" }}
+    >
+      <div className="dash-title d-flex align-items-center justify-content-between px-2 py-2">
+        <div className="d-flex align-items-center gap-2">
+          <h5 className="pt-1">
+            {heading} <KeyboardDoubleArrowDownIcon />
+          </h5>
+          <select
+            onChange={(e) => onFieldChange(e.target.value)}
+            className="drop_color2"
+            value={selectedFieldId || ""}
+          >
+            <option value="">Select Field</option>
+            {fieldList.map((field) => (
+              <option key={field.id} value={field.id}>
+                {`${field.users_farm?.farm_id}>${field.field_no}`}
+              </option>
+            ))}
+          </select>
+          <ModelMainCropForm />
+          {/* <select
+            id="year"
+            name="year"
+            onChange={(e) => setSelectedYear(e.target.value)}
+            className="drop_color2"
+            value={selectedYear || ""}
+            style={{ marginLeft: "250px" }}
+          >
+            {years.map((year) => (
+              <option key={year} value={year}>
+                {year}
+              </option>
+            ))}
+          </select> */}
+        </div>
 
-    <div className='userdashboardtable shadow my-3 ' style={{ paddingBottom: `${minimize ? "209px" : "0"}` }}>
-      <div className='dash-title d-flex justify-content-between'>
-        <h5 className='pt-1 ps-2'>
-          {heading} <KeyboardDoubleArrowDownIcon />
-        </h5>
-
-
-        <ModelCropForm />
-
-        <div className='d-flex align-items-center gap-2 me-2'>
-        <select className="drop_color1">
-                <option>2024</option>
-                <option>2025</option>
-                <option>2026</option>
-                <option>2027</option>
-                <option>2028</option>
-              </select>
-          {
-            minimize ?
-              <div className='' onClick={() => setMinimize(false)} style={{ cursor: "pointer" }} ><i class="fa-solid fa-minus" ></i>
-               </div>
-              
-              
-              :
-              <div className='' onClick={() => setMinimize(true)} style={{ cursor: "pointer" }} ><i class="fa-solid fa-plus"></i></div>
-          }
-              <div className='text-danger' onClick={() => setClose(false)} style={{ cursor: "pointer" }} ><i class="fa-solid fa-xmark"></i></div>
-              </div>
+        <div className="d-flex align-items-center gap-2">
+          <div
+            onClick={() => setMinimize(!minimize)}
+            style={{ cursor: "pointer" }}
+          >
+            <i className={`fa-solid ${minimize ? "fa-minus" : "fa-plus"}`}></i>
+          </div>
+          <div
+            className="text-danger"
+            onClick={() => setClose(false)}
+            style={{ cursor: "pointer" }}
+          >
+            <i className="fa-solid fa-xmark"></i>
+          </div>
+        </div>
       </div>
+
       {minimize && (
-        <div class="table-responsive">
+        <div className="table-responsive">
           <table className="w-100 border-collapse border border-gray-300 mb-5 table-borderless">
             <thead>
-              <tr className="bg-gray-200  ">
-                <th className="border border-gray-300 p-2"></th>
-                <th className="border border-gray-300 p-2">Field</th>
-                <th className="border border-gray-300 p-2">Crop</th>
-                <th className="border border-gray-300 p-2">Acre</th>
-                <th className="border border-gray-300 p-2">Variety</th>
-                <th className="border border-gray-300 text-nowrap p-2">Sowing Meth.</th>
-                <th className="border border-gray-300 text-nowrap p-2">Irrigation Meth.</th>
-                <th className="border border-gray-300 p-2">Planting</th>
-                <th className="border border-gray-300 p-2">Harvest</th>
-                <th className="border border-gray-300 text-nowrap p-2">Production (Qtl)</th>
-                <th className="border border-gray-300 text-nowrap p-2">Expected Price</th>
-                <th className="border border-gray-300 p-2">Note</th>
-                <th className="border border-gray-300 p-2">
-                  <OverlayTrigger
-                    placement="top"
-                    overlay={
-                      <Tooltip id="tooltip-top">
-                        Herbicide
-                      </Tooltip>
-                    }
-                  >
-                    <img className='th_img' src='img/herbicide.png' />
-                  </OverlayTrigger>
-                </th>
-                <th className="border border-gray-300 p-2">
-                  <OverlayTrigger
-                    placement="top"
-                    overlay={
-                      <Tooltip id="tooltip-top">
-                        Fertilizer
-                      </Tooltip>
-                    }
-                  >
-                    <img className='th_img' src='img/fertilizer.png' />
-                  </OverlayTrigger>
-                </th>
-                <th className="border border-gray-300 p-2">
-                  <OverlayTrigger
-                    placement="top"
-                    overlay={
-                      <Tooltip id="tooltip-top">
-                        Manure
-                      </Tooltip>
-                    }
-                  >
-                    <img className='th_img' src='img/manure.png' />
-                  </OverlayTrigger>
-                </th>
-                <th className="border border-gray-300 p-2">
-                  <OverlayTrigger
-                    placement="top"
-                    overlay={
-                      <Tooltip id="tooltip-top">
-                        Insecticide
-                      </Tooltip>
-                    }
-                  >
-                    <img className='th_img' src='img/bio-pesticide.png' />
-                  </OverlayTrigger>
-                </th>
-                <th className="border border-gray-300 p-2">
-                  <OverlayTrigger
-                    placement="top"
-                    overlay={
-                      <Tooltip id="tooltip-top">
-                        Fungicide
-                      </Tooltip>
-                    }
-                  >
-                    <img className='th_img' src='img/fungicide.png' />
-                  </OverlayTrigger>
-                </th>
-
-                <th className="border border-gray-300 p-2">
-                  <OverlayTrigger
-                    placement="top"
-                    overlay={
-                      <Tooltip id="tooltip-top">
-                        Activity
-                      </Tooltip>
-                    }
-                  >
-                    <img className='th_img' src='img/tractor.png' />
-                  </OverlayTrigger>
-                </th>
-
-
-
-
+              <tr className="bg-gray-200">
+                <th>Field</th>
+                <th>Crop</th>
+                <th>Acre</th>
+                <th>Variety</th>
+                <th className="text-nowrap">Sowing Meth.</th>
+                <th className="text-nowrap">Irrigation Meth.</th>
+                <th>Planting</th>
+                <th>Harvest</th>
+                <th className="text-nowrap">Production (Qtl)</th>
+                <th className="text-nowrap">Expected Price</th>
+                <th>Note</th>
+                {[
+                  "herbicide",
+                  "fertilizer",
+                  "manure",
+                  "bio-pesticide",
+                  "fungicide",
+                 
+                ].map((icon, idx) => (
+                  <th key={idx}>
+                    <OverlayTrigger
+                      placement="top"
+                      overlay={<Tooltip>{icon.replace("-", " ")}</Tooltip>}
+                    >
+                      <img
+                        className="th_img"
+                        src={`img/${icon}.png`}
+                        alt={icon}
+                      />
+                    </OverlayTrigger>
+                  </th>
+                ))}
+                <th></th>
               </tr>
             </thead>
             <tbody>
-            {data.map((item, index) => (
-              <tr key={index} className="border border-gray-300">
-                <td className="border border-gray-300 p-2">
-                  <Button variant="contained" color="success">
-                    <EditIcon /><ArrowDropDownIcon />
-                  </Button>
-                </td>
-                <td className="border-top border-gray-300 p-2">{item.Field}</td>
-                <td className="border-top border-gray-300 p-2">{item.Crop}</td>
-                <td className="border-top border-gray-300 p-2">{item.Acre}</td>
-                <td className="border-top border-gray-300 p-2">{item.Variety}</td>
-                <td className="border-top border-gray-300 p-2">{item.sowing}</td>
-                <td className="border-top border-gray-300 p-2">{item.irrigation}</td>
-                <td className="border-top border-gray-300 p-2">{item.planting}</td>
-                <td className="border-top border-gray-300 p-2">{item.harvest}</td>
-                <td className="border-top border-gray-300 p-2">{item.production}</td>
-                <td className="border-top border-gray-300 p-2">{item.price}</td>
-                <td className="border-top border-gray-300 p-2">{item.note}</td>
-
-
-              </tr>
-            ))}
+              {data && data.length > 0 ? (
+                data.map((item, index) => (
+                  <tr
+                    key={index}
+                    onClick={() => onRowClick(item.id)}
+                    style={{ cursor: "pointer" }}
+                    className="border border-gray-300"
+                  >
+                    <td>{item.field || ""}</td>
+                    <td>{item.crop || ""}</td>
+                    <td>{item.acre || ""}</td>
+                    <td>{item.variety || ""}</td>
+                    <td>{item.snowing_mth || ""}</td>
+                    <td>{item.irrigation_mth || ""}</td>
+                    <td>{item.planting || ""}</td>
+                    <td>{item.harvest || ""}</td>
+                    <td>{item.production || ""}</td>
+                    <td>{item.price || ""}</td>
+                    <td>{item.note || ""}</td>
+                    <td>{item.herbicide || ""}</td>
+                    <td>{item.fertilizer || ""}</td>
+                    <td>{item.manure || ""}</td>
+                    <td>{item.insecticide || ""}</td>
+                    <td>{item.fungicide || ""}</td>
+                    <td>{item.activity || ""}</td>
+                    <td>
+                      <button className="button_dez">
+                        <i className="fa-solid fa-ellipsis-vertical"></i>
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="18" className="text-center text-muted">
+                    No data available
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>
       )}
+
       <div className="d-flex justify-content-between align-items-center px-3 py-2">
         <div className="text-muted">
           Page {currentPage} of {Math.ceil(totalCount / rowsPerPage)} — Total
-          Farms: {totalCount}
+          Crops: {totalCount}
         </div>
         <div>
           <button
@@ -200,10 +265,7 @@ function CropListTable({
         </div>
       </div>
     </div>
-
-
-
-  )
+  );
 }
 
 export default CropListTable;

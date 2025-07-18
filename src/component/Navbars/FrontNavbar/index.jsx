@@ -78,7 +78,7 @@ function Navbar() {
   return (
     <>
       <nav className="navbar navbar-expand-lg main-navbar" style={{ backgroundColor: `${!token ? " #043820" : "rgb(65 88 65) "}` }}>
-        <Link className="logo" to={"/home"}>
+        <Link className="logo">
           <img style={{ width: "85px" }} src='http://localhost:5173/img/logo.png' /></Link>
 
         <div className="container-fluid container-navbar">

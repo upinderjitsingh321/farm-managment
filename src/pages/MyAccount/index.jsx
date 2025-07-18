@@ -18,6 +18,7 @@ function Myaccount() {
     city: "",
     pin: "",
     block: "",
+    address: "",
   });
 
   const getUserDetails = async () => {
@@ -30,6 +31,7 @@ function Myaccount() {
       if (res.status === 200) {
         const user = res?.data?.data;
         const userDetails = user?.users_detail || user?.users_detail || {};
+        const userAddress = user?.useraddress || user?.useraddress || {};
         
         console.log("User details:", user);
         console.log("Userdetails:", userDetails);
@@ -39,11 +41,12 @@ function Myaccount() {
           email: user?.email || "",
           number: userDetails?.number || "",
           dob: userDetails?.dob || "",
-          state: userDetails?.state || "",
-          district: userDetails?.district || "",
-          city: userDetails?.city || "",
-          block: userDetails?.block || "",
-          pin: userDetails?.pin || "",
+          state: userAddress?.state || "",
+          district: userAddress?.district || "",
+          city: userAddress?.city || "",
+          block: userAddress?.block || "",
+          pin: userAddress?.pin || "",
+          address: userAddress?.address || "",
         });
       } else if (res.status === 401) {
         localStorage.removeItem("access_token");
@@ -74,53 +77,55 @@ function Myaccount() {
           </label>
         </div>
         <div>
-          <p style={{ paddingTop: "20px" }}>{data.name}</p>
+          <p style={{ paddingTop: "20px",fontSize:"25px" ,textTransform: "uppercase"}}>{data.name}</p>
         </div>
       </div>
 
       <div className="container container-gap">
         <div className="row my-4">
-          <div style={{ display: "flex", width: "100%", justifyContent: "space-between" }}>
+          {/* <div style={{ display: "flex", width: "100%", justifyContent: "space-between" }}>
             <h3>Personal Information</h3>
             <Link to={"/edit-personal"}>
               <button className="edit-button">Edit</button>
             </Link>
-          </div>
+          </div> */}
           <div className="bottom-line"></div>
 
           <div className="col-md-4">
-            <p>First Name</p>
+            <p className="fs-5">First Name</p>
             <p>{data.name}</p>
           </div>
 
           <div className="col-md-4">
-            <p>Phone Number</p>
+            <p className="fs-5">Phone Number</p>
             <p>{data.number}</p>
           </div>
 
-          <div className="col-md-4">
-            <p>Date of Birth</p>
+          {/* <div className="col-md-4">
+            <p className="fs-5">Date of Birth</p>
             <p>{data.dob}</p>
-          </div>
+          </div> */}
         </div>
 
         <div className="row">
-          <div className="col-md-4">
-            <p>Id Proof</p>
+          {/* <div className="col-md-4">
+            <p className="fs-5">Id Proof</p>
             <p>--</p>
-          </div>
+          </div> */}
 
-          <div className="col-md-4 btn-pass">
-            <p>Email</p>
+          <div className="col-md-4 btn-pass mb-4">
+            <p className="fs-5">Email</p>
             <span>{data.email}</span>
           </div>
 
           <div className="col-md-4 btn-pass">
-            <p>Password</p>
-            <span>********</span>
-            <Button className="ms-3 button-pos" variant="outlined" color="error">
+            <p className="fs-5">Forgot your Password</p>
+             <Link className="text-black" to={"/forgotpassword"}>
+                          Click here
+                          </Link>
+            {/* <Button className="ms-3 button-pos" variant="outlined" color="error">
               <EditIcon />
-            </Button>
+            </Button> */}
           </div>
         </div>
       </div>
@@ -133,28 +138,32 @@ function Myaccount() {
           </div>
           <div className="bottom-line"></div>
 
-          <div className="col-md-4">
+          {/* <div className="col-md-4">
             <p>State</p>
             <p>{data.state}</p>
-          </div>
+          </div> */}
 
           <div className="col-md-4">
-            <p>District</p>
+            <p className="fs-5">Address</p>
+            <p>{data.address}</p>
+          </div>
+          <div className="col-md-4">
+            <p className="fs-5">District</p>
             <p>{data.district}</p>
           </div>
 
           <div className="col-md-4">
-            <p>City</p>
+            <p className="fs-5">City</p>
             <p>{data.city}</p>
           </div>
 
           <div className="col-md-4 mt-3">
-            <p>Block</p>
+            <p className="fs-5">Block</p>
             <p>{data.block}</p>
           </div>
 
           <div className="col-md-4 mt-3">
-            <p>Pin Code</p>
+            <p className="fs-5">Pin Code</p>
             <p>{data.pin}</p>
           </div>
         </div>

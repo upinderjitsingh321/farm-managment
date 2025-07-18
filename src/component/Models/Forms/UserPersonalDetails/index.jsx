@@ -151,7 +151,7 @@ const UserPersonalDetails = () => {
               </div>
               <div className="col-md-6">
                 <label className="form-label">Block</label>
-                <input {...register("address")} className="form-control" type="text" placeholder="Block" />
+                <input {...register("block")} className="form-control" type="text" placeholder="Block" />
                 {
                   errors.block?.message &&
                   <p className="text-danger">{errors.block?.message}</p>

@@ -12,17 +12,28 @@ import { toast } from "react-toastify";
 function ModelCropForm() {
   const [show, setShow] = useState(false);
   const [fieldList, setFieldlist] = useState([]);
+  const [fieldid, setFieldId] = useState();
+  const [fieldNo, setFieldNo] = useState();
+  const [maxacre, setMaxacre] = useState();
 
   const schema = yup.object().shape({
     field: yup.string().required("Field is required"),
-    acre: yup.string().required("Acre is required"),
-    crop: yup.string().required("Crop name is required"),
+    acre: yup
+    .number()
+    .typeError("Acre must be a number")
+    .required("Acre is required")
+    .positive("Acre must be greater than 0")
+    .test(
+      "max-acre",
+      () => `Acre cannot exceed the field size of ${maxacre}`,
+      (value) => !maxacre || value <= maxacre
+    ),    crop: yup.string().required("Crop name is required"),
     variety: yup.string().required("variety name is required"),
     previous_crop: yup.string().required("Crop name is required"),
-    planting_price: yup.string().required("Price required"),
-    harvest_price: yup.string().required("Price Required"),
-    planting: yup.date().required("Planting Date is required"),
-    harvest: yup.date().required("Harvest Date is required"),
+    // planting_price: yup.string().required("Price required"),
+    // harvest_price: yup.string().required("Price Required"),
+    // planting: yup.date().required("Planting Date is required"),
+    // harvest: yup.date().required("Harvest Date is required"),
     labour: yup.string().required("Labour Cost is required"),
     production: yup.string().required("Production is required"),
     price: yup.string().required("Price is required"),
@@ -35,13 +46,14 @@ function ModelCropForm() {
   const {
     register,
     handleSubmit,
+    setValue,
+    trigger,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   });
-
+  console.log(errors, 'Form validation errors');
   let access_token = localStorage.getItem("access_token");
-
 
   const fetchFields = async () => {
     try {
@@ -51,49 +63,56 @@ function ModelCropForm() {
         },
       });
 
-      console.log("API Response:", res.data);
+      console.log("API Response:", res);
+      // const farmIds = res.data.list.map(item => item.users_farm.farm_id);
+      // setFarmIds(farmIds);
 
       if (res.status === 200) {
+        console.log(res.data, "res.data.data?.list?.field_l");
+        console.log(res.data?.data?.list, "res.data.data?.list?.field_lists");
+
         if (res.data?.data?.list.length > 0) {
-            setFieldlist(res.data.data?.list);
+          setFieldlist(res.data.data?.list);
         }
-        return ("No field found")
+        return "No field found";
       }
       // expecting array of farms with id and name
-      console.log("farmList:", fieldList);
     } catch (err) {
       console.error("Failed to fetch farms:", err);
     }
   };
+  
+  console.log("farmList:", fieldList);
 
   const handleSubmitForm = async (data) => {
-    console.log(data, "checkdatahere");
-
+    console.log('Form data received:', data);
+    const isValid = await trigger();  // Triggers validation of all fields
+    if (!isValid) return; 
     const payload = {
-      field: data.field,
+      field: fieldNo,
       crop: data.crop,
       acre: data.acre,
-      season: data.season,
-      season_year: data.season_year,
       variety: data.variety,
       snowing_mth: data.snowing_mth,
       irrigation_mth: data.irrigation_mth,
-      planting_price: data.planting_price,
-      harvest_price: data.harvest_price,
-      harvest: data.harvest,
-      planting: data.planting,
+      // planting: data.planting,
+      // harvest: data.harvest,
       note: data.note,
       price: data.price,
-      fertilizer: data.fertilizer,
-      fungicide: data.herbicide,
-      organic: data.organic,
-      insecticide: data.insecticide,
-      fungicide: data.fungicide,
+      // fertilizer: data.fertilizer,
+      // herbicide: data.herbicide,
+      // organic: data.organic,
+      // insecticide: data.insecticide,
+      // fungicide: data.fungicide,
+      season: data.season,
+      season_year: data.season_year,
+      // planting_price: data.planting_price,
+      // harvest_price: data.harvest_price,
       labour: data.labour,
       remark: data.remark,
       previous_crop: data.previous_crop,
       production: data.production,
-      field_id: data.field_id,
+      field_id: fieldid,
     };
     console.log(payload, "data");
 
@@ -113,18 +132,40 @@ function ModelCropForm() {
   };
   console.log(errors, "checkerrorr");
 
+  const handleSelectField = (e) => {
+    const value = e.target.value; // this is a JSON string
+    const obj = JSON.parse(value); // convert it to object
 
-   useEffect(() => {
-      console.log(show,"showww")
-      if (show) {
-        fetchFields();
-      }
-    }, [show]);
+    setFieldId(obj.id);
+    setFieldNo(obj.field_no);
+    setMaxacre(obj.acre);
 
+    setValue("field", obj.id);
+    trigger("field");
+    trigger("acre");
+
+    // Debug logs
+    console.log(obj.id, "Field ID");
+    console.log(obj.field_no, "Field No");
+    console.log(obj.acre, " acre");
+    console.log(value, "Raw selected value (JSON string)");
+  };
+
+  useEffect(() => {
+    console.log(show, "showww");
+    if (show) {
+      fetchFields();
+    }
+  }, [show]);
+
+  console.log(fieldList, "fieldlList");
 
   return (
     <>
-      <button className="add-button" onClick={() => setShow(true)}>
+      <button
+        className="add-button"
+        onClick={() => setShow(true)}
+      >
         <AddCircleIcon /> Add New Crop
       </button>
       <Modal
@@ -159,14 +200,23 @@ function ModelCropForm() {
           >
             <div class="row mb-3">
               <div class="col-md-6">
-                <label for="feild_no" class="form-label">
+                <label for="feild" class="form-label">
                   Field No.
                 </label>
-                <select {...register("field")} className="form-select">
-                  <option value="">Select Farm</option>
-                  {fieldList.map((farm) => (
-                    <option key={farm.id} value={farm.id}>
-                      {farm.field}
+                <select onChange={handleSelectField} className="form-select">
+                  <option value="">Select Field</option>
+
+                  {fieldList.map((field) => (
+                    <option
+                      key={field.id}
+                      value={JSON.stringify({
+                        id: field.id,
+                        field_no: field.field_no,
+                        acre: field.acre,
+                        farm_id: field.users_farm?.farm_id,
+                      })}
+                    >
+                      {`${field.users_farm?.farm_id}>${field.field_no}`}
                     </option>
                   ))}
                 </select>
@@ -181,6 +231,7 @@ function ModelCropForm() {
                 </label>
                 <input
                   {...register("acre")}
+                  
                   className="form-control"
                   placeholder=" Acre"
                 />
@@ -197,7 +248,9 @@ function ModelCropForm() {
                   className="form-select"
                   placeholder="2024-2025"
                 >
-                  <option selected>Select</option>
+                  <option value="">Select</option>
+                  <option value="2026-2027">2026-2027</option>
+                  <option value="2025-2026">2025-2026</option>
                   <option value="2024-2025">2024-2025</option>
                   <option value="2023-2024">2023-2024</option>
                   <option value="2022-2023">2022-2023</option>
@@ -226,11 +279,11 @@ function ModelCropForm() {
                   Season
                 </label>
                 <select {...register("season")} class="form-select ">
-                  <option selected>Select</option>
-                  <option value="1">Summer</option>
-                  <option value="2">Winter</option>
-                  <option value="3">Spring </option>
-                  <option value="3">Autumn </option>
+                  <option value="">Select</option>
+                  <option value="Summer">Summer</option>
+                  <option value="Winter">Winter</option>
+                  <option value="Spring">Spring </option>
+                  <option value="Autumn">Autumn </option>
                 </select>
                 {errors.season?.message && (
                   <p className="text-danger">{errors.season?.message}</p>
@@ -278,7 +331,7 @@ function ModelCropForm() {
               </div>
             </div>
 
-            <div class="row mb-3">
+            {/* <div class="row mb-3">
               <div className="col-md-6">
                 <label className="form-label"> Sowing Expense</label>
                 <input
@@ -303,8 +356,8 @@ function ModelCropForm() {
                   <p className="text-danger">{errors.harvest_price?.message}</p>
                 )}
               </div>
-            </div>
-            <div class="row mb-3">
+            </div> */}
+            {/* <div class="row mb-3">
               <div className="col-md-6">
                 <label className="form-label"> Sowing Date</label>
                 <input
@@ -329,7 +382,7 @@ function ModelCropForm() {
                   <p className="text-danger">{errors.harvest?.message}</p>
                 )}
               </div>
-            </div>
+            </div> */}
             <div className="row mb-3">
               <div class="col-md-6">
                 <label for="labourcost" class="form-label">
@@ -375,7 +428,7 @@ function ModelCropForm() {
               </div>
               <div class="col-md-6">
                 <label for="price" class="form-label">
-                  Expected Price
+                  Total Revenue
                 </label>
                 <input
                   {...register("price")}

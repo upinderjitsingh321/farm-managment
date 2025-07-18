@@ -9,20 +9,25 @@ import "./style.css";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { USER } from "../../../../config/endpoints";
-
+import ToggleButton from "react-toggle-button";
 function ModelFarmForm() {
   const [show, setShow] = useState(false);
+  const [isOrganic, setOrganic] = useState(false);
   // const navigate = useNavigate()
   // navigate("/userfield")
-  const isValidID = /^#[A-Z]?\d{2,}$/i.test("#01"); 
+  const isValidID = /^#\d{2}$/;
 
   const schema = yup.object().shape({
-    farmid: yup.string().required("Farm is required").matches(isValidID, "Name must be #01 format"),
+    farmid: yup
+      .string()
+      .required("Farm is required")
+      .matches(isValidID, "Name must be #01 format"),
     name: yup.string().required("Farm is required"),
-    type: yup.string().required("Type is required"),
+  
     owner: yup.string().required("Owner name is required"),
     latitude: yup.string(),
-    longitude: yup.string()  });
+    longitude: yup.string(),
+  });
   const {
     register,
     handleSubmit,
@@ -32,28 +37,32 @@ function ModelFarmForm() {
   });
   let access_token = localStorage.getItem("access_token");
 
+  const handleChangeOrganic = () => {
+    setOrganic(!isOrganic);
+  };
+
   const handleSubmitForm = async (data) => {
     console.log(data, "checkdatahere");
 
     const payload = {
       farm_id: data.farmid,
       farm_name: data.name,
-      type: data.type,
       owner: data.owner,
       latitude: data.latitude,
       longitude: data.longitude,
+      is_organic:isOrganic
     };
     console.log(payload, "data");
 
     try {
-      const res = await axios.post(`${USER.FARMS_LIST}`,payload, {
+      const res = await axios.post(`${USER.FARMS_LIST}`, payload, {
         headers: {
           access_token: access_token,
         },
       });
       console.log(res, "check resoonseeee");
       // toast.success(`Enter Succesfully`);
-      setShow(false)
+      setShow(false);
     } catch (error) {
       console.log(error);
       // toast.error(`${erro r.response.data.message}`)
@@ -124,14 +133,22 @@ function ModelFarmForm() {
 
             <div className="row mb-3">
               <div class="col-md-6">
-                <label className="form-label fw-bold">Type</label>
-                <input
-                  {...register("type")}
-                  className="form-control"
-                  placeholder="Crop"
+                <label htmlFor="" className="form-label fw-bold">
+                  Type
+                </label>
+                <br></br>
+
+                <label htmlFor="" className="form-label fw-bold" id="typetrue">
+                  Organic
+                </label>
+
+                <ToggleButton
+                  value={isOrganic || false}
+                  onToggle={handleChangeOrganic}
                 />
-                {errors.type?.message && (
-                  <p className="text-danger">{errors.type?.message}</p>
+
+                {errors.is_organic?.message && (
+                  <p className="text-danger">{errors.is_organic?.message}</p>
                 )}
               </div>
               <div className="col-md-6">

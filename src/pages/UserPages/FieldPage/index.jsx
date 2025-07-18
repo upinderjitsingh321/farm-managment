@@ -3,6 +3,7 @@ import UserFarmTable from "../../../component/UserPages/UserFieldPage/FarmTable"
 import UserFieldTable from "../../../component/UserPages/UserFieldPage/FieldTable";
 import UserCropTable from "../../../component/UserPages/UserFieldPage/CropTable";
 import UserSoilTable from "../../../component/UserPages/UserFieldPage/SoilTable";
+import "./style.css"
 import axios from "axios";
 import { toast } from "react-toastify";
 import { USER } from "../../../config/endpoints";
@@ -42,10 +43,11 @@ function UserField() {
     }
   };
 
-  const fieldData = async () => {
+  const fieldData = async (selectedFarmId) => {
+    console.log(selectedFarmId,"selectedFarmIdselectedFarmId")
     try {
       const resultfield = await axios.get(
-        `${USER.USER_FIELD_LIST}?farm_id=${selectedFarmId}page_no=${pageNo}&rows=${rows}`,
+        `${USER.USER_FIELD_LIST}?farm_id=${selectedFarmId}&page_no=${pageNo}&rows=${rows}`,
         {
           headers: {
             access_token: access_token,
@@ -57,17 +59,18 @@ function UserField() {
       setFieldTotalCount(resultfield?.data?.data?.totalCounts || 0);
 
       console.log(resultfield, "resultfield");
-      toast.success(`Succesfully`);
+      // toast.success(`Succesfully`); 
+      
+      
     } catch (error) {
       console.log(error);
     }
   };
-
+  console.log(fieldlist,"fieldsss")
   const handleFarmClick = (farmId) => {
-
+    // alert(farmId);
     setSelectedFarmId(farmId);
   };
-
 
   useEffect(() => {
     handledata();
@@ -75,18 +78,21 @@ function UserField() {
 
   useEffect(() => {
     if (selectedFarmId) {
-      fieldData();
+      fieldData(selectedFarmId);
     }
   }, [selectedFarmId, pageNo, rows]);
+  console.log(selectedFarmId, "checkckxccds");
 
+  
   return (
-    <div className="my-5 vh-100">
+    <div className="app-container">
+    <div className="content">
       <div className="row mx-1">
         <div className="col-md-12">
           <UserFarmTable
             heading={"Farm List"}
             data={farmlist}
-            onRowClick={handleFarmClick} //  Pass the handler
+            onRowClick={handleFarmClick}
             currentPage={pageNo}
             rowsPerPage={rows}
             totalCount={totalCount}
@@ -95,11 +101,10 @@ function UserField() {
         </div>
 
         <div className="col-md-6">
-          
           <UserFieldTable
             heading={"Field List"}
             selectedFarmId={selectedFarmId}
-            data={fieldlist} // Show filtered data
+            data={fieldlist}
             currentPage={pageNo}
             rowsPerPage={rows}
             totalCount={fieldTotalCount}
@@ -117,12 +122,12 @@ function UserField() {
             Production={"50"}
           />
         </div>
-        {/* <div className="col-md-4">
-        <UserSoilTable heading={"Soil Detail[2025]"} field={"#01"} type={"clay"} issue={"low fertility"} organic={"low"} link={"Go to Soil List"} />
-        </div> */}
       </div>
     </div>
-  );
+
+   
+  </div>
+);
 }
 
 export default UserField;

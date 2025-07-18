@@ -1,20 +1,78 @@
-import React from 'react'
+import React, { useState } from 'react';
+import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { USER } from '../../config/endpoints';
 
-function ForgotPassword() {
+const ForgotPassword = () => {
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const isValidEmail = (email) => {
+    return /\S+@\S+\.\S+/.test(email);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Validate email format
+    if (!isValidEmail(email)) {
+      setMessage('Please enter a valid email address.');
+      return;
+    }
+
+    setLoading(true);
+    try {
+      console.log("Sending request with email:", email); // Log email for debugging
+
+      // Sending request to reset password
+      const response = await axios.post(
+        USER.FORGOTPASSWORD, // URL
+        { email } // Data (request body)
+      );
+
+      console.log('FORGOTPASSWORD', error.response?.data); // Log response for debugging
+
+      // On success, show toast
+      toast.success("Email has been sent with instructions to reset your password.");
+      
+      // Optionally, show a message to the user (you can remove this if you rely on the toast)
+      setMessage("Check your inbox for the reset password link.");
+    } catch (error) {
+      console.error("There was an error sending the request:", error);
+      toast.error(error.response?.data?.message || "An error occurred while sending the reset email.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <div>
-        <div className="container d-flex justify-content-center align-items-center p-4">
-        <div className="p-4 shadow-lg" style={{ width:"750px",height:"450px" }}>
-        <form style={{width:"400px",margin:"auto",marginTop:"30px",paddingTop:"50px"}}>
-        <h2 className="text-center mb-5">Forgot your password?</h2>
-      <p>Enter the email you registered with and we'll send a link to reset the password</p>
-      <input className="form-control"  type='text' placeholder='Email'/>
-      <button type="submit" className="btn btn-success w-100 mt-4">Send a Link</button>
-      </form>
-      </div>
+    <div className="d-flex justify-content-center align-items-center min-vh-100 bg-light">
+      <div className="bg-white p-4 rounded shadow w-100" style={{ maxWidth: '400px' }}>
+        <h2 className="text-center mb-4">Forgot Password</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label htmlFor="email" className="form-label">Enter your email address:</label>
+            <input
+              type="email"
+              id="email"
+              className="form-control"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" className="btn btn-primary w-100" disabled={loading}>
+            {loading ? 'Sending...' : 'Send Reset Link'}
+          </button>
+        </form>
+        {message && <p className="text-success text-center mt-3">{message}</p>}
+        <ToastContainer />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ForgotPassword
+export default ForgotPassword;

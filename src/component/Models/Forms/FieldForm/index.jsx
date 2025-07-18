@@ -7,7 +7,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
 import { USER } from "../../../../config/endpoints";
-import { toast } from "react-toastify";
 
 function ModelFieldForm() {
   const [show, setShow] = useState(false);
@@ -131,7 +130,7 @@ function ModelFieldForm() {
                   <option value="">Select Farm</option>
                   {farmList.map((farm) => (
                     <option key={farm.id} value={farm.id}>
-                      {farm.farm_name}
+                      {farm.farm_id}
                     </option>
                   ))}
                 </select>

@@ -76,7 +76,7 @@ const SoilTesting = () => {
         paragraph: "Soil moisture is the amount of water stored in the soil, playing a crucial role in plant growth, soil health, and overall agricultural productivity. It affects various biological and chemical processes, including nutrient availability, root development, and microbial activity. Adequate soil moisture ensures efficient photosynthesis, while insufficient or excessive moisture can lead to plant stress, reduced crop yields, and poor soil structure.Water retention refers to the soil’s ability to hold water and release it gradually to plants. This capacity depends on soil texture, organic matter content, and structure. Sandy soils drain quickly and have low water-holding capacity, while clay soils retain water for longer periods but may become compacted, limiting root growth. Loamy soils, a balanced mixture of sand, silt, and clay, offer optimal water retention and drainage for most crops.Proper soil moisture management is essential for sustainable farming. Farmers use various techniques to maintain balanced soil moisture, such as irrigation scheduling, mulching, and cover cropping. Advanced methods like soil moisture sensors help monitor water levels, ensuring efficient irrigation and preventing water wastage. Maintaining optimal soil moisture not only supports plant health but also improves soil aeration, reduces erosion, and contributes to long-term environmental sustainability."
       },
     ],
-    photo:"img/soiltest2.jpg",
+    photo:"img/soiltest5.jpg",
 
   },
   {
@@ -86,7 +86,7 @@ const SoilTesting = () => {
       paragraph: "Soil fertility refers to the soil’s ability to supply essential nutrients that support healthy plant growth. Fertile soil contains a balanced mix of macronutrients (nitrogen, phosphorus, potassium) and micronutrients (iron, zinc, calcium) necessary for crop development. However, continuous farming, erosion, and poor soil management can deplete these nutrients over time.Nutrient management involves practices that maintain or improve soil fertility while ensuring sustainable agricultural production. This includes using organic matter (compost, manure), applying fertilizers in the right amounts, practicing crop rotation, and conducting regular soil testing to monitor nutrient levels. Effective nutrient management enhances soil health, increases crop yields, and reduces environmental impacts such as soil degradation and water contamination."
     },
   ],
-  photo:"img/soiltest2.jpg",
+  photo:"img/soiltest6.jpg",
 
 },
 {
@@ -96,7 +96,7 @@ const SoilTesting = () => {
       paragraph: "Soil erosion is the process of soil being displaced by wind, water, or human activities, leading to loss of fertile topsoil and reduced agricultural productivity. Factors such as deforestation, overgrazing, improper farming practices, and extreme weather conditions accelerate erosion, making it a major environmental concern. Eroded soil loses essential nutrients, affecting plant growth and contributing to land degradation.Soil conservation methods help prevent erosion and maintain soil health. Common techniques include contour farming, terracing, cover cropping, mulching, and no-till farming, which help retain moisture, reduce runoff, and protect the soil structure. Sustainable land management practices, such as agroforestry and crop rotation, also improve soil stability and enhance long-term agricultural sustainability. Implementing these conservation strategies ensures healthier soil, better crop yields, and a more resilient environment."
     },
   ],
-  photo:"img/soiltest2.jpg",
+  photo:"img/soiltest7.jpg",
 
 },
 {
@@ -106,7 +106,7 @@ const SoilTesting = () => {
       paragraph: "Soil plays a vital role in regulating the Earth's climate and maintaining environmental balance. It acts as a major carbon sink, storing organic carbon and helping to reduce greenhouse gas emissions. Healthy soil supports plant growth, which in turn absorbs carbon dioxide from the atmosphere, contributing to climate regulation.Additionally, soil influences weather patterns by affecting moisture retention, evaporation, and temperature regulation. It plays a key role in water filtration, reducing pollution and maintaining clean water sources. Soil also supports biodiversity by providing a habitat for microorganisms, insects, and plants that contribute to ecosystem stability.However, soil degradation due to deforestation, pollution, and unsustainable farming practices can release stored carbon, worsen climate change, and reduce soil fertility. Protecting and managing soil through sustainable practices is essential for climate resilience, environmental health, and long-term agricultural productivity."
     },
   ],
-  photo:"img/soiltest2.jpg",
+  photo:"img/soiltest8.jpg",
 
 }
 ]

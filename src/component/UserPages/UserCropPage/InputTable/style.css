@@ -1,0 +1,21 @@
+.userdashboardtable {
+    width: 100%;
+    border: 1px soild black;
+}
+
+.dash-title {
+    background-color: rgb(108, 146, 108);
+}
+
+.arrowdiv {
+    background-color: rgb(225 237 225);
+}
+
+/* table {
+    width: 100%;
+    table-layout: fixed;
+}
+th, td {
+    width: 25%; 
+    text-align: center;
+} */

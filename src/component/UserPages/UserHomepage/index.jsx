@@ -6,54 +6,61 @@ import { USER } from "../../../config/endpoints";
 
 function UserHome() {
   const [profile, setProfile] = useState(false);
-const [userlist,setUserList] = useState([])
-  const initialData = [
-    {
-      farmaccount: "upinderjitsingh@gmail.com",
-      created: "29-02-2025",
-      year: "2025",
-      farm: "4",
-      area: "24",
-      fields: "5",
-      expenditure: "200000",
-      profit: "800000",
-    },
-    {
-      farmaccount: "upinderjitsingh@gmail.com",
-      created: "29-02-2025",
-      year: "2025",
-      farm: "4",
-      area: "24",
-      fields: "5",
-      expenditure: "200000",
-      profit: "800000",
-    },
-  ];
+  const [userdata, setUserdata] = useState([]);
+  const [totalArea, setTotalArea] = useState(0);
+    const [profit, setProfit] = useState([]);
+
   const dropdownoneRef = useRef(null);
 
   const access_token = localStorage.getItem("access_token");
 
-//   const fetchALLUser = async () => {
-//     try {
-//    const respponse = await axios.get(`${USER.ALL_USER_LIST}`, {
-//         headers: {
-//           access_token: access_token,
-//         },
-//       });
+  const fetchAllData = async () => {
+    try {
+      const respponse = await axios.get(`${USER.ALL_DATA_LIST}`, {
+        headers: {
+          access_token: access_token,
+        },
+      });
+
+      if (
+        respponse.status === 200 &&
+        Array.isArray(respponse.data?.data?.list)
+      ) {
+        setUserdata(respponse.data.data.list);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  console.log(userdata, "userdata");
 
 
-// console.log(respponse,"my response")
-//       if(respponse.status===200){
-//         // setUserList()
-//       }
-//     } catch (err) {
-//       console.log(err);
-//     }
-//   };
+    const GetProfit = async (page) => {
+      try {
+        const res = await axios.get(
+          `${USER.EXPENSE_LIST}?page_no=${page}&rows=${rowsPerPage}`,
+          {
+            headers: { access_token },
+          }
+        );
+  
+        if (res.status === 200 && res.data?.data) {
+          const { list } = res.data?.data;
+          setProfit(list || []);
+        }
+      } catch (err) {
+        console.error("Failed to fetch expenses:", err);
+      }
+    };
 
-//   useEffect(() => {
-//     fetchALLUser();
-//   }, []);
+    useEffect(() => {
+      GetProfit();
+    }, []);
+
+
+  useEffect(() => {
+    fetchAllData();
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -73,93 +80,139 @@ const [userlist,setUserList] = useState([])
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-  const [data, setData] = useState(initialData);
+
+  useEffect(() => {
+    // Calculate total area of all fields whenever userdata changes
+    const total = userdata.reduce((total, record) => {
+      // Sum up the area of all fields in each farm
+      return (
+        total +
+        record.users_farms?.reduce(
+          (sum, farm) =>
+            sum +
+            (farm.field_lists?.reduce(
+              (fieldSum, field) => fieldSum + Number(field.acre || 0),
+              0
+            ) || 0),
+          0
+        )
+      );
+    }, 0);
+    console.log(total, "totall");
+    setTotalArea(total); // Set the total area in state
+  }, [userdata]);
+
+
+  console.log(userdata,"userdata--->")
 
   return (
     <>
-      <nav>
+      {/* <nav>
         <div className="profile-dropdown" ref={dropdownoneRef}>
           <button onClick={() => setProfile(true)} className="profile-btn">
             Menu
           </button>
-          <div
-            className="dropdown-btn"
-            style={{ display: `${profile ? "block" : "none"}` }}
-          >
-            <button className="drop-set">
-              <a href="/account" className="p-0">
-                Profile
-              </a>
-            </button>
-            <button className="drop-set">
-              <a href="/openaccount" className="p-0">
-                Open Fram
-              </a>
-            </button>
-            <button className="drop-set" onClick={() => userlogout()}>
-              Logout
-            </button>
-          </div>
-        </div>
-      </nav>
-      <div className="user_card border-collapse border border-gray-300 ms-2 shadow">
-        <div className="d-flex justify-content-between pb-2">
-          <p className="fs-5">Upinderjitsingh32@gmail.com</p>
-          <img className="head_pic" src="img/farm1.png" />
-        </div>
-        <div className="bg-white rounded">
-          <div className="d-flex p-2">
-            <div className="d-flex">
-              <img className="pic_size" src="img/created.png" />
-              <p className="m-0 ps-3">Created</p>
-            </div>
-            <div></div>
-          </div>
-          <hr className="hor-line m-0"></hr>
-          <div className="d-flex justify-content-between p-2">
-            <div className="d-flex ">
-              <img className="pic_size" src="img/default_year.png" />
-              <p className="m-0 ps-3">Default Crop Season</p>
-            </div>
-            <div>
-              <select className="drop_color">
-                <option>2024</option>
-                <option>2025</option>
-                <option>2026</option>
-                <option>2027</option>
-                <option>2028</option>
-              </select>
-            </div>
-          </div>
+         
 
-          <hr className="hor-line m-0"></hr>
-          <div className="d-flex p-2">
-            <img className="pic_size" src="img/farm4.png" />
-            <p className="m-0 ps-3">Farm(s)</p>
+        
+          
           </div>
-          <hr className="hor-line m-0"></hr>
-          <div className="d-flex p-2">
-            <img className="pic_size" src="img/field.png" />
-            <p className="m-0 ps-3">Fields</p>
-          </div>
+        
+      </nav> */}
 
-          <hr className="hor-line m-0"></hr>
-          <div className="d-flex p-2">
-            <img className="pic_size" src="img/last_connect.png" />
-            <p className="m-0 ps-3">Last session</p>
-          </div>
-        </div>
-        <div className="d-flex  justify-content-between pt-3">
-          <button className="rounded-5 border-0 p-2 bt_color1 text-white">
-            Leave this farm
-          </button>
-          <button className="rounded-5 border-0 p-2 fw-semibold bt_color text-white">
-            Open this farm
-          </button>
-        </div>
-      </div>
+      {userdata.map((record, index) => {
+        return (
+          <div className="user_card border-collapse border border-gray-300 ms-2 mt-4 shadow">
+            <div className="d-flex justify-content-between pb-2">
+              <p className="fs-5">{record.email}</p>
+              <img className="head_pic" src="img/farm1.png" />
+            </div>
+            <div className="bg-white rounded">
+              <div className="d-flex justify-content-between p-2">
+                <div className="d-flex">
+                  <img className="pic_size" src="img/created.png" />
+                  <p className="m-0 ps-3">Created</p>
+                </div>
+                <div>
+                  <p>
+                    {" "}
+                    {new Date(record.created_at).toISOString().split("T")[0]}
+                  </p>
+                </div>
+              </div>
+              <hr className="hor-line m-0"></hr>
+              <div className="d-flex justify-content-between p-2">
+                <div className="d-flex ">
+                  <img className="pic_size" src="img/default_year.png" />
+                  <p className="m-0 ps-3">Default Crop Season</p>
+                </div>
+                <div>
+                  <p>{new Date(record.created_at).getFullYear()}</p>
+                </div>
+              </div>
 
-      <div className="p-4 vh-100">
+              <hr className="hor-line m-0"></hr>
+              <div className="d-flex justify-content-between p-2">
+                <div className="d-flex p-2">
+                  <img className="pic_size" src="img/farm4.png" />
+                  <p className="m-0 ps-3">Farm(s)</p>
+                </div>
+                <div>
+                  <p> {record.users_farms?.length || 0}</p>
+                </div>
+              </div>
+              <hr className="hor-line m-0"></hr>
+
+              <div className="d-flex justify-content-between p-2">
+                <div className="d-flex p-2">
+                  <img className="pic_size" src="img/field.png" />
+                  <p className="m-0 ps-3">Fields</p>
+                </div>
+                <div>
+                  <p>
+                    {" "}
+                    {record.users_farms?.reduce(
+                      (total, farm) => total + (farm.field_lists?.length || 0),
+                      0
+                    )}
+                  </p>
+                </div>
+              </div>
+              <hr className="hor-line m-0"></hr>
+              <div className="d-flex justify-content-between p-2">
+                <div className="d-flex p-2">
+                  <img className="pic_size" src="img/object.png" />
+                  <p className="m-0 ps-3">Area</p>
+                </div>
+                <div>
+                  <p> {totalArea}</p>
+                </div>
+              </div>
+              <hr className="hor-line m-0"></hr>
+              {/* <div className="d-flex p-2">
+                <img className="pic_size" src="img/budget.png" />
+                <p className="m-0 ps-3">Expenditure</p>
+              </div>
+              <hr className="hor-line m-0"></hr>
+              <div className="d-flex p-2">
+                <img className="pic_size" src="img/profits.png" />
+                <p className="m-0 ps-3">Profit</p>
+              </div> */}
+            </div>
+            <div className="d-flex  justify-content-between pt-3">
+              {/* <button className="rounded-5 border-0 p-2 bt_color1 text-white">
+                Leave this farm
+              </button> */}
+              <button className="rounded-5 border-0 p-2 fw-semibold bt_color text-white" style={{marginLeft:"75px"}}>
+              <Link to={"/openaccount"} className=" openfarm">
+                      Open This Account
+                    </Link> 
+              </button>
+            </div>
+          </div>
+        );
+      })}
+      {/* <div className="p-4 vh-100">
         <table className="w-100 border-collapse border border-gray-300">
           <thead className="head-border">
             <tr>
@@ -174,31 +227,61 @@ const [userlist,setUserList] = useState([])
             </tr>
           </thead>
           <tbody>
-            {data.map((record) => (
-              <tr key={record.id} className="border border-gray-300">
-                <td className="border border-gray-300 p-2">
-                  {record.farmaccount}
-                </td>
-                <td className="border border-gray-300 p-2">{record.created}</td>
-                <td className="border border-gray-300 p-2">{record.year}</td>
-                <td className="border border-gray-300 p-2">{record.farm}</td>
-                <td className="border border-gray-300 p-2">{record.area}</td>
-                <td className="border border-gray-300 p-2">{record.fields}</td>
-                <td className="border border-gray-300 p-2">
-                  {record.expenditure}
-                </td>
-                <td className="border border-gray-300 p-2">{record.profit}</td>
+            {userdata.map((record, index) => {
+              const activiteTotal = record?.activities?.reduce(
+                (total, value) => {
+                  console.log(total, "tataolll");
+                  return total + Number(value?.rate) || 0;
+                },
+                0
+              );
+              console.log(activiteTotal, "scott");
 
-                <td className="border border-gray-300 p-2 text-center">
-                  <Link to={"/openaccount"} className=" openfarm">
-                    Open This Farm
-                  </Link>
-                </td>
-              </tr>
-            ))}
+              const inputTotal = record?.inputs?.reduce((total, value) => {
+                return total + Number(value?.rate) || 0;
+              }, 0);
+              console.log(inputTotal, "costtt");
+              const totalCost =
+                Number(record.labour || 0) + inputTotal + activiteTotal;
+
+              return (
+                <tr key={index} className="border border-gray-300">
+                  <td className="border border-gray-300 p-2">{record.email}</td>
+                  <td className="border border-gray-300 p-2">
+                    {new Date(record.created_at).toISOString().split("T")[0]}
+                  </td>
+
+                  <td className="border border-gray-300 p-2">
+                    {new Date(record.created_at).getFullYear()}
+                  </td>
+                  <td className="border border-gray-300 p-2">
+                    {record.users_farms?.length || 0}
+                  </td>
+                  <td className="border border-gray-300 p-2"> {totalArea}</td>
+                  <td className="border border-gray-300 p-2">
+                    {" "}
+                    {record.users_farms?.reduce(
+                      (total, farm) => total + (farm.field_lists?.length || 0),
+                      0
+                    )}
+                  </td>
+                  <td className="border border-gray-300 p-2">{totalCost}</td>
+                  <td className="border border-gray-300 p-2">
+                    {record.profit}
+                  </td>
+
+                  <td className="border border-gray-300 p-2 text-center">
+                    <Link to={"/openaccount"} className=" openfarm">
+                      Open This Farm
+                    </Link>
+                  </td>
+                </tr>
+              );
+            })}
+            ;
           </tbody>
         </table>
-      </div>
+      </div> */}
     </>
   );
 }

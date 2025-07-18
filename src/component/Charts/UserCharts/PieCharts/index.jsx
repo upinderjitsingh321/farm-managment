@@ -58,9 +58,9 @@ const CustomPieChart = ({
   const getlink = (tittle) => {
     switch (tittle) {
       case "crop":
-        return "Crop 2025-2026";
+        return "Crop History";
       case "chemical":
-        return "Go to Chemical List";
+        return "Go to Inputs List";
       case "profit":
         return "See Profit";
       

@@ -1,7 +1,6 @@
 import React from 'react'
-import { Link, Links } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import "./style.css"
-import { Button} from '@mui/material'
 function LoginRegister() {
     return (
         <>

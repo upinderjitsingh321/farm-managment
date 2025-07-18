@@ -12,14 +12,14 @@ function Uppernavbar() {
       <nav class="navbar navbar-expand-lg navbar-color shadow ">
         <div class="container-fluid">
           
-          <div class="collapse navbar-collapse" id="adminNavbar">
-            <form class="d-flex ms-auto me-3">
+          <div class="collapse navbar-collapse" id="adminNavbar"  style={{justifyContent:" end"}}>   
+            {/* <form class="d-flex ms-auto me-3">
               <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search" />
               <button class="btn btn-light" type="submit">🔍</button>
-            </form>
-            <button class="btn btn-outline-light me-3 position-relative">
+            </form> */}
+            {/* <button class="btn btn-outline-light me-3 position-relative">
               🔔<span class="position-absolute top-0 start-100 translate-middle badge bg-danger"></span>
-            </button>
+            </button> */}
             <Dropdown as={ButtonGroup}>
 
 
@@ -29,9 +29,9 @@ function Uppernavbar() {
               </Dropdown.Toggle>
 
               <Dropdown.Menu className="dropdown-menu">
-                <Dropdown.Item className="dropdown-item" ><CgProfile className='me-2'/><Link className='color-list text-dark' to={"/admin/profile"}>Profile</Link></Dropdown.Item>
-                <Dropdown.Item className="dropdown-item" ><IoSettings className='me-2'/><Link className='color-list text-dark' to={"/"}>Setting</Link></Dropdown.Item>
-                <hr class="dropdown-divider" />
+                {/* <Dropdown.Item className="dropdown-item" ><CgProfile className='me-2'/><Link className='color-list text-dark' to={"/admin/profile"}>Profile</Link></Dropdown.Item> */}
+                {/* <Dropdown.Item className="dropdown-item" ><IoSettings className='me-2'/><Link className='color-list text-dark' to={"/"}>Setting</Link></Dropdown.Item> */}
+                {/* <hr class="dropdown-divider" /> */}
                 <Dropdown.Item className="dropdown-item hh" ><MdLogout className='me-2 text-danger'/><Link className='color-list text-danger' to={"/"}>Logout</Link></Dropdown.Item>
 
               </Dropdown.Menu>

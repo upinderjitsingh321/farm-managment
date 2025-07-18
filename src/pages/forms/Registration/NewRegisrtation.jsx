@@ -20,6 +20,7 @@ const   FarmerRegistration = () => {
     number: yup.string().min(10, "Number must be at least 10 Digit").required("Number is required").matches(number, "Phone number must contain only digits"),
     address: yup.string().required("Address is required"),
     district: yup.string().required("District is required"),
+    state: yup.string().required("District is required"),
     block: yup.string().required("Block is required"),
     relative_name:yup.string(),
     file: yup.mixed()
@@ -151,14 +152,18 @@ const   FarmerRegistration = () => {
             <div className="row mb-3">
               <div className="col-md-6">
                 <label className="form-label">State</label>
-                <input className="form-control" type="text" value="Punjab" readOnly />
+                <input  {...register("state")}  className="form-control" type="text" value="Punjab" readOnly />
+                {
+                  errors.state?.message &&
+                  <p className="text-danger">{errors.state?.message}</p>
+                }
               </div>
               <div className="col-md-6">
                 <label className="form-label">District</label>
                 <input {...register("district")} className="form-control" type="text" placeholder="District" />
                 {
                   errors.district?.message &&
-                  <p className="text-danger">{errors.block?.message}</p>
+                  <p className="text-danger">{errors.district?.message}</p>
                 }
               </div>
 

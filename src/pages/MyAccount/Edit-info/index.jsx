@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./editinfo.css";
 import axios from "axios";
@@ -16,7 +16,51 @@ const EditPersonalInfo = () => {
   const [pincode, setPincode] = useState("");
   const [idProof, setidProof] = useState("");
   const [proofType, setproofType] = useState("");
+  const [data, setData] = useState("");
   const navigate = useNavigate()
+
+
+  const getUserDetails = async () => {
+    try {
+      const access_token = localStorage.getItem("access_token");
+      const res = await axios.get(USER.USER_DETAILS, {
+        headers: { access_token },
+      });
+
+      if (res.status === 200) {
+        const user = res?.data?.data;
+        const userDetails = user?.users_detail || user?.users_detail || {};
+        const userAddress = user?.useraddress || user?.useraddress || {};
+        const idproof = user?.id_proofs || user?.id_proofs || {};
+        
+        console.log("User details:", user);
+        console.log("Userdetails:", userDetails);
+
+        setData({
+          name: userDetails?.name || "",
+          email: user?.email || "",
+          number: userDetails?.number || "",
+          dob: userDetails?.dob || "",
+          state: userAddress?.state || "",
+          district: userAddress?.district || "",
+          city: userAddress?.city || "",
+          block: userAddress?.block || "",
+          pin: userAddress?.pin || "",
+          address: userAddress?.address || "",
+          id_proof_type: idproof?.id_proof_type || "",
+        });
+      } else if (res.status === 401) {
+        localStorage.removeItem("access_token");
+      }
+    } catch (error) {
+      console.error(error);
+      localStorage.removeItem("access_token");
+    }
+  };
+
+  useEffect(() => {
+    getUserDetails();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,22 +74,25 @@ const EditPersonalInfo = () => {
     formData.append("city", city);
     formData.append("pin", pincode);
     formData.append("id_proof_type", proofType);
+  
     // Append the actual file object, not the file path string
     if (idProof) {
       formData.append("id_proof", idProof);
     }
+  
     try {
       const res = await axios.post(`${USER.EDIT_DETAILS}`, formData);
       console.log(res, "check responseeee");
       toast.success("Updated Successful");
-
-      // You can handle successful navigation after the signup is successful
+  
+      // Handle navigation after successful update
       navigate("/account");
     } catch (error) {
-      console.error(error);
-      toast.error(error.response?.data?.message || "An error occurred");
+      console.error("Error occurred during form submission:", error);
+      toast.error("An error occurred");
     }
   };
+  
 
   return (
     <div className="conatiner" style={{ backgroundColor: "#ede9e9" }}>
@@ -65,8 +112,8 @@ const EditPersonalInfo = () => {
               </label>
             </div>
             <div className="edit-position">
-              <p style={{ paddingTop: "20px" }}>Upinderjit Singh</p>
-              <p>India,Punajb,Gurdaspur</p>
+              <p style={{ paddingTop: "20px", fontSize:"30px", textTransform: "uppercase" }}>{data.name}</p>
+              {/* <p>{data.district}</p> */}
             </div>
           </div>
           <ul className=" container-right-one edit-con2-height">
@@ -77,26 +124,26 @@ const EditPersonalInfo = () => {
               </div>
               <div style={{ display: "flex" }}>
                 <p>Full Name:</p>
-                <p style={{ paddingLeft: "5px" }}>Upinderjit Singh</p>
+                <p style={{ paddingLeft: "5px" }}> {data.name}</p>
               </div>
             </div>
-            <div style={{ display: "flex" }}>
+            {/* <div style={{ display: "flex" }}>
               <div>
                 {" "}
                 <img className="edit-logo" src="img/status.png" />
               </div>
               <div style={{ display: "flex" }}>
                 <p>Status:</p>
-                <p style={{ paddingLeft: "5px" }}>Active</p>
+                <p style={{ paddingLeft: "5px" }}>{data.number }</p>
               </div>
-            </div>
+            </div> */}
             <div style={{ display: "flex" }}>
               <div>
                 <img className="edit-logo" src="img/flag.png" />
               </div>
               <div style={{ display: "flex" }}>
                 <p>State:</p>
-                <p style={{ paddingLeft: "5px" }}>Punjab</p>
+                <p style={{ paddingLeft: "5px" }}>{data.state}</p>
               </div>
             </div>
             <div style={{ display: "flex" }}>
@@ -105,18 +152,18 @@ const EditPersonalInfo = () => {
               </div>
               <div style={{ display: "flex" }}>
                 <p>Phone Number:</p>
-                <p style={{ paddingLeft: "5px" }}>9781617288</p>
+                <p style={{ paddingLeft: "5px" }}>{data.number}</p>
               </div>
             </div>
-            <div style={{ display: "flex" }}>
+            {/* <div style={{ display: "flex" }}>
               <div>
                 <img className="edit-logo" src="img/idproof.png" />
               </div>
               <div style={{ display: "flex" }}>
                 <p>Id Proof:</p>
-                <p style={{ paddingLeft: "5px" }}>Aadhar Card</p>
+                <p style={{ paddingLeft: "5px" }}> {data.name}</p>
               </div>
-            </div>
+            </div> */}
           </ul>
         </div>
         <div
@@ -155,7 +202,7 @@ const EditPersonalInfo = () => {
                 <label className="form-label">Mobile no.</label>
                 <input
                   className="form-control"
-                  type="number"
+                  type="text"
                   placeholder="0000000000"
                   onChange={(e) => setMobileNumber(e.target.value)}
                 />
@@ -233,7 +280,8 @@ const EditPersonalInfo = () => {
                 <input
                   className="form-control"
                   type="file"
-                  onChange={(e) => setidProof(e.target.value)}
+                  onChange={(e) => setidProof(e.target.files[0])} // Change to use the file object
+
                 />
               </div>
             </div>

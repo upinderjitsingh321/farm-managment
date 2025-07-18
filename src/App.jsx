@@ -1,4 +1,4 @@
-import react, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -9,24 +9,21 @@ import Navbar from './component/Navbars/FrontNavbar';
 import { ToastContainer, toast } from 'react-toastify';
 
 function App() {
+  const [isAdmin, setIsAdmin] = useState(false);
+  const location = useLocation();
 
-  const [isAdmin, setIsAdmin] = useState(false)
-  const location = useLocation()
-  console.log(location)
   useEffect(() => {
-    if (location) {
-      if (location?.pathname?.includes("admin")) {
-        setIsAdmin(true)
-      } else {
-        setIsAdmin(false)
-      }
+    if (location?.pathname?.includes("admin")) {
+      setIsAdmin(true);
+    } else {
+      setIsAdmin(false);
     }
-  }, [location])
- 
+  }, [location]);
+
   return (
-    <div>
-      {
-        isAdmin ? (
+    <div className="page-container">
+      <div className="content-wrap">
+        {isAdmin ? (
           <AdminLayout>
             <AllRoutes />
           </AdminLayout>
@@ -34,19 +31,14 @@ function App() {
           <>
             {!isAdmin && <Navbar />}
             <AllRoutes />
-            {!isAdmin && <Footer />}
           </>
-        )
-      }
-      {/* <Apps/> */}
+        )}
+      </div>
+      {/* Footer is placed outside the content wrap to always appear at the bottom */}
+      {!isAdmin && <Footer />}
       <ToastContainer />
-
-
     </div>
-
-
-
-  )
+  );
 }
 
-export default App
+export default App;
